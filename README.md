@@ -8,3 +8,6 @@
 | [`hanjang-be`](./hanjang-be) | [hanjang-be](https://github.com/hanjang-dot/hanjang-be) |
 
 각 디렉터리는 Git submodule입니다.
+
+- [서비스 기획서](./docs/서비스-기획서.md)
+- [스택 기획서](./docs/스택-기획서.md)
