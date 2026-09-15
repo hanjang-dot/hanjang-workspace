@@ -1,0 +1,10 @@
+[submodule "fe"]
+	path = fe
+	url = https://github.com/hanjang-dot/hanjang-fe.git
+	ignore = untracked
+	branch = develop
+[submodule "be"]
+	path = be
+	url = https://github.com/hanjang-dot/hanjang-be.git
+	ignore = untracked
+	branch = develop
