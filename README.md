@@ -9,5 +9,6 @@
 
 각 디렉터리는 Git submodule입니다.
 
-- [서비스 기획서](./docs/서비스-기획서.md)
-- [스택 기획서](./docs/스택-기획서.md)
+- [서비스 기획서](./docs/service-plan.md)
+- [스택 기획서](./docs/stack-plan.md)
+- [문제해결 경험 기획서](./docs/experience-plan.md)
