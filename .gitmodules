@@ -1,10 +1,10 @@
-[submodule "fe"]
-	path = fe
+[submodule "hanjang-fe"]
+	path = hanjang-fe
 	url = https://github.com/hanjang-dot/hanjang-fe.git
 	ignore = untracked
 	branch = develop
-[submodule "be"]
-	path = be
+[submodule "hanjang-be"]
+	path = hanjang-be
 	url = https://github.com/hanjang-dot/hanjang-be.git
 	ignore = untracked
 	branch = develop

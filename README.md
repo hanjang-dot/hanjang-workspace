@@ -4,7 +4,7 @@
 
 | 경로 | 저장소 |
 | --- | --- |
-| [`fe`](./fe) | [hanjang-fe](https://github.com/hanjang-dot/hanjang-fe) |
-| [`be`](./be) | [hanjang-be](https://github.com/hanjang-dot/hanjang-be) |
+| [`hanjang-fe`](./hanjang-fe) | [hanjang-fe](https://github.com/hanjang-dot/hanjang-fe) |
+| [`hanjang-be`](./hanjang-be) | [hanjang-be](https://github.com/hanjang-dot/hanjang-be) |
 
 각 디렉터리는 Git submodule입니다.
