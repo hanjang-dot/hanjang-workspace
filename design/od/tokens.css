@@ -1,0 +1,98 @@
+/* tokens.css — 한장 디자인 토큰
+   출처: design/design-rules.md §A (status: confirmed 2026-09-16)
+   거기 없는 색·크기·간격·글꼴은 없다. */
+
+:root {
+  /* ── 색 color.* ─────────────────────────────────────────── */
+  --color-bg: #F6F4FB;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #EFEBFD;
+  --color-text: #17142B;
+  --color-text-muted: #8B87A3;
+  --color-border: #ECE9F6;
+  --color-accent: #6C5CE7;
+  --color-accent-pressed: #5F51CB;           /* accent 12% 어둡게 (자동) */
+  --color-accent-soft: rgba(108,92,231,.1);  /* accent 10% 불투명 (자동) */
+  --color-danger: #F0506E;
+  --color-overlay: rgba(0,0,0,.5);
+  --color-correct: #22C58B;                  /* §C quiz.feedback 정답 초록 */
+
+  /* ── 간격 space.* (scale 4배수) ─────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-screen-padding: 16px;
+  --space-section: 24px;
+  --space-card-padding: 16px;
+
+  /* ── radius ─────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+
+  /* ── 크기 size.* ────────────────────────────────────────── */
+  --size-button-sm: 36px;
+  --size-button-md: 44px;
+  --size-button-lg: 52px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --size-icon-lg: 24px;
+  --size-tap-min: 44px;
+  --size-tap-gap: 8px;                       /* 인접 탭 영역 최소 간격 */
+  --size-safe-area-top: 44px;
+  --size-safe-area-top-notch: 47px;
+  --size-safe-area-bottom: 34px;
+  --size-app-bar: 56px;
+  --size-tab-bar: 49px;
+  --size-bottom-cta: 56px;                   /* §B fixed.bottom-cta */
+  --size-snackbar: 48px;                     /* §B snackbar 높이 */
+  --size-empty-icon: 48px;                   /* §B state.empty 아이콘 */
+  --size-ox-button: 120px;                   /* §C quiz.ox-style 최소 높이 */
+
+  /* ── z-index z.scale ────────────────────────────────────── */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-app-bar: 200;
+  --z-tab-bar: 200;
+  --z-overlay: 300;
+  --z-sheet: 400;
+  --z-dialog: 500;
+  --z-snackbar: 600;
+
+  /* ── shadow ─────────────────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(80,70,160,.08);
+  --shadow-md: 0 8px 24px rgba(80,70,160,.12);
+
+  /* ── font ───────────────────────────────────────────────── */
+  --font-family: "IBM Plex Sans KR", -apple-system, Roboto, sans-serif;
+  --font-serif: "Noto Serif KR", serif;      /* 문항·제목(display·h1) */
+
+  /* ── motion ─────────────────────────────────────────────── */
+  --motion-base: 200ms ease-out;
+  --motion-sheet: 250ms ease-out;
+  --motion-crossfade: 150ms ease-out;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* ── 타이포 역할 type.roles 8개 ───────────────────────────────
+   display·h1 = Noto Serif KR(문항·제목 serif), 나머지 = --font-family
+   line-height: 제목 1.3 / 본문 1.5                              */
+.t-display { font-family: var(--font-serif); font-size: 28px; font-weight: 700; line-height: 1.3; }
+.t-h1      { font-family: var(--font-serif); font-size: 24px; font-weight: 700; line-height: 1.3; }
+.t-h2      { font-size: 20px; font-weight: 600; line-height: 1.3; }
+.t-h3      { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.t-body    { font-size: 15px; font-weight: 400; line-height: 1.5; }
+.t-body-sm { font-size: 14px; font-weight: 400; line-height: 1.5; }
+.t-caption { font-size: 12px; font-weight: 400; line-height: 1.5; }
+.t-label   { font-size: 13px; font-weight: 500; line-height: 1.5; }

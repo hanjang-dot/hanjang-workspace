@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한장 — 디자인 규칙 미리보기</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--frame-w:390px;--bg:#F6F4FB;--s1:#FFFFFF;--s2:#EFEBFD;--tx:#17142B;--mu:#8B87A3;--bd:#ECE9F6;--ac:#6C5CE7;--ac2:#8F7BFF;--dg:#F0506E;--ok:#22C58B;--gr:linear-gradient(135deg,#6C5CE7,#8F7BFF);--sh-s:0 2px 8px rgba(80,70,160,.08);--sh-m:0 8px 24px rgba(80,70,160,.12)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.5 "IBM Plex Sans KR",-apple-system,sans-serif;padding:32px 12px 64px}
+.serif{font-family:"Noto Serif KR",serif}
+h1.ttl{font:700 28px/1.3 "Noto Serif KR",serif;text-align:center}
+.sub{text-align:center;color:var(--mu);font-size:14px;margin:6px 0 20px}
+#all{display:flex;margin:0 auto 36px;max-width:var(--frame-w);width:100%}
+.sec{max-width:var(--frame-w);margin:0 auto 24px}
+.shd{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.num{font-size:20px;line-height:1}
+.st{font-weight:600;font-size:15px;flex:1}
+.fixbtn{font-size:12px;font-weight:500;padding:5px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);color:var(--mu);cursor:pointer}
+.fixbtn.on{background:var(--dg);border-color:var(--dg);color:#fff}
+.sec.fix .frame{outline:2px dashed var(--dg);outline-offset:3px}
+.frame{width:var(--frame-w);margin:0 auto;background:var(--s1);border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh-m);padding:16px;overflow:hidden}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.col{display:flex;flex-direction:column;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;font:600 15px "IBM Plex Sans KR",sans-serif;cursor:pointer;white-space:nowrap}
+.bsm{height:36px;padding:0 12px;font-size:14px}
+.bmd{height:44px;padding:0 16px}
+.blg{height:52px;padding:0 20px;font-size:16px;border-radius:22px;width:100%}
+.pri{background:var(--gr);color:#fff;box-shadow:var(--sh-s)}
+.sec2{background:var(--s1);border:1px solid var(--bd);color:var(--tx)}
+.gho{background:transparent;color:var(--ac)}
+.danb{background:var(--dg);color:#fff}
+.press{filter:brightness(.88);transform:scale(.98)}
+.btnsel{background:#6C5CE71A;border:1px solid var(--ac);color:var(--ac)}
+.btn:disabled{opacity:.4;cursor:default}
+.sp{width:20px;height:20px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:ro .8s linear infinite}
+@keyframes ro{to{transform:rotate(360deg)}}
+i[data-i]{display:inline-flex;line-height:0}
+i[data-i] svg{width:24px;height:24px}
+i.s16 svg{width:16px;height:16px}i.s20 svg{width:20px;height:20px}i.s48 svg{width:48px;height:48px}
+.icn{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:var(--mu)}
+.icn i{color:var(--tx)}
+.igrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:16px;box-shadow:var(--sh-s)}
+.cacc{border-color:var(--ac)}
+.cap{font-size:12px;color:var(--mu)}
+.h3{font-size:17px;font-weight:600}
+.lab{font-size:13px;font-weight:500;color:var(--ac)}
+.pbtn{width:44px;height:44px;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.pbar{height:6px;border-radius:999px;background:var(--s2);overflow:hidden;margin-top:8px}
+.pbar b{display:block;height:100%;width:64%;background:var(--gr);border-radius:999px}
+.appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;border-bottom:1px solid var(--bd);background:var(--s1)}
+.appbar .t{font-size:17px;font-weight:600}
+.appbar .a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--tx)}
+.scr{min-height:150px;background:var(--bg);padding:16px;display:flex;flex-direction:column;gap:12px}
+.tabbar{display:flex;border-top:1px solid var(--bd);background:var(--s1)}
+.tab{flex:1;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 0 10px;color:var(--mu);font-size:11px}
+.tab.on{color:var(--ac);font-weight:600}
+.dz{background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.sheet{background:var(--s1);border-radius:22px 22px 0 0;padding:8px 16px 20px}
+.grab{width:36px;height:4px;border-radius:999px;background:var(--bd);margin:4px auto 14px}
+.chip{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);font:400 14px "IBM Plex Sans KR",sans-serif;color:var(--tx);cursor:pointer}
+.chip.on{background:var(--s2);border-color:var(--ac);color:var(--ac);font-weight:600}
+.dlg{background:var(--s1);border-radius:16px;padding:20px;width:100%;max-width:300px;text-align:center;box-shadow:var(--sh-m)}
+.trow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--bd)}
+.trow:last-child{border:0}
+.trole{font-size:11px;color:var(--mu);white-space:nowrap}
+.d28{font:700 28px/1.3 "Noto Serif KR",serif}
+.d24{font:700 24px/1.3 "Noto Serif KR",serif}
+.t20{font-size:20px;font-weight:600}.t17{font-size:17px;font-weight:600}
+.t15{font-size:15px}.t14{font-size:14px}.t13{font-size:13px;font-weight:500}.t12{font-size:12px}
+.q{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--bd);border-radius:16px;background:var(--s1);font:400 15px "IBM Plex Sans KR",sans-serif;color:var(--tx);text-align:left;cursor:pointer}
+.q .nm{font-weight:600;color:var(--mu);flex:none}
+.q.sel{border-color:var(--ac);background:var(--s2)}
+.q.sel .nm{color:var(--ac)}
+.q.ok{border-color:var(--ok);background:#22C58B14}
+.q.ok .nm{color:#0e8a63}
+.q.no{border-color:var(--dg);background:#F0506E12}
+.q.no .nm{color:#c23252}
+.q.dis{opacity:.45;cursor:default}
+.q.mk{margin-left:auto;flex:none}
+.oxb{flex:1;height:120px;border-radius:22px;font-size:44px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;border:2px solid var(--bd);background:var(--s1)}
+.oxb small{font-size:12px;font-weight:600;color:var(--mu)}
+.oxb.o{color:var(--ok);border-color:var(--ok);background:#EEFBF5}
+.oxb.x{color:var(--dg)}
+.empty{text-align:center;padding:40px 16px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sk{border-radius:16px;padding:16px;border:1px solid var(--bd);background:var(--s1)}
+.skl{height:14px;border-radius:6px;background:linear-gradient(90deg,var(--s2) 25%,#fff 50%,var(--s2) 75%);background-size:200% 100%;animation:shm 1.4s infinite}
+@keyframes shm{to{background-position:-200% 0}}
+.offb{margin:-16px -16px 12px;padding:8px 16px;background:var(--s2);color:var(--ac);font-size:13px;font-weight:500;text-align:center}
+.snack{min-height:48px;background:var(--tx);color:#fff;border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;font-size:14px}
+.timer{font:700 24px/1 "Noto Serif KR",serif;font-variant-numeric:tabular-nums}
+.pass{border:1px solid var(--bd);border-radius:16px;background:var(--s2);padding:12px;aspect-ratio:4/3}
+.pass svg{width:100%;height:100%}
+.sw{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu)}
+.sw b{width:28px;height:28px;border-radius:8px;border:1px solid var(--bd);flex:none}
+.swgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rs{width:52px;height:40px;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mu)}
+.rss{width:52px;height:40px;background:var(--s1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mu)}
+</style>
+</head>
+<body>
+<h1 class="ttl">한장 디자인 규칙 미리보기</h1>
+<p class="sub">확정된 디자인 시스템을 한 화면에서 확인하고 승인하세요</p>
+<button id="all" class="btn pri blg">전체 추천대로 할게요</button>
+
+<section class="sec">
+<div class="shd"><span class="num">①</span><span class="st">버튼</span><button class="fixbtn" data-n="1">조정 필요</button></div>
+<div class="frame col">
+<button class="btn pri blg">시작하기</button>
+<button class="btn pri bmd">이어서 풀기</button>
+<div class="row"><button class="btn pri bsm">확인</button><button class="btn pri bsm press">누르는 중</button><button class="btn pri bsm" disabled>비활성</button></div>
+<div class="row"><button class="btn sec2 bmd">보관함 열기</button><button class="btn btnsel bmd">선택됨</button><button class="btn gho bmd">나중에</button></div>
+<div class="row"><button class="btn danb bmd">삭제하기</button><button class="btn pri bmd" disabled><span class="sp"></span></button></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">②</span><span class="st">아이콘</span><button class="fixbtn" data-n="2">조정 필요</button></div>
+<div class="frame"><div class="igrid">
+<span class="icn"><i data-i="home"></i>home</span><span class="icn"><i data-i="library"></i>library</span><span class="icn"><i data-i="bookmark"></i>bookmark</span><span class="icn"><i data-i="history"></i>history</span><span class="icn"><i data-i="user"></i>user</span>
+<span class="icn"><i data-i="play"></i>play</span><span class="icn"><i data-i="highlighter"></i>highlighter</span><span class="icn"><i data-i="timer"></i>timer</span><span class="icn"><i data-i="check"></i>check</span><span class="icn"><i data-i="x"></i>x</span>
+<span class="icn"><i data-i="barchart"></i>bar-chart-3</span><span class="icn"><i data-i="logout"></i>log-out</span><span class="icn"><i data-i="star"></i>star</span><span class="icn"><i data-i="chevleft"></i>chevron-left</span>
+</div></div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">③</span><span class="st">카드</span><button class="fixbtn" data-n="3">조정 필요</button></div>
+<div class="frame col">
+<div class="card cacc row" style="flex-wrap:nowrap;gap:12px">
+<span class="pbtn"><i data-i="play" class="s20"></i></span>
+<div style="flex:1"><div class="lab">이어하기</div><div class="h3">2025학년도 수능 국어</div><div class="cap">3회차 · 12/18문항</div><div class="pbar"><b></b></div></div>
+</div>
+<div class="card"><div class="h3">오늘의 퀴즈</div><p class="cap" style="margin:4px 0 12px">어제 푼 지문에서 3문제를 골랐어요</p><button class="btn pri bmd" style="width:100%">지금 풀기</button></div>
+<div class="card row" style="flex-wrap:nowrap;justify-content:space-between"><div><div class="h3">12회차 · 독서</div><div class="cap">정답률 80% · 6월 12일</div></div><i data-i="star" class="s20" style="color:var(--ac)"></i></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">④</span><span class="st">탭바 + 앱바</span><button class="fixbtn" data-n="4">조정 필요</button></div>
+<div class="frame" style="padding:0">
+<div class="appbar"><span class="a"><i data-i="chevleft"></i></span><span class="t">오늘의 퀴즈</span><span class="a"><i data-i="bookmark" class="s20"></i></span></div>
+<div class="scr"><div class="card"><div class="h3">2/5 문항</div><p class="cap" style="margin-top:4px">화자의 태도로 가장 적절한 것은?</p></div></div>
+<div class="tabbar">
+<span class="tab on"><i data-i="home"></i>홈</span><span class="tab"><i data-i="library"></i>열람실</span><span class="tab"><i data-i="bookmark"></i>저장</span><span class="tab"><i data-i="history"></i>기록</span><span class="tab"><i data-i="user"></i>MY</span>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑤</span><span class="st">바텀시트 + 다이얼로그</span><button class="fixbtn" data-n="5">조정 필요</button></div>
+<div class="frame" style="padding:0;margin-bottom:12px">
+<div class="dz" style="padding:44px 24px 20px"><span style="color:#fff;font-size:13px">배경이 어두워져요</span></div>
+<div class="sheet">
+<div class="grab"></div>
+<div class="h3" style="margin-bottom:12px">지문 필터</div>
+<div class="cap" style="margin-bottom:6px">연도</div>
+<div class="row" style="margin-bottom:12px"><button class="chip on">2025</button><button class="chip">2024</button><button class="chip">2023</button><button class="chip">2022</button></div>
+<div class="cap" style="margin-bottom:6px">영역</div>
+<div class="row" style="margin-bottom:16px"><button class="chip on">독서</button><button class="chip">문학</button><button class="chip">화법·작문</button></div>
+<button class="btn pri blg">필터 적용</button>
+</div>
+</div>
+<div class="frame" style="padding:0">
+<div class="dz" style="padding:56px 24px">
+<div class="dlg"><div class="h3">로그아웃할까요?</div><p class="cap" style="margin:6px 0 16px">학습 기록은 이 기기에만 남아 있어요</p>
+<div class="row" style="flex-wrap:nowrap"><button class="btn sec2 bmd" style="flex:1">취소</button><button class="btn danb bmd" style="flex:1">로그아웃</button></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑥</span><span class="st">타이포 역할표</span><button class="fixbtn" data-n="6">조정 필요</button></div>
+<div class="frame" style="padding:6px 16px">
+<div class="trow"><span class="d28">한 장에, 국어 한 회</span><span class="trole">display · serif 28</span></div>
+<div class="trow"><span class="d24">오늘의 퀴즈</span><span class="trole">h1 · serif 24</span></div>
+<div class="trow"><span class="t20">이번 주 학습 기록</span><span class="trole">h2 · 20/600</span></div>
+<div class="trow"><span class="t17">독서 · 비문학</span><span class="trole">h3 · 17/600</span></div>
+<div class="trow"><span class="t15">2025학년도 수능 국어 지문을 읽어요</span><span class="trole">body · 15</span></div>
+<div class="trow"><span class="t14">마지막 학습 후 이틀이 지났어요</span><span class="trole">body-sm · 14</span></div>
+<div class="trow"><span class="t13">연도 선택</span><span class="trole">label · 13/500</span></div>
+<div class="trow"><span class="t12">2025.06.18 · 3회차</span><span class="trole">caption · 12</span></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑦</span><span class="st">선지 · 정오</span><button class="fixbtn" data-n="7">조정 필요</button></div>
+<div class="frame col">
+<button class="q"><b class="nm">①</b>글의 전개 방식이 적절하다</button>
+<button class="q sel"><b class="nm">②</b>화자의 정서를 역설적으로 드러낸다</button>
+<button class="q ok"><b class="nm">③</b>설의법으로 주장을 강조한다<span class="mk" style="color:var(--ok)"><i data-i="check" class="s20"></i></span></button>
+<button class="q no"><b class="nm">④</b>반어적 표현으로 풍자한다<span class="mk" style="color:var(--dg)"><i data-i="x" class="s20"></i></span></button>
+<button class="q dis"><b class="nm">⑤</b>비유법으로 대상을 형상화한다</button>
+<button class="q" style="border-style:dashed"><b class="nm">⑥</b>채점 전 · 아직 고르지 않은 상태</button>
+<div class="row" style="flex-wrap:nowrap"><button class="oxb o">O<small>맞다</small></button><button class="oxb x">X<small>아니다</small></button></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑧</span><span class="st">빈 상태 · 로딩</span><button class="fixbtn" data-n="8">조정 필요</button></div>
+<div class="frame col">
+<div class="empty"><i data-i="bookmark" class="s48" style="color:var(--bd)"></i><div class="h3">저장한 지문이 아직 없어요</div><p class="cap">지문을 읽다가 별표를 눌러 저장해 보세요</p><button class="btn sec2 bmd" style="margin-top:8px">지문 보러가기</button></div>
+<div class="sk"><div class="skl" style="width:40%"></div><div class="skl" style="width:80%;margin-top:10px"></div><div class="skl" style="width:60%;margin-top:10px"></div></div>
+<div class="sk"><div class="skl" style="width:55%"></div><div class="skl" style="width:70%;margin-top:10px"></div></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑨</span><span class="st">오류 · 오프라인</span><button class="fixbtn" data-n="9">조정 필요</button></div>
+<div class="frame">
+<div class="offb">오프라인 상태예요. 저장된 학습만 볼 수 있어요</div>
+<div class="card"><div class="h3">이어하기</div><p class="cap" style="margin-top:4px">오프라인에서도 저장된 회차는 열 수 있어요</p></div>
+<div class="snack" style="margin-top:12px"><span>네트워크 오류가 발생했어요</span><b style="color:#B9AFFF;font-size:13px">다시 시도</b></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑩</span><span class="st">시험지 요소</span><button class="fixbtn" data-n="10">조정 필요</button></div>
+<div class="frame col">
+<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="cap">2025학년도 수능 국어</span><span class="timer">24:36</span><button class="btn gho bsm">나가기</button></div>
+<div class="pass"><svg viewBox="0 0 340 240" preserveAspectRatio="xMidYMid meet">
+<rect x="8" y="8" width="200" height="9" rx="4" fill="#D9D4EE"/><rect x="8" y="30" width="324" height="9" rx="4" fill="#D9D4EE"/><rect x="8" y="52" width="324" height="9" rx="4" fill="#D9D4EE"/>
+<rect x="8" y="74" width="220" height="12" rx="4" fill="#6C5CE7" opacity=".18"/><line x1="8" y1="90" x2="228" y2="90" stroke="#6C5CE7" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="232" y="76" width="100" height="9" rx="4" fill="#D9D4EE"/><rect x="8" y="102" width="324" height="9" rx="4" fill="#D9D4EE"/>
+<rect x="8" y="124" width="180" height="12" rx="4" fill="#6C5CE7" opacity=".18"/><line x1="8" y1="140" x2="188" y2="140" stroke="#6C5CE7" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="192" y="126" width="140" height="9" rx="4" fill="#D9D4EE"/><rect x="8" y="152" width="324" height="9" rx="4" fill="#D9D4EE"/><rect x="8" y="174" width="260" height="9" rx="4" fill="#D9D4EE"/>
+</svg></div>
+<p class="cap">지문 이미지는 contain · surface-2 배경. 밑줄은 펜 수평 스트로크</p>
+<div class="col" style="gap:8px">
+<div class="q" style="min-height:44px"><b class="nm">①</b>윗글의 중심 내용으로 적절한 것</div>
+<div class="q" style="min-height:44px"><b class="nm">②</b>밑줄 친 부분의 의미로 적절한 것</div>
+<div class="q" style="min-height:44px"><b class="nm">③</b>화자의 태도로 가장 적절한 것</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="shd"><span class="num">⑪</span><span class="st">상태 요약 · 토큰</span><button class="fixbtn" data-n="11">조정 필요</button></div>
+<div class="frame col">
+<div class="swgrid">
+<span class="sw"><b style="background:#F6F4FB"></b>bg · F6F4FB</span>
+<span class="sw"><b style="background:#EFEBFD"></b>surface-2 · EFEBFD</span>
+<span class="sw"><b style="background:#17142B"></b>text · 17142B</span>
+<span class="sw"><b style="background:#8B87A3"></b>muted · 8B87A3</span>
+<span class="sw"><b style="background:#6C5CE7"></b>accent · 6C5CE7</span>
+<span class="sw"><b style="background:linear-gradient(135deg,#6C5CE7,#8F7BFF)"></b>gradient</span>
+<span class="sw"><b style="background:#F0506E"></b>danger · F0506E</span>
+<span class="sw"><b style="background:#22C58B"></b>success · 22C58B</span>
+</div>
+<div class="cap">radius — 8 / 12 / 16 / 22 / full</div>
+<div class="row"><span class="rs" style="border-radius:8px">8</span><span class="rs" style="border-radius:12px">12</span><span class="rs" style="border-radius:16px">16</span><span class="rs" style="border-radius:22px">22</span><span class="rs" style="border-radius:999px">full</span></div>
+<div class="cap">shadow — sm / md</div>
+<div class="row"><span class="rss" style="box-shadow:var(--sh-s)">sm</span><span class="rss" style="box-shadow:var(--sh-m)">md</span></div>
+</div>
+</section>
+
+<script>
+const db=(()=>{try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return null})();const saveFb=(k,v)=>{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const I={
+home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22v-8h6v8"/>',
+library:'<path d="M4 4v16"/><path d="M8 6v14"/><path d="M12 6v14"/><path d="m16 6 4 14"/>',
+bookmark:'<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',
+history:'<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+user:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+play:'<path d="m6 4 14 8-14 8z"/>',
+highlighter:'<path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4z"/>',
+timer:'<path d="M10 2h4"/><path d="m15 11-3 3"/><circle cx="12" cy="14" r="8"/>',
+check:'<path d="M20 6 9 17l-5-5"/>',
+x:'<path d="M18 6 6 18M6 6l12 12"/>',
+barchart:'<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>',
+star:'<path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/>',
+chevleft:'<path d="m15 18-6-6 6-6"/>'};
+document.querySelectorAll('i[data-i]').forEach(e=>{e.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(I[e.dataset.i]||'')+'</svg>'});
+document.querySelectorAll('.fixbtn').forEach(b=>{
+const n=b.dataset.n,s=b.closest('.sec');
+const set=on=>{s.classList.toggle('fix',on);b.classList.toggle('on',on);b.textContent=on?'조정 필요함':'조정 필요'};
+if(localStorage.getItem('feedback/section-'+n)==='"fix"')set(true);
+b.onclick=()=>{const on=!s.classList.contains('fix');set(on);saveFb('section-'+n,on?'fix':'ok')};
+});
+const all=document.getElementById('all');
+if(localStorage.getItem('feedback/rules-all')==='"recommended"')all.textContent='추천대로 확정했어요';
+all.onclick=()=>{saveFb('rules-all','recommended');all.textContent='추천대로 확정했어요 ✓'};
+</script>
+</body>
+</html>

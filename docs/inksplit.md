@@ -37,7 +37,7 @@
 
 고르고 채점하면 정오가 붙는다. 중지한 점수가 다음 답을 덮지 않는다.
 
-- `gradeRunId` + AbortSignal
+- `gradeRunId` + Effect fiber interrupt
 - variant `idle | grading | graded | aborted | error`
 - S1~S5: 늦은 성공 적용 0, grading 중 onChoice 0
 

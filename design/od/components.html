@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한장 — Components</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  .page { max-width: 920px; margin: 0 auto; padding: 48px 24px 96px; }
+  .group { margin-top: 48px; }
+  .group > .t-h3 { margin: 0 0 16px; color: var(--color-text-muted); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .cell { display: flex; flex-direction: column; gap: 8px; }
+  .demo-box { border: 1px dashed var(--color-border); border-radius: var(--radius-md); padding: 16px; }
+  .frame-wrap { position: relative; width: 390px; flex: 0 0 auto; }
+  .frames { display: flex; gap: 24px; flex-wrap: wrap; }
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px; }
+  .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface-1); }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="t-label" style="color:var(--color-text-muted)">한장 components — design-rules.md §B·§C</p>
+  <h1 class="t-display">컴포넌트 갤러리</h1>
+
+  <section class="group">
+    <h2 class="t-h3">아이콘 (icons.svg — lucide)</h2>
+    <div class="icon-grid">
+      <div class="icon-cell"><svg class="icon" data-icon="home" width="24" height="24"><use href="icons.svg#i-home"/></svg><span class="t-caption">home</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="library" width="24" height="24"><use href="icons.svg#i-library"/></svg><span class="t-caption">library</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="bookmark" width="24" height="24"><use href="icons.svg#i-bookmark"/></svg><span class="t-caption">bookmark</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="history" width="24" height="24"><use href="icons.svg#i-history"/></svg><span class="t-caption">history</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="user" width="24" height="24"><use href="icons.svg#i-user"/></svg><span class="t-caption">user</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="play" width="24" height="24"><use href="icons.svg#i-play"/></svg><span class="t-caption">play</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="highlighter" width="24" height="24"><use href="icons.svg#i-highlighter"/></svg><span class="t-caption">highlighter</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="timer" width="24" height="24"><use href="icons.svg#i-timer"/></svg><span class="t-caption">timer</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="check" width="24" height="24"><use href="icons.svg#i-check"/></svg><span class="t-caption">check</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="x" width="24" height="24"><use href="icons.svg#i-x"/></svg><span class="t-caption">x</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="bar-chart-3" width="24" height="24"><use href="icons.svg#i-bar-chart-3"/></svg><span class="t-caption">bar-chart-3</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="log-out" width="24" height="24"><use href="icons.svg#i-log-out"/></svg><span class="t-caption">log-out</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="star" width="24" height="24"><use href="icons.svg#i-star"/></svg><span class="t-caption">star</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="chevron-left" width="24" height="24"><use href="icons.svg#i-chevron-left"/></svg><span class="t-caption">chevron-left</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="door-open" width="24" height="24"><use href="icons.svg#i-door-open"/></svg><span class="t-caption">door-open</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="inbox" width="24" height="24"><use href="icons.svg#i-inbox"/></svg><span class="t-caption">inbox</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="alert-circle" width="24" height="24"><use href="icons.svg#i-alert-circle"/></svg><span class="t-caption">alert-circle</span></div>
+      <div class="icon-cell"><svg class="icon" data-icon="loader" width="24" height="24"><use href="icons.svg#i-loader"/></svg><span class="t-caption">loader</span></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">.button — variant × size × state</h2>
+    <div class="cell">
+      <div class="row">
+        <button class="button button-primary button-sm">SM Primary</button>
+        <button class="button button-primary button-md">MD Primary</button>
+        <button class="button button-primary button-lg">LG Primary</button>
+      </div>
+      <div class="row">
+        <button class="button button-secondary button-sm">SM Secondary</button>
+        <button class="button button-secondary button-md">MD Secondary</button>
+        <button class="button button-secondary button-lg">LG Secondary</button>
+      </div>
+      <div class="row">
+        <button class="button button-ghost button-sm">SM Ghost</button>
+        <button class="button button-ghost button-md">MD Ghost</button>
+        <button class="button button-ghost button-lg">LG Ghost</button>
+      </div>
+      <div class="row">
+        <button class="button button-danger button-sm">SM Danger</button>
+        <button class="button button-danger button-md">MD Danger</button>
+        <button class="button button-danger button-lg">LG Danger</button>
+      </div>
+      <div class="row">
+        <button class="button button-secondary button-md is-selected">Selected</button>
+        <button class="button button-primary button-md" disabled>Disabled</button>
+        <button class="button button-primary button-md is-loading"><span>로딩</span></button>
+        <button class="button button-primary button-lg button-full">풀폭 CTA (radius xl)</button>
+      </div>
+      <div class="button-row" style="max-width:358px">
+        <button class="button button-secondary button-lg">취소</button>
+        <button class="button button-primary button-lg">확인</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">.icon-button (탭 영역 44)</h2>
+    <div class="row">
+      <button class="icon-button icon-button-sm" aria-label="작은 아이콘"><svg class="icon" data-icon="star" width="16" height="16"><use href="icons.svg#i-star"/></svg></button>
+      <button class="icon-button icon-button-md" aria-label="중간 아이콘"><svg class="icon" data-icon="star" width="20" height="20"><use href="icons.svg#i-star"/></svg></button>
+      <button class="icon-button icon-button-lg" aria-label="큰 아이콘"><svg class="icon" data-icon="star" width="24" height="24"><use href="icons.svg#i-star"/></svg></button>
+      <button class="icon-button is-selected" aria-label="선택됨"><svg class="icon" data-icon="bookmark" width="24" height="24"><use href="icons.svg#i-bookmark"/></svg></button>
+      <button class="icon-button" disabled aria-label="비활성"><svg class="icon" data-icon="star" width="24" height="24"><use href="icons.svg#i-star"/></svg></button>
+      <button class="icon-button is-loading" aria-label="로딩"><svg class="icon" data-icon="star" width="24" height="24"><use href="icons.svg#i-star"/></svg></button>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">.card / .list-row</h2>
+    <div class="row" style="align-items:stretch">
+      <article class="card" style="width:280px">
+        <h3 class="card-title t-h3">2025학년도 9월 모의평가 국어 영역 한 장 시험지</h3>
+        <p class="card-desc t-body-sm">짧은 지문 설명이 세 줄까지 표시됩니다.</p>
+        <p class="card-meta t-caption">2026.09.16 발행 · 45분</p>
+      </article>
+      <div class="list-row" style="width:280px">
+        <span class="list-row-title t-body">이름</span>
+        <span class="list-row-meta t-body-sm">user@example.com</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">.input / .select / .caption</h2>
+    <div class="cell" style="max-width:358px">
+      <div class="field">
+        <input class="input" type="text" placeholder="전화번호">
+        <span class="caption">도움말 caption</span>
+      </div>
+      <div class="field">
+        <input class="input is-error" type="text" value="010-1234" >
+        <span class="caption is-error">올바른 전화번호를 입력해 주세요</span>
+      </div>
+      <select class="select"><option>과목 선택</option></select>
+      <input class="input" type="text" placeholder="비활성" disabled>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">.choice / .tf-button / .progress-bar / .score-ring</h2>
+    <div class="cell" style="max-width:358px">
+      <div class="choice-list">
+        <button class="choice"><span class="choice-index t-label">1</span><span class="choice-text t-body">기본 선지</span></button>
+        <button class="choice is-selected"><span class="choice-index t-label">2</span><span class="choice-text t-body">선택됨</span></button>
+        <button class="choice is-correct"><span class="choice-index t-label">3</span><span class="choice-text t-body">정답</span><svg class="icon choice-mark" data-icon="check" width="20" height="20"><use href="icons.svg#i-check"/></svg></button>
+        <button class="choice is-wrong"><span class="choice-index t-label">4</span><span class="choice-text t-body">내 오답</span><svg class="icon choice-mark" data-icon="x" width="20" height="20"><use href="icons.svg#i-x"/></svg></button>
+      </div>
+      <div class="tf-row">
+        <button class="tf-button is-correct">O</button>
+        <button class="tf-button is-wrong">X</button>
+      </div>
+      <div class="progress-bar"><div class="progress-bar-fill" style="width:40%"></div></div>
+      <div class="score-ring score-ring-80"><span class="t-h2">80</span></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">고정 레이어 (390×844 .screen 안)</h2>
+    <div class="frames">
+      <div class="frame-wrap">
+        <main class="screen">
+          <header class="app-bar">
+            <span class="app-bar-title t-h3">홈</span>
+            <div class="app-bar-actions">
+              <button class="icon-button" aria-label="알림"><svg class="icon" data-icon="inbox" width="24" height="24"><use href="icons.svg#i-inbox"/></svg></button>
+            </div>
+          </header>
+          <div class="screen-body screen-body--has-tab-bar" style="padding:var(--space-screen-padding)">
+            <p class="t-body">app-bar + tab-bar</p>
+            <div class="offline-banner" style="margin:var(--space-3) calc(var(--space-screen-padding) * -1) 0">오프라인 — 마지막 저장본을 보여줘요</div>
+          </div>
+          <nav class="tab-bar">
+            <button class="tab-bar-item is-active"><svg class="icon" data-icon="home" width="24" height="24"><use href="icons.svg#i-home"/></svg><span>홈</span></button>
+            <button class="tab-bar-item"><svg class="icon" data-icon="library" width="24" height="24"><use href="icons.svg#i-library"/></svg><span>자료실</span></button>
+            <button class="tab-bar-item"><svg class="icon" data-icon="bookmark" width="24" height="24"><use href="icons.svg#i-bookmark"/></svg><span>저장</span></button>
+            <button class="tab-bar-item"><svg class="icon" data-icon="history" width="24" height="24"><use href="icons.svg#i-history"/></svg><span>복습</span></button>
+            <button class="tab-bar-item"><svg class="icon" data-icon="user" width="24" height="24"><use href="icons.svg#i-user"/></svg><span>마이</span></button>
+          </nav>
+        </main>
+      </div>
+      <div class="frame-wrap">
+        <main class="screen">
+          <header class="nav-header">
+            <button class="icon-button" aria-label="뒤로"><svg class="icon" data-icon="chevron-left" width="24" height="24"><use href="icons.svg#i-chevron-left"/></svg></button>
+            <span class="nav-header-center timer t-h3">12:34</span>
+            <div class="nav-header-actions">
+              <button class="icon-button" aria-label="나가기"><svg class="icon" data-icon="door-open" width="24" height="24"><use href="icons.svg#i-door-open"/></svg></button>
+            </div>
+          </header>
+          <div class="screen-body screen-body--has-cta" style="padding:var(--space-screen-padding)">
+            <p class="t-body">nav-header + bottom-cta + snackbar</p>
+          </div>
+          <div class="snackbar snackbar--above-cta"><span class="snackbar-label t-body-sm">저장했어요</span><button class="snackbar-action">실행 취소</button></div>
+          <div class="bottom-cta"><button class="button button-primary button-lg button-full">제출</button></div>
+        </main>
+      </div>
+      <div class="frame-wrap">
+        <main class="screen">
+          <div class="backdrop"></div>
+          <section class="bottom-sheet bottom-sheet-half">
+            <div class="sheet-grabber"></div>
+            <div class="sheet-header"><span class="sheet-header-title t-h3">필터</span></div>
+            <div class="sheet-body"><p class="t-body">bottom-sheet half</p></div>
+            <div class="sheet-footer"><button class="button button-primary button-lg button-full">적용</button></div>
+          </section>
+        </main>
+      </div>
+      <div class="frame-wrap">
+        <main class="screen">
+          <div class="backdrop"></div>
+          <section class="dialog">
+            <h3 class="t-h3">로그아웃 할까요?</h3>
+            <p class="dialog-body t-body-sm">진행 중인 세션은 기기에 남아요.</p>
+            <div class="dialog-actions">
+              <button class="button button-secondary button-md">취소</button>
+              <button class="button button-primary button-md">로그아웃</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">상태 — empty / skeleton / error / offline</h2>
+    <div class="frames">
+      <div class="frame-wrap">
+        <main class="screen">
+          <div class="screen-body">
+            <div class="empty-state">
+              <svg class="icon empty-state-icon" data-icon="inbox" width="24" height="24"><use href="icons.svg#i-inbox"/></svg>
+              <p class="t-body">저장한 회차가 아직 없어요</p>
+              <button class="button button-primary button-md empty-state-action">자료실 보기</button>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="frame-wrap">
+        <main class="screen">
+          <div class="screen-body" style="padding:var(--space-screen-padding);display:flex;flex-direction:column;gap:var(--space-3)">
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line-sm" style="width:60%"></div>
+          </div>
+        </main>
+      </div>
+      <div class="frame-wrap">
+        <main class="screen">
+          <div class="screen-body">
+            <div class="error-state">
+              <svg class="icon error-state-icon" data-icon="alert-circle" width="24" height="24"><use href="icons.svg#i-alert-circle"/></svg>
+              <p class="t-body">불러오지 못했어요</p>
+              <p class="error-state-desc t-body-sm">네트워크 연결을 확인하고 다시 시도해 주세요</p>
+              <button class="button button-primary button-md error-state-action">다시 시도</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

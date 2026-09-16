@@ -55,7 +55,7 @@ packages:
 | 서버 상태 | TanStack Query |
 | 클라이언트 상태 | Zustand |
 | HTTP | ky |
-| 이펙트 | Effect |
+| 이펙트 | Effect — 타임아웃·재시도·취소 전부 fiber 기반. AbortSignal은 ky 경계에서만 |
 | 렌더 계측 | React Profiler |
 | 린트·포맷 | ESLint, Prettier, import 순서 |
 
@@ -70,7 +70,7 @@ import 순서: builtin → external → `@hanjang/*` → 상대경로. type impo
 
 `packages/api`
 
-- GraphQL operation 문서와 생성 타입
+- REST 엔드포인트 정의와 생성 타입
 - FO·BO는 ky로 같은 엔드포인트에 POST 한다
 - 앱이 URL과 스키마를 각자 정의하지 않는다
 
@@ -98,7 +98,7 @@ Next.js App Router.
 
 토큰과 API 패키지는 FO와 같다. 목록은 웹 테이블이다. LegendList는 BO에 두지 않는다.
 
-화면: 로그인, 시험지 CRUD, 문항·정답 편집, 발행.
+화면: 로그인, 관리자 초대, 시험지 CRUD, 문항·정답 편집, 퀴즈 편집, 발행.
 
 ---
 
@@ -108,8 +108,9 @@ Next.js App Router.
 
 가져오는 뼈대
 
-- NestJS 11, Apollo GraphQL, Drizzle, Postgres 16
-- JWT access/refresh, 카카오, 전화 인증
+- NestJS 11, REST, Drizzle, Postgres 16
+- JWT access/refresh, 카카오, 전화 인증 (수험생 User)
+- admin은 아이디·비밀번호 인증 + 초대 링크 (발송 없이 복사). root는 시드. Admin/AdminInvite 테이블
 - SQL 마이그레이션, Datadog JSON 로그, e2e
 
 지우는 이름
@@ -127,10 +128,11 @@ Next.js App Router.
 모듈
 
 - 유지: `auth`, `user`, `phone`, `database`
-- 추가: `exam` (시험지), `question`, `session`, `grade`
+- 추가: `exam` (시험지), `question`, `session`, `grade`, `quiz`, `mcp`
+- `mcp` 모듈: 문항·퀴즈 추가 도구 노출. JWT Bearer + `role = admin` 검사. BO와 같은 서비스 호출
 - 필기 초안은 FO 로컬이 우선. 서버 백업은 session 하위
 
-GraphQL이 FO·BO의 계약이다. `packages/api`가 이 스키마를 따른다.
+REST가 FO·BO의 계약이다. `packages/api`가 엔드포인트와 타입을 따른다.
 
 로컬:
 
@@ -145,8 +147,8 @@ pnpm start:dev
 ## 7. 런타임
 
 ```
-hanjang-fo (Expo) --ky--> hanjang-be GraphQL
-hanjang-bo (Next) --ky--> hanjang-be GraphQL
+hanjang-fo (Expo) --ky--> hanjang-be REST
+hanjang-bo (Next) --ky--> hanjang-be REST
 hanjang-be --> hanjang-postgres
 hanjang-fo 로컬 SQLite --> 세션·필기 초안
 ```

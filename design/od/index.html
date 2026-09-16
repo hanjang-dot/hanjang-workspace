@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한장 — Design Tokens</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .page { max-width: 720px; margin: 0 auto; padding: 48px 24px 96px; }
+  .group { margin-top: 48px; }
+  .group > .t-h3 { margin: 0 0 16px; color: var(--color-text-muted); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .swatch { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface-1); }
+  .swatch .chip { height: 56px; }
+  .swatch .meta { padding: 8px 12px; }
+  .swatch .name { display: block; }
+  .swatch .value { display: block; color: var(--color-text-muted); }
+  table { width: 100%; border-collapse: collapse; background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+  td, th { padding: 12px 16px; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: baseline; }
+  tr:last-child td { border-bottom: 0; }
+  th { color: var(--color-text-muted); }
+  .spec { color: var(--color-text-muted); white-space: nowrap; }
+  .vars { columns: 2; }
+  .vars code { display: block; padding: 2px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="t-label spec">한장 design tokens — design-rules.md §A (confirmed)</p>
+  <h1 class="t-display">토큰 갤러리</h1>
+
+  <section class="group">
+    <h2 class="t-h3">색 color.*</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:var(--color-bg)"></div><div class="meta"><span class="name t-label">bg</span><span class="value t-caption">#F6F4FB</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-surface-1)"></div><div class="meta"><span class="name t-label">surface-1</span><span class="value t-caption">#FFFFFF</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-surface-2)"></div><div class="meta"><span class="name t-label">surface-2</span><span class="value t-caption">#EFEBFD</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-text)"></div><div class="meta"><span class="name t-label">text</span><span class="value t-caption">#17142B</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-text-muted)"></div><div class="meta"><span class="name t-label">text-muted</span><span class="value t-caption">#8B87A3</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-border)"></div><div class="meta"><span class="name t-label">border</span><span class="value t-caption">#ECE9F6</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-accent)"></div><div class="meta"><span class="name t-label">accent</span><span class="value t-caption">#6C5CE7</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-accent-pressed)"></div><div class="meta"><span class="name t-label">accent-pressed</span><span class="value t-caption">#5F51CB</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-accent);opacity:.1"></div><div class="meta"><span class="name t-label">accent-soft</span><span class="value t-caption">accent 10%</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-danger)"></div><div class="meta"><span class="name t-label">danger</span><span class="value t-caption">#F0506E</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-overlay)"></div><div class="meta"><span class="name t-label">overlay</span><span class="value t-caption">rgba(0,0,0,.5)</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--color-correct)"></div><div class="meta"><span class="name t-label">correct</span><span class="value t-caption">#22C58B</span></div></div>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">타이포 type.roles</h2>
+    <table>
+      <tr><th class="t-caption">역할</th><th class="t-caption">예시</th><th class="t-caption">스펙</th></tr>
+      <tr><td class="t-caption spec">.t-display</td><td class="t-display">한 장으로 끝내는 시험</td><td class="t-caption spec">Noto Serif KR 28/700 · lh 1.3</td></tr>
+      <tr><td class="t-caption spec">.t-h1</td><td class="t-h1">2025학년도 9월 모의평가</td><td class="t-caption spec">Noto Serif KR 24/700 · lh 1.3</td></tr>
+      <tr><td class="t-caption spec">.t-h2</td><td class="t-h2">오늘의 퀴즈</td><td class="t-caption spec">20/600 · lh 1.3</td></tr>
+      <tr><td class="t-caption spec">.t-h3</td><td class="t-h3">최근 발행 회차</td><td class="t-caption spec">17/600 · lh 1.3</td></tr>
+      <tr><td class="t-caption spec">.t-body</td><td class="t-body">이어하기 카드를 눌러 시험을 다시 시작합니다.</td><td class="t-caption spec">15/400 · lh 1.5</td></tr>
+      <tr><td class="t-caption spec">.t-body-sm</td><td class="t-body-sm">마지막으로 푼 지 2시간 지났어요.</td><td class="t-caption spec">14/400 · lh 1.5</td></tr>
+      <tr><td class="t-caption spec">.t-caption</td><td class="t-caption">2026.09.16 발행 · 45분</td><td class="t-caption spec">12/400 · lh 1.5</td></tr>
+      <tr><td class="t-caption spec">.t-label</td><td class="t-label">북마크</td><td class="t-caption spec">13/500 · lh 1.5</td></tr>
+    </table>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">화면 갤러리 — 기본 상태 10종</h2>
+    <table>
+      <tr><th class="t-caption">그룹</th><th class="t-caption">화면</th></tr>
+      <tr><td class="t-caption spec">인증</td><td class="t-body"><a href="screens/login-default.html">로그인 — login-default</a></td></tr>
+      <tr><td class="t-caption spec">메인 탭</td><td class="t-body"><a href="screens/home-default.html">홈 — home-default</a> · <a href="screens/library-default.html">자료실 — library-default</a> · <a href="screens/saved-default.html">저장 — saved-default</a> · <a href="screens/review-default.html">복습 — review-default</a> · <a href="screens/my-default.html">마이 — my-default</a></td></tr>
+      <tr><td class="t-caption spec">시험</td><td class="t-body"><a href="screens/exam-default.html">시험지 — exam-default</a> · <a href="screens/exam-result-default.html">시험 결과 — exam-result-default</a></td></tr>
+      <tr><td class="t-caption spec">퀴즈</td><td class="t-body"><a href="screens/quiz-play-default.html">퀴즈 플레이 — quiz-play-default</a> · <a href="screens/quiz-result-default.html">퀴즈 결과 — quiz-result-default</a></td></tr>
+      <tr><td class="t-caption spec">한글 파일명</td><td class="t-body"><a href="screens/로그인-default.html">로그인</a> · <a href="screens/홈-default.html">홈</a> · <a href="screens/자료실-default.html">자료실</a> · <a href="screens/저장-default.html">저장</a> · <a href="screens/복습-default.html">복습</a> · <a href="screens/마이-default.html">마이</a> · <a href="screens/시험지-default.html">시험지</a> · <a href="screens/결과-default.html">결과</a> · <a href="screens/퀴즈-플레이-default.html">퀴즈 플레이</a> · <a href="screens/퀴즈-결과-default.html">퀴즈 결과</a></td></tr>
+    </table>
+  </section>
+
+  <section class="group">
+    <h2 class="t-h3">숫자 변수</h2>
+    <div class="vars t-caption">
+      <code>--space-1…7: 4/8/12/16/24/32/48</code>
+      <code>--space-screen-padding: 16</code>
+      <code>--space-section: 24 · --space-card-padding: 16</code>
+      <code>--radius-sm/md/lg/xl/full: 8/12/16/22/9999</code>
+      <code>--size-button-sm/md/lg: 36/44/52</code>
+      <code>--size-icon-sm/md/lg: 16/20/24</code>
+      <code>--size-tap-min: 44 · --size-tap-gap: 8</code>
+      <code>--size-safe-area-top: 44 (notch 47) · bottom: 34</code>
+      <code>--size-app-bar: 56 · --size-tab-bar: 49</code>
+      <code>--size-bottom-cta: 56 · --size-snackbar: 48</code>
+      <code>--size-empty-icon: 48 · --size-ox-button: 120</code>
+      <code>--z-base/sticky/app-bar/tab-bar: 0/100/200/200</code>
+      <code>--z-overlay/sheet/dialog/snackbar: 300/400/500/600</code>
+      <code>--shadow-sm · --shadow-md</code>
+      <code>--motion-base 200ms · sheet 250ms · crossfade 150ms</code>
+    </div>
+  </section>
+</div>
+</body>
+</html>

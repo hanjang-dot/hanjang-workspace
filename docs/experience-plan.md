@@ -69,10 +69,10 @@ CI: `pane-contract`. 계약 숫자 변경 시 measure 실패.
 
 해결
 
-- `createGradeRun()` + AbortSignal
+- `createGradeRun()` + Effect fiber interrupt (ky 경계에서만 AbortSignal)
 - 응답 JSON의 `runId`가 현재가 아니면 drop
 - 화면은 `idle | grading | graded | aborted | error` variant 키만
-- 정답은 `hanjang-be` GraphQL. 지연·드롭은 테스트 헤더만
+- 정답은 `hanjang-be` REST. 지연·드롭은 테스트 헤더만
 
 측정
 

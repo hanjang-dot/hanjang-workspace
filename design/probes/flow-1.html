@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한장 — 따라가 보기</title>
+<style>
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+  }
+  *{box-sizing:border-box;margin:0}
+  :root{--frame-w:390px}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,"IBM Plex Sans KR",sans-serif;padding:24px;display:flex;flex-direction:column;align-items:center}
+  h1{font-family:"Noto Serif KR",serif;font-size:22px;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .scenarios{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+  .scenarios button{border:1px solid var(--rule);background:var(--card);border-radius:20px;padding:8px 14px;font-size:13px;cursor:pointer;color:var(--ink)}
+  .scenarios button.on{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+  .seg{display:flex;gap:4px;margin-bottom:14px}
+  .seg i{width:28px;height:4px;border-radius:2px;background:var(--hairline)}
+  .seg i.done{background:var(--navy)}
+  .seg i.now{background:var(--stamp)}
+  .phone{width:var(--frame-w);height:640px;background:var(--card);border:1px solid var(--rule);border-radius:28px;padding:20px;position:relative;box-shadow:0 8px 30px rgba(26,22,18,.08)}
+  .phone .tag{position:absolute;top:14px;left:14px;background:var(--stamp);color:#fff;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}
+  .ptitle{font-size:15px;font-weight:600;text-align:center;margin:8px 0 16px}
+  .block{border:1px solid var(--hairline);border-radius:12px;padding:14px;margin-bottom:10px;background:var(--paper);font-size:13px}
+  .block.hot{border:2px solid var(--stamp)}
+  .cta{position:absolute;bottom:20px;left:20px;right:20px;background:var(--navy);color:var(--paper);border:none;border-radius:12px;padding:14px;font-size:15px;cursor:pointer}
+  .cta:active{background:#16294a}
+  .caption{color:var(--muted);font-size:13px;margin-top:14px;max-width:390px;text-align:center;line-height:1.5}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;border-top:1px solid var(--hairline);background:var(--card)}
+  .tabbar div{flex:1;text-align:center;padding:10px 0 14px;font-size:11px;color:var(--muted)}
+  .tabbar div.on{color:var(--navy);font-weight:600}
+  .choice{border:1px solid var(--rule);border-radius:10px;padding:12px;margin-bottom:8px;background:var(--card);font-size:13px}
+  .choice.sel{background:var(--navy);color:var(--paper)}
+  .passage{height:150px;background:repeating-linear-gradient(var(--paper) 0 14px,var(--hairline) 14px 15px);border-radius:8px;margin-bottom:10px}
+  .timer{font-family:"Noto Serif KR",serif;font-size:20px;text-align:center;color:var(--stamp)}
+</style>
+</head>
+<body>
+<h1>한장 — 따라가 보기</h1>
+<p class="sub">한 번에 화면 하나. 버튼 하나만 누르면 됩니다 — 장면별 상태(로딩·실패·비어있음)는 다음 단계에서 다룹니다</p>
+<div class="seg" id="stateSeg" style="margin-bottom:8px"><span style="font-size:11px;color:var(--muted)">상태: 정상 · 로딩 · 실패 · 비어있음</span></div>
+<div class="scenarios" id="scn"></div>
+<div class="seg" id="seg"></div>
+<div class="phone"><span class="tag" id="tag"></span><div id="stage"></div></div>
+<p class="caption" id="cap"></p>
+<script>
+const S=[
+{name:"시험지 한 장 풀기",steps:[
+ {n:"①",t:"홈",h:"<div class='block hot'>▶ 이어하기 — 2025학년도 수능 국어 · 남은 시간 42:10</div><div class='block'>오늘의 퀴즈 — OX · 빈칸 · 영단어 · 한국사</div><div class='block'>최근 발행 — 2025 9월 모의평가</div>",c:"진행 중 세션 카드를 누르면 시험지로 갑니다"},
+ {n:"②",t:"시험지",h:"<div class='timer'>41:58</div><div class='passage'></div><div class='block'>지문 이미지 — 스크롤 + 펜 밑줄</div>",c:"시험지가 열리고 타이머가 돕니다"},
+ {n:"③",t:"시험지",h:"<div class='timer'>39:12</div><div class='passage'></div><div class='block hot'>펜으로 밑줄 — 지문 위 수평 드래그 = 스트로크</div>",c:"지문 위에서 펜을 쓰면 밑줄이 그어집니다"},
+ {n:"④",t:"시험지",h:"<div class='timer'>38:40</div><div class='choice'>① 첫 번째 선지</div><div class='choice sel'>② 두 번째 선지 ✓ 정답</div><div class='choice'>③ 세 번째 선지</div><div class='choice'>④ 네 번째 선지</div><div class='choice'>⑤ 다섯 번째 선지</div>",c:"선지를 고르면 바로 채점돼 정오가 붙습니다"},
+ {n:"⑤",t:"결과",h:"<div class='ptitle'>이 장의 결과</div><div class='block'>정답 4 / 5 — 2번 문항 오답</div>",c:"제출하면 결과가 뜨고 여기서 끝입니다"}]},
+{name:"오늘의 퀴즈",steps:[
+ {n:"①",t:"홈",h:"<div class='block'>이어하기 — 없음</div><div class='block hot'>오늘의 퀴즈 — OX · 빈칸 · 영단어 · 한국사</div><div class='block'>최근 발행 — 2025 9월 모의평가</div>",c:"퀴즈 카드를 누르면 세트가 열립니다"},
+ {n:"②",t:"퀴즈 플레이",h:"<div class='ptitle'>영단어 1/10</div><div class='block'>바나나를 뜻하는 것은?</div>",c:"스택 화면으로 열립니다 — 탭바 없음"},
+ {n:"③",t:"퀴즈 플레이",h:"<div class='ptitle'>영단어 1/10</div><div class='block'>바나나를 뜻하는 것은?</div><div class='choice sel'>banana ✓</div><div class='choice'>react</div><div class='choice'>apple</div><div class='choice'>table</div><div class='choice'>run</div><div class='choice'>code</div>",c:"선지를 고르면 즉시 정오, 다음 문제로 갑니다"},
+ {n:"④",t:"퀴즈 플레이",h:"<div class='ptitle'>영단어 10/10</div><div class='block'>사과를 뜻하는 것은?</div><div class='choice'>banana</div><div class='choice sel'>apple ✓</div>",c:"마지막 문제까지 같은 방식입니다"},
+ {n:"⑤",t:"퀴즈 결과",h:"<div class='ptitle'>세트 결과</div><div class='block'>정답 8 / 10</div><div class='block'>틀린 문항 — banana, table</div>",c:"점수와 틀린 문항이 나오고 끝입니다"}]},
+{name:"첫 실행과 둘러보기",steps:[
+ {n:"①",t:"로그인",h:"<div class='ptitle'>한장</div><div class='block hot'>카카오로 시작</div><div class='block'>전화번호로 시작</div>",c:"앱을 열면 로그인이 먼저입니다"},
+ {n:"②",t:"홈",h:"<div class='block'>이어하기 — 없음</div><div class='block'>오늘의 퀴즈</div><div class='block'>최근 발행 회차</div><div class='tabbar'><div class='on'>홈</div><div>자료실</div><div>저장</div><div>복습</div><div>마이</div></div>",c:"로그인하면 홈 탭입니다"},
+ {n:"③",t:"자료실",h:"<div class='block'>2025 수능 국어 ☆</div><div class='block hot'>2025 9월 모의 국어 — 북마크 누름 ★</div><div class='block'>2024 수능 국어 ☆</div><div class='tabbar'><div>홈</div><div class='on'>자료실</div><div>저장</div><div>복습</div><div>마이</div></div>",c:"카드의 북마크를 누르면 저장됩니다"},
+ {n:"④",t:"저장",h:"<div class='block hot'>2025 9월 모의 국어 ★</div><div class='tabbar'><div>홈</div><div>자료실</div><div class='on'>저장</div><div>복습</div><div>마이</div></div>",c:"북마크한 회차만 모여 있습니다"},
+ {n:"⑤",t:"복습",h:"<div class='block'>아직 채점한 시험이 없어요</div><div class='tabbar'><div>홈</div><div>자료실</div><div>저장</div><div class='on'>복습</div><div>마이</div></div>",c:"풀고 난 시험이 여기 쌓입니다 — 지금은 빈 상태"},
+ {n:"⑥",t:"마이",h:"<div class='block'>계정 — 카카오 연결됨</div><div class='block hot'>로그아웃</div><div class='tabbar'><div>홈</div><div>자료실</div><div>저장</div><div>복습</div><div class='on'>마이</div></div>",c:"계정 정보와 로그아웃입니다"}]}
+];
+let si=0,pi=0;
+const scn=document.getElementById('scn'),seg=document.getElementById('seg'),tag=document.getElementById('tag'),stage=document.getElementById('stage'),cap=document.getElementById('cap');
+function tabs(){scn.innerHTML=S.map((s,i)=>`<button class="${i==si?'on':''}" onclick="go(${i},0)">${s.name}</button>`).join('')}
+// 의견 저장 — artifact db가 있으면 쓰고, 없으면 localStorage
+const db=(()=>{try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return null})();
+const saveFb=(k,v)=>{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+function draw(){const st=S[si].steps[pi];tag.textContent=st.n;
+ saveFb(`flow-${si+1}-seen`,pi+1);
+ stage.innerHTML=`<div class='ptitle'>${st.t}</div>${st.h}<button class='cta' onclick='next()'>${pi<S[si].steps.length-1?'눌러서 다음 →':'처음으로'}</button>`;
+ seg.innerHTML=S[si].steps.map((_,i)=>`<i class="${i<pi?'done':i==pi?'now':''}"></i>`).join('');
+ cap.textContent=st.c;tabs()}
+function go(i,p){si=i;pi=p;draw()}
+function next(){pi=(pi+1)%S[si].steps.length;draw()}
+draw();
+</script>
+</body>
+</html>

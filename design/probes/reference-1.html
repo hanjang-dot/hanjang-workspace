@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한장 — 레퍼런스 비교</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans KR",-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:960px;margin:0 auto}
+  h1{font-family:"Noto Serif KR",serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px;line-height:1.6}
+  .reco-line{margin-top:12px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .app{margin-top:44px;padding-top:24px;border-top:1px solid var(--rule)}
+  .app-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .app-head h2{font-family:"Noto Serif KR",serif;font-size:19px}
+  .why-pick{font-size:12.5px;color:var(--stamp)}
+  /* 추상 와이어 박스 — 스크린샷 대용 */
+  .wire{width:var(--frame-w);background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:16px;margin:14px 0 18px;display:flex;flex-direction:column;gap:8px}
+  .wire em{font-style:normal;font-size:10.5px;color:var(--muted);text-align:right}
+  .wl{height:9px;border-radius:5px;background:var(--hairline)}
+  .wl.s{height:7px}
+  .wl.w30{width:30%}.wl.w45{width:45%}.wl.w60{width:60%}.wl.w75{width:75%}.wl.w90{width:90%}
+  .wbox{border:1px solid var(--hairline);border-radius:10px;background:var(--paper);padding:10px;display:flex;flex-direction:column;gap:6px}
+  .wrow{display:flex;align-items:center;gap:8px}
+  .wdot{flex:none;width:16px;height:16px;border-radius:50%;background:var(--hairline)}
+  .wdot.ink{background:var(--rule)}
+  .wbtn{height:34px;border-radius:9px;background:var(--hairline)}
+  .wbtn.hot{background:var(--rule)}
+  .wtimer{font-family:"Noto Serif KR",serif;font-size:26px;color:var(--rule);text-align:center;letter-spacing:.05em}
+  .wtabs{display:flex;gap:4px;border-top:1px solid var(--hairline);padding-top:8px}
+  .wtabs i{flex:1;height:22px;border-radius:6px;background:var(--hairline)}
+  .wtabs i.on{background:var(--rule)}
+  .wstack{position:relative;height:54px}
+  .wstack i{position:absolute;left:0;right:0;height:40px;border-radius:10px;background:var(--paper);border:1px solid var(--hairline)}
+  .wstack i:nth-child(2){top:8px;left:10px;right:10px}
+  .wstack i:nth-child(3){top:16px;left:20px;right:20px}
+  /* 컴포넌트 라벨 + want/hate */
+  .items{display:flex;flex-direction:column;gap:10px}
+  .ref-item{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--hairline);border-radius:12px;padding:12px 16px}
+  .ref-label{flex:1;min-width:0}
+  .ref-label b{font-size:13.5px}
+  .ref-label i{font-style:normal;color:var(--stamp);font-weight:700;margin-right:6px}
+  .ref-label p{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .pick{display:flex;gap:6px;flex:none}
+  .chip{border:1px solid var(--rule);background:var(--paper);border-radius:99px;padding:6px 12px;font-size:11.5px;font-family:inherit;color:var(--muted);cursor:pointer}
+  .chip.sel-want{background:var(--navy);border-color:var(--navy);color:var(--card)}
+  .chip.sel-hate{background:var(--stamp);border-color:var(--stamp);color:var(--card)}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>한장 레퍼런스 비교</h1>
+  <p class="sub">스크린샷 대신 추상 와이어로 놓았습니다. 각 앱에서 컴포넌트별로 "가져오고 싶음 / 싫음"을 눌러 주세요. 선택은 자동 저장됩니다.</p>
+  <p class="reco-line"><b>추천:</b> 각 앱의 첫 번째 요소(①④⑦⑩)는 한장의 핵심 장면과 겹치니 우선 참고하는 것을 추천합니다.</p>
+</header>
+
+<section class="app">
+  <div class="app-head"><h2>오르조</h2><span class="why-pick">왜 골랐는지 — 시험지 한 장 몰입 풀이라 직접 경쟁 앱입니다</span></div>
+  <div class="wire"><em>추상 와이어 · 실제 화면 아님</em>
+    <div class="wbox"><div class="wl w90"></div><div class="wl w75"></div><div class="wl w90"></div><div class="wl w60"></div><div class="wl w75"></div></div>
+    <div class="wrow"><span class="wdot ink"></span><div class="wl w90 s"></div></div>
+    <div class="wrow"><span class="wdot"></span><div class="wl w75 s"></div></div>
+    <div class="wrow"><span class="wdot"></span><div class="wl w90 s"></div></div>
+    <div class="wbtn hot"></div>
+    <div class="wtabs"><i class="on"></i><i></i><i></i></div>
+  </div>
+  <div class="items">
+    <div class="ref-item" data-app="orzo" data-n="1">
+      <div class="ref-label"><b><i>①</i>풀이 화면 밀도</b><p>지문과 문항을 한 화면에 빽빽하게 배치해 스크롤 없이 풀게 함</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="orzo" data-n="2">
+      <div class="ref-label"><b><i>②</i>시험지 한 장 레이아웃</b><p>실제 시험지 비율의 세로 한 장 — 위에서 아래로 읽는 흐름</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="orzo" data-n="3">
+      <div class="ref-label"><b><i>③</i>하단 탭 구성</b><p>풀이·기록·내 정보 정도로 탭이 적고 역할이 뚜렷함</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="app">
+  <div class="app-head"><h2>콴다</h2><span class="why-pick">왜 골랐는지 — 문항 풀이와 즉시 채점 UX의 기준점</span></div>
+  <div class="wire"><em>추상 와이어 · 실제 화면 아님</em>
+    <div class="wbox"><div class="wl w60"></div><div class="wl w90"></div><div class="wl w75"></div></div>
+    <div class="wrow"><span class="wdot ink"></span><div class="wl w45 s"></div><span class="wdot"></span><div class="wl w30 s"></div></div>
+    <div class="wbtn"></div>
+    <div class="wbox"><div class="wl w90 s"></div><div class="wl w60 s"></div></div>
+    <div class="wtabs"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="items">
+    <div class="ref-item" data-app="qanda" data-n="4">
+      <div class="ref-label"><b><i>④</i>즉시 채점 피드백</b><p>선지를 고르는 순간 정오 표시가 붙어 기다림이 없음</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="qanda" data-n="5">
+      <div class="ref-label"><b><i>⑤</i>문항 카드 구성</b><p>문항 하나 = 카드 한 장, 번호·지문·선지 위계가 선명함</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="qanda" data-n="6">
+      <div class="ref-label"><b><i>⑥</i>풀이 입력 UX</b><p>사진 찍기·필기 인식 등 입력 경로가 여러 갈래로 열려 있음</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="app">
+  <div class="app-head"><h2>마이지니</h2><span class="why-pick">왜 골랐는지 — 학습 타이머와 세션 복귀 흐름이 잘 되어 있음</span></div>
+  <div class="wire"><em>추상 와이어 · 실제 화면 아님</em>
+    <div class="wtimer">42:10</div>
+    <div class="wbox"><div class="wrow"><span class="wdot ink"></span><div class="wl w60 s"></div></div><div class="wl w90 s"></div></div>
+    <div class="wrow"><div class="wl w30 s"></div><div class="wl w45 s"></div><div class="wl s" style="flex:1"></div></div>
+    <div class="wbtn"></div>
+    <div class="wtabs"><i class="on"></i><i></i><i></i></div>
+  </div>
+  <div class="items">
+    <div class="ref-item" data-app="mygenie" data-n="7">
+      <div class="ref-label"><b><i>⑦</i>세션 이어하기 카드</b><p>앱을 다시 열면 하던 공부가 맨 위 카드로 기다리고 있음</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="mygenie" data-n="8">
+      <div class="ref-label"><b><i>⑧</i>학습 타이머 표시</b><p>남은 시간을 크고 얌전하게 — 숫자만 띄워 압박을 줄임</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="mygenie" data-n="9">
+      <div class="ref-label"><b><i>⑨</i>일별 기록 요약</b><p>오늘 한 공부를 한 줄 막대로 요약해 홈 하단에 둠</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="app">
+  <div class="app-head"><h2>산타</h2><span class="why-pick">왜 골랐는지 — 오답을 모아 다시 푸는 복습 플로우의 참고점</span></div>
+  <div class="wire"><em>추상 와이어 · 실제 화면 아님</em>
+    <div class="wstack"><i></i><i></i><i></i></div>
+    <div class="wbox"><div class="wrow"><span class="wdot ink"></span><div class="wl w75 s"></div></div><div class="wl w90 s"></div><div class="wl w45 s"></div></div>
+    <div class="wbtn hot"></div>
+    <div class="wtabs"><i></i><i class="on"></i><i></i></div>
+  </div>
+  <div class="items">
+    <div class="ref-item" data-app="santa" data-n="10">
+      <div class="ref-label"><b><i>⑩</i>오답 노트 구성</b><p>틀린 문항만 모아 카드 스택으로 — 한 장씩 넘기며 확인</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="santa" data-n="11">
+      <div class="ref-label"><b><i>⑪</i>오답 복습 플로우</b><p>틀린 문항을 유사 문항으로 이어 풀게 해 복습을 닫는 구조</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+    <div class="ref-item" data-app="santa" data-n="12">
+      <div class="ref-label"><b><i>⑫</i>약점 리포트</b><p>유형별 정답률 막대로 어디가 약한지 바로 보여 줌</p></div>
+      <div class="pick"><button class="chip" data-v="want">가져오고 싶음</button><button class="chip" data-v="hate">싫음</button></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+const db=(()=>{try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return null})();const saveFb=(k,v)=>{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+document.querySelectorAll('.ref-item').forEach(item=>{
+  const key=`ref-${item.dataset.app}-${item.dataset.n}`;
+  item.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      const on=chip.classList.contains(`sel-${chip.dataset.v}`);
+      item.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel-want','sel-hate'));
+      if(!on){
+        chip.classList.add(`sel-${chip.dataset.v}`);
+        saveFb(key,chip.dataset.v);
+      }
+    });
+  });
+  try{
+    const v=JSON.parse(localStorage.getItem(`feedback/${key}`));
+    const c=v&&item.querySelector(`.chip[data-v="${v}"]`);
+    if(c)c.classList.add(`sel-${v}`);
+  }catch(e){}
+});
+</script>
+</body>
+</html>

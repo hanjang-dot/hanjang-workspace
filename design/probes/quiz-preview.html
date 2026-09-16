@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한장 — 오늘의 퀴즈 미리보기</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--frame-w:390px;--bg:#F6F4FB;--ink:#17142B;--mut:#8B87A3;--vio:#6C5CE7;--vio2:#8F7BFF;--grn:#22C58B;--red:#F0506E;--card:#FFFFFF;--line:#ECE9F6}
+  *{box-sizing:border-box;margin:0;font-family:"IBM Plex Sans KR",-apple-system,sans-serif}
+  body{background:var(--bg);color:var(--ink);padding:32px 16px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+  h1{font-family:"Noto Serif KR",serif;font-size:22px;margin-bottom:4px}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:28px}
+  .row{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+  .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .col .cap{font-size:12px;color:var(--mut)}
+  .phone{width:var(--frame-w);height:720px;border-radius:36px;padding:18px;position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#FFFFFF 0%,#F6F4FB 60%,#EFEBFD 100%);
+    border:1px solid var(--line);box-shadow:0 20px 50px rgba(80,70,160,.14)}
+  .statusbar{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);padding:2px 6px 14px}
+  .head{display:flex;align-items:center;justify-content:space-between;padding:0 4px 14px}
+  .head .back{width:34px;height:34px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:15px}
+  .head .title{font-weight:700;font-size:15px}
+  .head .cnt{font-size:12px;color:var(--mut);font-weight:600}
+  .prog{height:8px;border-radius:99px;background:#E9E5F8;margin:0 4px 20px;overflow:hidden}
+  .prog i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--vio),var(--vio2))}
+  .qcard{background:var(--card);border-radius:22px;padding:22px 20px;margin:0 2px 18px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(80,70,160,.07)}
+  .qcard .chip{display:inline-block;font-size:11px;font-weight:700;color:var(--vio);background:#EFEBFD;border-radius:99px;padding:4px 10px;margin-bottom:10px}
+  .qcard .q{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;line-height:1.45}
+  .qcard .qsub{font-size:12px;color:var(--mut);margin-top:8px}
+  .ch{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:13px 14px;margin:0 2px 9px;font-size:14px;font-weight:500;transition:.15s}
+  .ch .k{width:26px;height:26px;border-radius:9px;background:#F1EEFB;color:var(--vio);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .ch.ok{border-color:var(--grn);background:#EEFBF5}
+  .ch.ok .k{background:var(--grn);color:#fff}
+  .ch.no{border-color:var(--red);background:#FDF0F3}
+  .ch.no .k{background:var(--red);color:#fff}
+  .ch .mark{margin-left:auto;font-size:13px;font-weight:700}
+  .ch.ok .mark{color:var(--grn)} .ch.no .mark{color:var(--red)}
+  .oxrow{display:flex;gap:12px;margin:0 2px}
+  .ox{flex:1;height:150px;border-radius:22px;border:2px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:44px;font-weight:700}
+  .ox small{font-size:12px;color:var(--mut);font-weight:600}
+  .ox.o{color:var(--grn)} .ox.x{color:var(--red)}
+  .ox.o.sel{border-color:var(--grn);background:#EEFBF5;box-shadow:0 8px 24px rgba(34,197,139,.2)}
+  .score{position:relative;width:150px;height:150px;margin:8px auto 14px}
+  .score svg{transform:rotate(-90deg)}
+  .score .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .score .n b{font-family:"Noto Serif KR",serif;font-size:34px}
+  .score .n span{font-size:11px;color:var(--mut)}
+  .wrong{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 2px 8px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+  .wrong .x{color:var(--red);font-weight:700}
+  .cta{margin:14px 2px 0;background:linear-gradient(90deg,var(--vio),var(--vio2));color:#fff;border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;width:calc(100% - 4px);box-shadow:0 10px 24px rgba(108,92,231,.3)}
+  .ghost{margin-top:10px;width:calc(100% - 4px);background:none;border:none;color:var(--mut);font-size:13px;padding:10px}
+  .lab{position:absolute;top:10px;right:14px;background:var(--vio);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:3px 9px}
+  .fb{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap;justify-content:center}
+  .fb button{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:9px 16px;font-size:13px;cursor:pointer;color:var(--ink)}
+</style>
+</head>
+<body>
+<h1>오늘의 퀴즈 — 화면 시안</h1>
+<p class="sub">영단어 6지선다 · OX · 세트 결과. 마음에 드는 화면을 눌러 선택</p>
+<div class="row">
+
+  <div class="col">
+    <div class="phone" onclick="pick('quiz-word')"><span class="lab">①</span>
+      <div class="statusbar"><span>9:41</span><span>한장</span></div>
+      <div class="head"><div class="back">‹</div><div class="title">영단어 퀴즈</div><div class="cnt">3 / 10</div></div>
+      <div class="prog"><i style="width:30%"></i></div>
+      <div class="qcard"><span class="chip">EN → KO</span><div class="q">"apple"을 뜻하는 것은?</div><div class="qsub">다음 중 알맞은 뜻을 고르세요</div></div>
+      <div class="ch"><span class="k">A</span>바나나</div>
+      <div class="ch ok"><span class="k">B</span>사과<span class="mark">✓ 정답</span></div>
+      <div class="ch"><span class="k">C</span>포도</div>
+      <div class="ch no"><span class="k">D</span>복숭아<span class="mark">내 선택</span></div>
+      <div class="ch"><span class="k">E</span>귤</div>
+      <div class="ch"><span class="k">F</span>수박</div>
+    </div>
+    <span class="cap">① 영단어 — 6지선다, 즉시 정오 표시</span>
+  </div>
+
+  <div class="col">
+    <div class="phone" onclick="pick('quiz-ox')"><span class="lab">②</span>
+      <div class="statusbar"><span>9:41</span><span>한장</span></div>
+      <div class="head"><div class="back">‹</div><div class="title">OX 퀴즈</div><div class="cnt">5 / 10</div></div>
+      <div class="prog"><i style="width:50%"></i></div>
+      <div class="qcard"><span class="chip">OX</span><div class="q">세종대왕은 훈민정음을 창제했다</div><div class="qsub">맞으면 O, 틀리면 X</div></div>
+      <div class="oxrow">
+        <div class="ox o sel">O<small>맞다</small></div>
+        <div class="ox x">X<small>아니다</small></div>
+      </div>
+      <button class="cta">다음 문제</button>
+    </div>
+    <span class="cap">② OX — 큰 두 버튼, 터치 영역 넓게</span>
+  </div>
+
+  <div class="col">
+    <div class="phone" onclick="pick('quiz-result')"><span class="lab">③</span>
+      <div class="statusbar"><span>9:41</span><span>한장</span></div>
+      <div class="head"><div class="back">‹</div><div class="title">퀴즈 결과</div><div class="cnt"></div></div>
+      <div class="score">
+        <svg width="150" height="150"><circle cx="75" cy="75" r="64" fill="none" stroke="#E9E5F8" stroke-width="12"/><circle cx="75" cy="75" r="64" fill="none" stroke="url(#g)" stroke-width="12" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="80"/><defs><linearGradient id="g"><stop offset="0" stop-color="#6C5CE7"/><stop offset="1" stop-color="#8F7BFF"/></linearGradient></defs></svg>
+        <div class="n"><b>8/10</b><span>정답</span></div>
+      </div>
+      <div class="wrong"><span>apple — 사과</span><span class="x">바나나 선택</span></div>
+      <div class="wrong"><span>run — 달리다</span><span class="x">걷다 선택</span></div>
+      <button class="cta">틀린 문항 복습에 저장</button>
+      <button class="ghost">홈으로 돌아가기</button>
+    </div>
+    <span class="cap">③ 결과 — 점수 링 + 틀린 문항</span>
+  </div>
+
+</div>
+<div class="fb">
+  <button onclick="pick('quiz-all')">전부 괜찮아요</button>
+  <button onclick="pick('quiz-none')">다 마음에 안 들어요</button>
+</div>
+<script>
+const db=(()=>{try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return null})();
+const saveFb=(k,v)=>{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+function pick(k){saveFb(k,{t:Date.now()});alert('저장됨: '+k)}
+</script>
+</body>
+</html>

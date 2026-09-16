@@ -1,0 +1,2009 @@
+<title>한장 — 디자인 인터뷰</title>
+<style>
+:root{--bg:#F7F8FA;--card:#fff;--line:#E5E7EB;--ink:#1F2937;--sub:#6B7280;--acc:#2F6BFF}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard",-apple-system,"Apple SD Gothic Neo",system-ui,sans-serif;display:flex;flex-direction:column}
+header{flex:none;background:var(--card);border-bottom:1px solid var(--line);padding:10px 20px 0}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h1{font-size:17px;margin:0 0 6px}
+.todo{font-size:13px;color:var(--sub)}
+.todo b{color:var(--acc)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-bottom:0;background:#F3F4F6;color:var(--sub);padding:9px 14px;border-radius:10px 10px 0 0;cursor:pointer;display:flex;align-items:center;gap:8px}
+.tab.on{background:var(--card);color:var(--ink);box-shadow:0 1px 0 var(--card)}
+.tab.unseen .t::after{content:"NEW";font-size:10px;font-weight:700;color:#fff;background:var(--acc);border-radius:6px;padding:1px 5px;margin-left:6px}
+.badge{font-size:11px;font-weight:600;color:var(--sub);background:#E5E7EB;border-radius:999px;padding:2px 8px}
+.badge.ok{color:#065F46;background:#D1FAE5}
+main{flex:1;min-height:0;position:relative}
+.pane{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--bg)}
+</style>
+<header>
+  <div class="top"><h1>한장 — 디자인 인터뷰</h1><div class="todo" id="todo">불러오는 중…</div></div>
+  <nav class="tabs" role="tablist"><button class="tab" data-key="structure-survey" role="tab"><span class="t">구조</span><span class="badge" id="badge-structure-survey">…</span></button><button class="tab" data-key="flow-1" role="tab"><span class="t">따라가 보기</span><span class="badge" id="badge-flow-1">…</span></button><button class="tab" data-key="reference-1" role="tab"><span class="t">레퍼런스</span><span class="badge" id="badge-reference-1">…</span></button><button class="tab" data-key="taste-color" role="tab"><span class="t">색상</span><span class="badge" id="badge-taste-color">…</span></button><button class="tab" data-key="taste-shape" role="tab"><span class="t">모양·간격</span><span class="badge" id="badge-taste-shape">…</span></button><button class="tab" data-key="taste-type" role="tab"><span class="t">글자</span><span class="badge" id="badge-taste-type">…</span></button><button class="tab" data-key="icons-1" role="tab"><span class="t">아이콘</span><span class="badge" id="badge-icons-1">…</span></button><button class="tab" data-key="quiz-preview" role="tab"><span class="t">퀴즈 미리보기</span><span class="badge" id="badge-quiz-preview">…</span></button><button class="tab" data-key="rules-preview" role="tab"><span class="t">규칙 미리보기</span><span class="badge" id="badge-rules-preview">…</span></button><button class="tab" data-key="final-preview" role="tab"><span class="t">최종 미리보기</span><span class="badge" id="badge-final-preview">…</span></button></nav>
+</header>
+<main><iframe class="pane" id="pane-structure-survey" data-key="structure-survey" title="구조" srcdoc="&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;&lt;title&gt;1단계 구조&lt;/title&gt;
+&lt;style&gt;
+:root{color-scheme:light only;
+  --bg:#F7F8FA;--card:#FFFFFF;--line:#E5E7EB;--ink:#1F2937;--sub:#6B7280;--soft:#EEF0F3;
+  --acc:#2F6BFF;--acc-d:#1F4ED8}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--ink);font:14px/1.5 &quot;Pretendard&quot;,-apple-system,&quot;Apple SD Gothic Neo&quot;,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 24px 72px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:17px;margin:0 0 4px}
+h2 small{font-weight:500;color:var(--sub);font-size:13px;margin-left:8px}
+.sub{color:var(--sub);margin:0 0 24px}
+.counter{display:inline-block;font-size:13px;font-weight:600;color:var(--acc);background:#EEF3FF;border-radius:14px;padding:3px 12px;vertical-align:4px;margin-left:8px}
+.fb-warn{font-size:12px;color:var(--sub);background:var(--soft);border-radius:8px;padding:6px 10px;margin-bottom:16px;display:inline-block}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);padding:8px 16px;border-radius:18px;background:var(--ink);color:#fff;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+
+section[data-unit]{display:grid;grid-template-columns:132px minmax(0,1fr);gap:24px;align-items:start;margin-bottom:48px}
+.strip{position:sticky;top:12px;display:flex;flex-direction:column;gap:10px;width:132px}
+.strip .ax{display:flex;align-items:center;gap:8px;height:40px;padding:0 10px;background:var(--card);border:1px solid var(--line);border-radius:12px;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden}
+.strip .ax b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+.strip .ax span{overflow:hidden;text-overflow:ellipsis}
+.save{font:inherit;font-weight:700;font-size:14px;height:40px;width:132px;padding:0;border-radius:10px;border:0;background:var(--acc);color:#fff;cursor:pointer}
+.save:disabled{opacity:.5;cursor:default}
+.save:focus-visible,.opt:focus-visible,.rowchk:focus-visible,textarea:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.strip .saved{font-size:12px;font-weight:600;color:#166534;text-align:center;min-height:18px}
+.strip .go{height:auto;min-height:40px;padding:8px 6px;line-height:1.3;white-space:normal}
+.strip .alt{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.strip .alt.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.strip .save[hidden]{display:none}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-size:12px;font-weight:700;color:var(--sub);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.name{font-weight:700;white-space:nowrap}
+td.cta{color:var(--acc);font-weight:600}
+td.rm{width:120px;text-align:right}
+td.rm label{font-size:12px;color:var(--sub);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+tr.off td{opacity:.4;text-decoration:line-through}
+tr.off td.rm{opacity:1;text-decoration:none}
+.fixed{margin-top:14px;font-size:13px;color:var(--sub)}
+.fixed b{color:var(--ink)}
+.fixed span{display:inline-block;margin:2px 10px 2px 0}
+
+.q{padding:14px 0;border-bottom:1px solid var(--soft)}
+.q:last-of-type{border-bottom:0}
+.q .qt{font-weight:700;margin-bottom:4px}
+.q .why{font-size:12px;color:var(--sub);margin:0 0 10px}
+.q .why b{color:#166534}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{font:inherit;font-size:14px;font-weight:600;height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;position:relative}
+.opt.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.opt.reco::after{content:&quot;추천&quot;;position:absolute;top:-9px;right:8px;font-size:10px;font-weight:700;padding:1px 6px;border-radius:8px;background:#166534;color:#fff}
+.opt.on.reco::after{background:#22C55E}
+.q[data-locked] .opt{pointer-events:none}
+.q[data-locked] .opt:not(.on){opacity:.45}
+
+.fb{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fb .eyebrow{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--sub);text-transform:uppercase;margin-bottom:10px}
+textarea{width:100%;font:inherit;font-size:14px;line-height:1.5;padding:10px 12px;border:1px solid var(--line);border-radius:10px;resize:vertical;color:var(--ink);background:#fff;min-height:72px}
+textarea::placeholder{color:#9CA3AF}
+.overall{display:grid;grid-template-columns:132px minmax(0,1fr);gap:24px;align-items:start;margin-top:8px}
+.overall .fb{margin-top:0}
+.foot{margin-top:40px;font-size:12px;color:var(--sub);text-align:center}
+@media (max-width:900px){section[data-unit],.overall{grid-template-columns:1fr}.strip{position:static;flex-direction:row;flex-wrap:wrap;width:auto;align-items:center}.strip .saved{margin-left:auto}}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+&lt;/style&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+&lt;h1&gt;1단계 구조 &lt;span class=&quot;counter&quot; id=&quot;fb-count&quot;&gt;확인한 항목 0/2&lt;/span&gt;&lt;/h1&gt;
+&lt;p class=&quot;sub&quot;&gt;기획서에서 뽑은 화면 목록이에요. 맞으면 &quot;추천대로&quot;, 고칠 게 있으면 &quot;다르게&quot;를 눌러 주세요.&lt;/p&gt;
+&lt;div class=&quot;fb-warn&quot; id=&quot;fb-warn&quot; hidden&gt;이 환경에서는 브라우저에만 저장돼요&lt;/div&gt;
+
+&lt;section data-unit=&quot;1&quot;&gt;
+  &lt;div class=&quot;strip&quot;&gt;
+    &lt;div class=&quot;ax&quot;&gt;&lt;b&gt;1&lt;/b&gt;&lt;span&gt;화면 목록&lt;/span&gt;&lt;/div&gt;
+    &lt;button class=&quot;save go&quot; data-accept=&quot;1&quot;&gt;추천대로 할게요&lt;/button&gt;
+    &lt;button class=&quot;save go alt&quot; data-alt=&quot;1&quot;&gt;다르게 할래요&lt;/button&gt;
+    &lt;button class=&quot;save&quot; data-save=&quot;1&quot; hidden&gt;저장&lt;/button&gt;
+    &lt;div class=&quot;saved&quot; id=&quot;saved-1&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h2&gt;어떤 화면들이 필요한가요 &lt;small&gt;기획서에서 뽑았어요&lt;/small&gt;&lt;/h2&gt;
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;table id=&quot;screens&quot;&gt;
+        &lt;thead&gt;&lt;tr&gt;&lt;th&gt;화면&lt;/th&gt;&lt;th&gt;무슨 화면인지&lt;/th&gt;&lt;th&gt;어떻게 들어가는지&lt;/th&gt;&lt;th&gt;가장 중요한 버튼&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+        &lt;tbody&gt;&lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;div class=&quot;fixed&quot; id=&quot;fixed&quot; hidden&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;fb&quot; data-fb=&quot;1&quot; hidden&gt;
+      &lt;div class=&quot;eyebrow&quot;&gt;고칠 점&lt;/div&gt;
+      &lt;textarea data-text placeholder=&quot;빠진 화면이 있거나, 이름·역할이 다르면 여기에 적어 주세요&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section data-unit=&quot;2&quot;&gt;
+  &lt;div class=&quot;strip&quot;&gt;
+    &lt;div class=&quot;ax&quot;&gt;&lt;b&gt;2&lt;/b&gt;&lt;span&gt;빈 칸 질문&lt;/span&gt;&lt;/div&gt;
+    &lt;button class=&quot;save go&quot; data-accept=&quot;2&quot;&gt;추천대로 할게요&lt;/button&gt;
+    &lt;button class=&quot;save go alt&quot; data-alt=&quot;2&quot;&gt;다르게 할래요&lt;/button&gt;
+    &lt;button class=&quot;save&quot; data-save=&quot;2&quot; hidden&gt;저장&lt;/button&gt;
+    &lt;div class=&quot;saved&quot; id=&quot;saved-2&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h2&gt;기획서에 없어서 여쭤봐요 &lt;small&gt;추천이 미리 골라져 있어요&lt;/small&gt;&lt;/h2&gt;
+    &lt;div class=&quot;card&quot; id=&quot;questions&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb&quot; data-fb=&quot;2&quot; hidden&gt;
+      &lt;div class=&quot;eyebrow&quot;&gt;덧붙일 말&lt;/div&gt;
+      &lt;textarea data-text placeholder=&quot;선택지에 없는 답이 있으면 적어 주세요&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class=&quot;overall&quot;&gt;
+  &lt;div class=&quot;strip&quot;&gt;
+    &lt;div class=&quot;ax&quot;&gt;&lt;b&gt;∑&lt;/b&gt;&lt;span&gt;전체 의견&lt;/span&gt;&lt;/div&gt;
+    &lt;button class=&quot;save&quot; data-save=&quot;overall&quot;&gt;저장&lt;/button&gt;
+    &lt;div class=&quot;saved&quot; id=&quot;saved-overall&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fb&quot; data-fb=&quot;overall&quot;&gt;
+    &lt;div class=&quot;eyebrow&quot;&gt;전체 의견&lt;/div&gt;
+    &lt;textarea data-text placeholder=&quot;이 단계 전체에 대해 하고 싶은 말&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;foot&quot;&gt;저장한 내용은 다음 단계에서 그대로 쓰여요. 언제든 다시 열어 고칠 수 있어요.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;toast&quot; id=&quot;toast&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+/* ===== probe-renderer(KIND=structure)가 채우는 유일한 블록 =====
+SURVEY = {
+  screens: [ {id:&quot;home&quot;, name:&quot;홈&quot;, role:&quot;모임 목록&quot;, entry:&quot;앱 실행 시&quot;, cta:&quot;새 모임 만들기&quot;}, ... ],
+  fixed:   [ {label:&quot;플랫폼&quot;, value:&quot;iOS와 Android 둘 다&quot;, source:&quot;PRD 2절&quot;}, ... ],   // 묻지 않는 확정 항목
+  questions: [
+    { id:&quot;entry&quot;, q:&quot;앱을 열면 맨 처음 무엇이 보이나요?&quot;, why:&quot;PRD에 로그인 언급이 없어요&quot;,
+      options:[ {value:&quot;main&quot;, label:&quot;바로 메인 화면&quot;}, {value:&quot;login&quot;, label:&quot;로그인 먼저&quot;}, {value:&quot;onboarding&quot;, label:&quot;온보딩 몇 장 먼저&quot;} ] },
+    ...
+  ]   // options[0]이 추천. 최대 8개.
+};
+*/
+const SURVEY = {
+  screens: [
+    {id:&quot;home&quot;, name:&quot;홈&quot;, role:&quot;내 모임 목록&quot;, entry:&quot;앱 실행 시&quot;, cta:&quot;새 모임 만들기&quot;},
+    {id:&quot;create&quot;, name:&quot;모임 만들기&quot;, role:&quot;날짜·장소 입력&quot;, entry:&quot;홈 → 새 모임&quot;, cta:&quot;만들기&quot;},
+    {id:&quot;detail&quot;, name:&quot;모임 상세&quot;, role:&quot;참석 여부와 일정&quot;, entry:&quot;홈 → 모임 카드&quot;, cta:&quot;참석할게요&quot;}
+  ],
+  fixed: [
+    {label:&quot;플랫폼&quot;, value:&quot;iOS와 Android 둘 다&quot;, source:&quot;PRD&quot;}
+  ],
+  questions: [
+    {id:&quot;entry&quot;, q:&quot;앱을 열면 맨 처음 무엇이 보이나요?&quot;, why:&quot;PRD에 로그인 언급이 없어요&quot;,
+     options:[{value:&quot;main&quot;,label:&quot;바로 메인 화면&quot;},{value:&quot;login&quot;,label:&quot;로그인 먼저&quot;},{value:&quot;onboarding&quot;,label:&quot;온보딩 몇 장 먼저&quot;}]},
+    {id:&quot;core&quot;, q:&quot;가장 자주 반복하는 행동 하나는?&quot;, why:&quot;화면 순서와 첫 버튼을 정하는 기준이에요&quot;,
+     options:[{value:&quot;reply&quot;,label:&quot;참석 여부 답하기&quot;},{value:&quot;create&quot;,label:&quot;모임 만들기&quot;},{value:&quot;check&quot;,label:&quot;일정 확인하기&quot;}]},
+    {id:&quot;tabbar&quot;, q:&quot;하단에 탭이 필요한가요?&quot;, why:&quot;화면이 3개라 탭 없이 한 흐름으로도 충분해요&quot;,
+     options:[{value:&quot;none&quot;,label:&quot;아니오, 한 흐름만&quot;},{value:&quot;3&quot;,label:&quot;예, 3개&quot;}]},
+    {id:&quot;empty&quot;, q:&quot;아직 모임이 하나도 없을 때 무엇을 보여줄까요?&quot;, why:&quot;처음 온 사람이 다음 행동을 알 수 있어야 해요&quot;,
+     options:[{value:&quot;cta&quot;,label:&quot;안내 한 줄 + 첫 행동 버튼&quot;},{value:&quot;sample&quot;,label:&quot;샘플 모임 미리 보여주기&quot;},{value:&quot;blank&quot;,label:&quot;아무것도 안 보여줌&quot;}]},
+    {id:&quot;lang&quot;, q:&quot;언어는 하나인가요?&quot;, why:&quot;긴 언어 기준으로 버튼 폭을 검사해요&quot;,
+     options:[{value:&quot;ko&quot;,label:&quot;한국어만&quot;},{value:&quot;ko-en&quot;,label:&quot;한국어 + 영어&quot;},{value:&quot;multi&quot;,label:&quot;셋 이상&quot;}]}
+  ]
+};
+/* ===== 아래는 손대지 않는다 ===== */
+
+const $=(s,r=document)=&gt;r.querySelector(s);
+const LS_KEY=&#x27;structure-feedback&#x27;;
+const UNITS={1:&#x27;화면 목록&#x27;,2:&#x27;빈 칸 질문&#x27;};
+let db=null,dbReady=false;
+const FB={},DRAFT={};
+
+let toastT;
+function toast(msg){const t=$(&#x27;#toast&#x27;);t.textContent=msg;t.classList.add(&#x27;show&#x27;);clearTimeout(toastT);toastT=setTimeout(()=&gt;t.classList.remove(&#x27;show&#x27;),2200);}
+function fmtAgo(iso){if(!iso)return&#x27;&#x27;;const d=(Date.now()-new Date(iso).getTime())/1000;if(d&lt;60)return&#x27;방금&#x27;;if(d&lt;3600)return Math.floor(d/60)+&#x27;분 전&#x27;;if(d&lt;86400)return Math.floor(d/3600)+&#x27;시간 전&#x27;;return new Date(iso).toLocaleDateString(&#x27;ko-KR&#x27;);}
+function esc(s){return String(s).replace(/[&amp;&lt;&gt;&quot;]/g,c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;}[c]));}
+function recoAnswers(){const a={};SURVEY.questions.forEach(q=&gt;{a[q.id]=q.options[0].value;});return a;}
+function updateCount(){const n=[&#x27;1&#x27;,&#x27;2&#x27;].filter(k=&gt;FB[k]).length;$(&#x27;#fb-count&#x27;).textContent=`확인한 항목 ${n}/2`;}
+
+/* ---------- 화면 목록 ---------- */
+(function buildScreens(){
+  const tb=$(&#x27;#screens tbody&#x27;);
+  tb.innerHTML=SURVEY.screens.map(s=&gt;`&lt;tr data-id=&quot;${esc(s.id)}&quot;&gt;&lt;td class=&quot;name&quot;&gt;${esc(s.name)}&lt;/td&gt;&lt;td&gt;${esc(s.role)}&lt;/td&gt;&lt;td&gt;${esc(s.entry)}&lt;/td&gt;&lt;td class=&quot;cta&quot;&gt;${esc(s.cta)}&lt;/td&gt;&lt;td class=&quot;rm&quot;&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot; class=&quot;rowchk&quot; data-id=&quot;${esc(s.id)}&quot; disabled&gt; 빼도 돼요&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;`).join(&#x27;&#x27;);
+  const fx=$(&#x27;#fixed&#x27;);
+  if(SURVEY.fixed&amp;&amp;SURVEY.fixed.length){fx.hidden=false;fx.innerHTML=&#x27;&lt;b&gt;이미 정해진 것&lt;/b&gt; &#x27;+SURVEY.fixed.map(f=&gt;`&lt;span&gt;${esc(f.label)}: &lt;b&gt;${esc(f.value)}&lt;/b&gt; &lt;small&gt;(${esc(f.source)})&lt;/small&gt;&lt;/span&gt;`).join(&#x27;&#x27;);}
+})();
+/* ---------- 질문 ---------- */
+(function buildQuestions(){
+  const box=$(&#x27;#questions&#x27;);
+  if(!SURVEY.questions.length){box.innerHTML=&#x27;&lt;p class=&quot;why&quot;&gt;기획서만으로 전부 정해졌어요. 물어볼 게 없습니다.&lt;/p&gt;&#x27;;return;}
+  box.innerHTML=SURVEY.questions.map(q=&gt;`&lt;div class=&quot;q&quot; data-q=&quot;${esc(q.id)}&quot; data-locked&gt;&lt;div class=&quot;qt&quot;&gt;${esc(q.q)}&lt;/div&gt;&lt;p class=&quot;why&quot;&gt;&lt;b&gt;추천&lt;/b&gt; ${esc(q.why)}&lt;/p&gt;&lt;div class=&quot;opts&quot;&gt;${q.options.map((o,i)=&gt;`&lt;button class=&quot;opt${i===0?&#x27; reco&#x27;:&#x27;&#x27;}&quot; data-val=&quot;${esc(o.value)}&quot;&gt;${esc(o.label)}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`).join(&#x27;&#x27;);
+})();
+
+function draft(id){
+  if(!DRAFT[id]){
+    const s=FB[id];
+    if(id===&#x27;1&#x27;)DRAFT[id]={marks:s?[...(s.marks||[])]:[],text:s?(s.text===&#x27;추천대로&#x27;?&#x27;&#x27;:s.text||&#x27;&#x27;):&#x27;&#x27;};
+    else if(id===&#x27;2&#x27;)DRAFT[id]={answers:s&amp;&amp;s.answers?{...s.answers}:recoAnswers(),text:s?(s.text===&#x27;추천대로&#x27;?&#x27;&#x27;:s.text||&#x27;&#x27;):&#x27;&#x27;};
+    else DRAFT[id]={text:s?s.text||&#x27;&#x27;:&#x27;&#x27;};
+  }
+  return DRAFT[id];
+}
+function render(id){
+  const d=draft(id),s=FB[id],panel=$(`.fb[data-fb=&quot;${id}&quot;]`);
+  if(id===&#x27;1&#x27;){
+    document.querySelectorAll(&#x27;#screens tbody tr&#x27;).forEach(tr=&gt;{const on=d.marks.includes(tr.dataset.id);tr.classList.toggle(&#x27;off&#x27;,on);$(&#x27;.rowchk&#x27;,tr).checked=on;});
+  }
+  if(id===&#x27;2&#x27;){
+    document.querySelectorAll(&#x27;.q&#x27;).forEach(q=&gt;{const v=d.answers[q.dataset.q];q.querySelectorAll(&#x27;.opt&#x27;).forEach(b=&gt;b.classList.toggle(&#x27;on&#x27;,b.dataset.val===v));});
+  }
+  const ta=$(&#x27;[data-text]&#x27;,panel);if(document.activeElement!==ta)ta.value=d.text;
+  $(`#saved-${id}`).textContent=s?`저장됨 ✓ ${s.text===&#x27;추천대로&#x27;?&#x27;추천대로&#x27;:&#x27;&#x27;} ${fmtAgo(s.updatedAt)}`:&#x27;&#x27;;
+  if(id!==&#x27;overall&#x27;){
+    const acc=$(`[data-accept=&quot;${id}&quot;]`);
+    acc.textContent=s&amp;&amp;s.text===&#x27;추천대로&#x27;?&#x27;추천대로 ✓&#x27;:&#x27;추천대로 할게요&#x27;;
+    if(s&amp;&amp;s.text!==&#x27;추천대로&#x27;&amp;&amp;!panel.dataset.opened)openAlt(id);
+  }
+}
+function setLocked(id,locked){
+  if(id===&#x27;1&#x27;)document.querySelectorAll(&#x27;.rowchk&#x27;).forEach(c=&gt;c.disabled=locked);
+  if(id===&#x27;2&#x27;)document.querySelectorAll(&#x27;.q&#x27;).forEach(q=&gt;{locked?q.setAttribute(&#x27;data-locked&#x27;,&#x27;&#x27;):q.removeAttribute(&#x27;data-locked&#x27;);});
+}
+function openAlt(id){
+  const panel=$(`.fb[data-fb=&quot;${id}&quot;]`);
+  panel.hidden=false;panel.dataset.opened=&#x27;1&#x27;;
+  $(`[data-alt=&quot;${id}&quot;]`).classList.add(&#x27;on&#x27;);
+  $(`[data-save=&quot;${id}&quot;]`).hidden=false;
+  setLocked(id,false);
+}
+function closeAlt(id){
+  const panel=$(`.fb[data-fb=&quot;${id}&quot;]`);
+  panel.hidden=true;delete panel.dataset.opened;
+  $(`[data-alt=&quot;${id}&quot;]`).classList.remove(&#x27;on&#x27;);
+  $(`[data-save=&quot;${id}&quot;]`).hidden=true;
+  setLocked(id,true);
+}
+function renderAll(){[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;overall&#x27;].forEach(render);}
+
+document.querySelectorAll(&#x27;.rowchk&#x27;).forEach(c=&gt;c.addEventListener(&#x27;change&#x27;,()=&gt;{const d=draft(&#x27;1&#x27;),i=d.marks.indexOf(c.dataset.id);c.checked?(i&lt;0&amp;&amp;d.marks.push(c.dataset.id)):(i&gt;=0&amp;&amp;d.marks.splice(i,1));render(&#x27;1&#x27;);}));
+$(&#x27;#questions&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;.opt&#x27;);if(!b)return;const q=b.closest(&#x27;.q&#x27;);if(q.hasAttribute(&#x27;data-locked&#x27;))return;draft(&#x27;2&#x27;).answers[q.dataset.q]=b.dataset.val;render(&#x27;2&#x27;);});
+document.querySelectorAll(&#x27;.fb&#x27;).forEach(panel=&gt;{$(&#x27;[data-text]&#x27;,panel).addEventListener(&#x27;input&#x27;,e=&gt;{draft(panel.dataset.fb).text=e.target.value;});});
+
+async function persist(path,doc){
+  if(dbReady&amp;&amp;db){await db.doc(path).set(doc);}
+  else{let all={};try{all=JSON.parse(localStorage.getItem(LS_KEY)||&#x27;{}&#x27;);}catch(_){}all[path]=doc;try{localStorage.setItem(LS_KEY,JSON.stringify(all));}catch(_){throw{code:&#x27;unavailable&#x27;,message:&#x27;localStorage 실패&#x27;};}}
+}
+function nameOf(id){const s=SURVEY.screens.find(x=&gt;x.id===id);return s?s.name:id;}
+function buildDoc(id,accept){
+  const now=new Date().toISOString();
+  if(id===&#x27;overall&#x27;)return{unit:&#x27;overall&#x27;,n:0,label:&#x27;전체&#x27;,best:null,worst:null,marks:[],markNames:[],text:draft(id).text.trim(),updatedAt:now};
+  if(accept){
+    if(id===&#x27;1&#x27;)return{unit:&#x27;structure&#x27;,n:1,label:UNITS[1],best:null,worst:null,marks:[],markNames:[],text:&#x27;추천대로&#x27;,updatedAt:now};
+    return{unit:&#x27;structure&#x27;,n:2,label:UNITS[2],answers:recoAnswers(),best:null,worst:null,marks:[],markNames:[],text:&#x27;추천대로&#x27;,updatedAt:now};
+  }
+  const d=draft(id);
+  if(id===&#x27;1&#x27;)return{unit:&#x27;structure&#x27;,n:1,label:UNITS[1],best:null,worst:null,marks:[...d.marks],markNames:d.marks.map(nameOf),text:d.text.trim(),updatedAt:now};
+  return{unit:&#x27;structure&#x27;,n:2,label:UNITS[2],answers:{...d.answers},best:null,worst:null,marks:[],markNames:[],text:d.text.trim(),updatedAt:now};
+}
+function errMsg(e){const c=e&amp;&amp;e.code;if(c===&#x27;not_granted&#x27;)return&#x27;저장 권한이 없어요 — 페이지를 다시 열어 주세요&#x27;;if(c===&#x27;revoked&#x27;)return&#x27;접근이 끊겼어요 — 페이지를 다시 열어 주세요&#x27;;if(c===&#x27;quota_exceeded&#x27;)return&#x27;저장 공간이 가득 찼어요&#x27;;if(c===&#x27;resource_exhausted&#x27;)return&#x27;잠시 뒤 다시 눌러 주세요&#x27;;if(c===&#x27;invalid_argument&#x27;)return&#x27;저장 내용에 문제가 있어요&#x27;;return&#x27;저장 실패, 다시 눌러 주세요&#x27;;}
+const pathOf=id=&gt;id===&#x27;overall&#x27;?&#x27;feedback/structure-overall&#x27;:`feedback/structure-${id}`;
+
+document.querySelectorAll(&#x27;[data-save]&#x27;).forEach(btn=&gt;btn.addEventListener(&#x27;click&#x27;,async()=&gt;{
+  const id=btn.dataset.save,doc=buildDoc(id,false);
+  btn.disabled=true;btn.textContent=&#x27;저장 중…&#x27;;
+  try{await persist(pathOf(id),doc);FB[id]=doc;delete DRAFT[id];updateCount();render(id);toast(&#x27;저장됨 ✓&#x27;);}
+  catch(e){console.warn(&#x27;feedback save failed&#x27;,e&amp;&amp;e.code,e);toast(errMsg(e));}
+  finally{btn.disabled=false;btn.textContent=&#x27;저장&#x27;;}
+}));
+document.querySelectorAll(&#x27;[data-alt]&#x27;).forEach(btn=&gt;btn.addEventListener(&#x27;click&#x27;,()=&gt;{
+  const id=btn.dataset.alt,panel=$(`.fb[data-fb=&quot;${id}&quot;]`);
+  if(panel.hidden){openAlt(id);panel.scrollIntoView({behavior:&#x27;smooth&#x27;,block:&#x27;nearest&#x27;});}else closeAlt(id);
+}));
+document.querySelectorAll(&#x27;[data-accept]&#x27;).forEach(btn=&gt;btn.addEventListener(&#x27;click&#x27;,async()=&gt;{
+  const id=btn.dataset.accept,doc=buildDoc(id,true);
+  btn.disabled=true;btn.textContent=&#x27;저장 중…&#x27;;
+  try{await persist(pathOf(id),doc);FB[id]=doc;delete DRAFT[id];closeAlt(id);updateCount();render(id);toast(&#x27;저장됨 ✓ 추천대로&#x27;);}
+  catch(e){console.warn(&#x27;accept save failed&#x27;,e&amp;&amp;e.code,e);toast(errMsg(e));btn.textContent=&#x27;추천대로 할게요&#x27;;}
+  finally{btn.disabled=false;}
+}));
+function applyLoaded(pairs){
+  pairs.forEach(([docId,data])=&gt;{if(!data)return;if(docId===&#x27;structure-overall&#x27;)FB.overall=data;else{const m=/^structure-(\d)$/.exec(docId);if(m&amp;&amp;UNITS[m[1]])FB[m[1]]=data;}});
+  updateCount();renderAll();
+}
+async function initFeedback(){
+  try{db=window.claude&amp;&amp;typeof window.claude.use===&#x27;function&#x27;?await window.claude.use(&#x27;db&#x27;):null;}catch(e){db=null;}
+  if(db){dbReady=true;try{const snap=await db.collection(&#x27;feedback&#x27;).get();applyLoaded(snap.docs.map(d=&gt;[d.id,d.data()]));}catch(e){console.warn(&#x27;feedback load failed&#x27;,e&amp;&amp;e.code,e);toast(&#x27;저장된 의견을 불러오지 못했어요&#x27;);}}
+  else{$(&#x27;#fb-warn&#x27;).hidden=false;let all={};try{all=JSON.parse(localStorage.getItem(LS_KEY)||&#x27;{}&#x27;);}catch(_){}applyLoaded(Object.entries(all).map(([p,d])=&gt;[p.replace(/^feedback\//,&#x27;&#x27;),d]));}
+}
+renderAll();
+initFeedback();
+&lt;/script&gt;
+" hidden></iframe><iframe class="pane" id="pane-flow-1" data-key="flow-1" title="따라가 보기" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 따라가 보기&lt;/title&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+  }
+  *{box-sizing:border-box;margin:0}
+  :root{--frame-w:390px}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,&quot;IBM Plex Sans KR&quot;,sans-serif;padding:24px;display:flex;flex-direction:column;align-items:center}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .scenarios{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+  .scenarios button{border:1px solid var(--rule);background:var(--card);border-radius:20px;padding:8px 14px;font-size:13px;cursor:pointer;color:var(--ink)}
+  .scenarios button.on{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+  .seg{display:flex;gap:4px;margin-bottom:14px}
+  .seg i{width:28px;height:4px;border-radius:2px;background:var(--hairline)}
+  .seg i.done{background:var(--navy)}
+  .seg i.now{background:var(--stamp)}
+  .phone{width:var(--frame-w);height:640px;background:var(--card);border:1px solid var(--rule);border-radius:28px;padding:20px;position:relative;box-shadow:0 8px 30px rgba(26,22,18,.08)}
+  .phone .tag{position:absolute;top:14px;left:14px;background:var(--stamp);color:#fff;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}
+  .ptitle{font-size:15px;font-weight:600;text-align:center;margin:8px 0 16px}
+  .block{border:1px solid var(--hairline);border-radius:12px;padding:14px;margin-bottom:10px;background:var(--paper);font-size:13px}
+  .block.hot{border:2px solid var(--stamp)}
+  .cta{position:absolute;bottom:20px;left:20px;right:20px;background:var(--navy);color:var(--paper);border:none;border-radius:12px;padding:14px;font-size:15px;cursor:pointer}
+  .cta:active{background:#16294a}
+  .caption{color:var(--muted);font-size:13px;margin-top:14px;max-width:390px;text-align:center;line-height:1.5}
+  .tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;border-top:1px solid var(--hairline);background:var(--card)}
+  .tabbar div{flex:1;text-align:center;padding:10px 0 14px;font-size:11px;color:var(--muted)}
+  .tabbar div.on{color:var(--navy);font-weight:600}
+  .choice{border:1px solid var(--rule);border-radius:10px;padding:12px;margin-bottom:8px;background:var(--card);font-size:13px}
+  .choice.sel{background:var(--navy);color:var(--paper)}
+  .passage{height:150px;background:repeating-linear-gradient(var(--paper) 0 14px,var(--hairline) 14px 15px);border-radius:8px;margin-bottom:10px}
+  .timer{font-family:&quot;Noto Serif KR&quot;,serif;font-size:20px;text-align:center;color:var(--stamp)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;한장 — 따라가 보기&lt;/h1&gt;
+&lt;p class=&quot;sub&quot;&gt;한 번에 화면 하나. 버튼 하나만 누르면 됩니다 — 장면별 상태(로딩·실패·비어있음)는 다음 단계에서 다룹니다&lt;/p&gt;
+&lt;div class=&quot;seg&quot; id=&quot;stateSeg&quot; style=&quot;margin-bottom:8px&quot;&gt;&lt;span style=&quot;font-size:11px;color:var(--muted)&quot;&gt;상태: 정상 · 로딩 · 실패 · 비어있음&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;scenarios&quot; id=&quot;scn&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;seg&quot; id=&quot;seg&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;phone&quot;&gt;&lt;span class=&quot;tag&quot; id=&quot;tag&quot;&gt;&lt;/span&gt;&lt;div id=&quot;stage&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p class=&quot;caption&quot; id=&quot;cap&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+const S=[
+{name:&quot;시험지 한 장 풀기&quot;,steps:[
+ {n:&quot;①&quot;,t:&quot;홈&quot;,h:&quot;&lt;div class=&#x27;block hot&#x27;&gt;▶ 이어하기 — 2025학년도 수능 국어 · 남은 시간 42:10&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;오늘의 퀴즈 — OX · 빈칸 · 영단어 · 한국사&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;최근 발행 — 2025 9월 모의평가&lt;/div&gt;&quot;,c:&quot;진행 중 세션 카드를 누르면 시험지로 갑니다&quot;},
+ {n:&quot;②&quot;,t:&quot;시험지&quot;,h:&quot;&lt;div class=&#x27;timer&#x27;&gt;41:58&lt;/div&gt;&lt;div class=&#x27;passage&#x27;&gt;&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;지문 이미지 — 스크롤 + 펜 밑줄&lt;/div&gt;&quot;,c:&quot;시험지가 열리고 타이머가 돕니다&quot;},
+ {n:&quot;③&quot;,t:&quot;시험지&quot;,h:&quot;&lt;div class=&#x27;timer&#x27;&gt;39:12&lt;/div&gt;&lt;div class=&#x27;passage&#x27;&gt;&lt;/div&gt;&lt;div class=&#x27;block hot&#x27;&gt;펜으로 밑줄 — 지문 위 수평 드래그 = 스트로크&lt;/div&gt;&quot;,c:&quot;지문 위에서 펜을 쓰면 밑줄이 그어집니다&quot;},
+ {n:&quot;④&quot;,t:&quot;시험지&quot;,h:&quot;&lt;div class=&#x27;timer&#x27;&gt;38:40&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;① 첫 번째 선지&lt;/div&gt;&lt;div class=&#x27;choice sel&#x27;&gt;② 두 번째 선지 ✓ 정답&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;③ 세 번째 선지&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;④ 네 번째 선지&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;⑤ 다섯 번째 선지&lt;/div&gt;&quot;,c:&quot;선지를 고르면 바로 채점돼 정오가 붙습니다&quot;},
+ {n:&quot;⑤&quot;,t:&quot;결과&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;이 장의 결과&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;정답 4 / 5 — 2번 문항 오답&lt;/div&gt;&quot;,c:&quot;제출하면 결과가 뜨고 여기서 끝입니다&quot;}]},
+{name:&quot;오늘의 퀴즈&quot;,steps:[
+ {n:&quot;①&quot;,t:&quot;홈&quot;,h:&quot;&lt;div class=&#x27;block&#x27;&gt;이어하기 — 없음&lt;/div&gt;&lt;div class=&#x27;block hot&#x27;&gt;오늘의 퀴즈 — OX · 빈칸 · 영단어 · 한국사&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;최근 발행 — 2025 9월 모의평가&lt;/div&gt;&quot;,c:&quot;퀴즈 카드를 누르면 세트가 열립니다&quot;},
+ {n:&quot;②&quot;,t:&quot;퀴즈 플레이&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;영단어 1/10&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;바나나를 뜻하는 것은?&lt;/div&gt;&quot;,c:&quot;스택 화면으로 열립니다 — 탭바 없음&quot;},
+ {n:&quot;③&quot;,t:&quot;퀴즈 플레이&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;영단어 1/10&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;바나나를 뜻하는 것은?&lt;/div&gt;&lt;div class=&#x27;choice sel&#x27;&gt;banana ✓&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;react&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;apple&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;table&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;run&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;code&lt;/div&gt;&quot;,c:&quot;선지를 고르면 즉시 정오, 다음 문제로 갑니다&quot;},
+ {n:&quot;④&quot;,t:&quot;퀴즈 플레이&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;영단어 10/10&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;사과를 뜻하는 것은?&lt;/div&gt;&lt;div class=&#x27;choice&#x27;&gt;banana&lt;/div&gt;&lt;div class=&#x27;choice sel&#x27;&gt;apple ✓&lt;/div&gt;&quot;,c:&quot;마지막 문제까지 같은 방식입니다&quot;},
+ {n:&quot;⑤&quot;,t:&quot;퀴즈 결과&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;세트 결과&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;정답 8 / 10&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;틀린 문항 — banana, table&lt;/div&gt;&quot;,c:&quot;점수와 틀린 문항이 나오고 끝입니다&quot;}]},
+{name:&quot;첫 실행과 둘러보기&quot;,steps:[
+ {n:&quot;①&quot;,t:&quot;로그인&quot;,h:&quot;&lt;div class=&#x27;ptitle&#x27;&gt;한장&lt;/div&gt;&lt;div class=&#x27;block hot&#x27;&gt;카카오로 시작&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;전화번호로 시작&lt;/div&gt;&quot;,c:&quot;앱을 열면 로그인이 먼저입니다&quot;},
+ {n:&quot;②&quot;,t:&quot;홈&quot;,h:&quot;&lt;div class=&#x27;block&#x27;&gt;이어하기 — 없음&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;오늘의 퀴즈&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;최근 발행 회차&lt;/div&gt;&lt;div class=&#x27;tabbar&#x27;&gt;&lt;div class=&#x27;on&#x27;&gt;홈&lt;/div&gt;&lt;div&gt;자료실&lt;/div&gt;&lt;div&gt;저장&lt;/div&gt;&lt;div&gt;복습&lt;/div&gt;&lt;div&gt;마이&lt;/div&gt;&lt;/div&gt;&quot;,c:&quot;로그인하면 홈 탭입니다&quot;},
+ {n:&quot;③&quot;,t:&quot;자료실&quot;,h:&quot;&lt;div class=&#x27;block&#x27;&gt;2025 수능 국어 ☆&lt;/div&gt;&lt;div class=&#x27;block hot&#x27;&gt;2025 9월 모의 국어 — 북마크 누름 ★&lt;/div&gt;&lt;div class=&#x27;block&#x27;&gt;2024 수능 국어 ☆&lt;/div&gt;&lt;div class=&#x27;tabbar&#x27;&gt;&lt;div&gt;홈&lt;/div&gt;&lt;div class=&#x27;on&#x27;&gt;자료실&lt;/div&gt;&lt;div&gt;저장&lt;/div&gt;&lt;div&gt;복습&lt;/div&gt;&lt;div&gt;마이&lt;/div&gt;&lt;/div&gt;&quot;,c:&quot;카드의 북마크를 누르면 저장됩니다&quot;},
+ {n:&quot;④&quot;,t:&quot;저장&quot;,h:&quot;&lt;div class=&#x27;block hot&#x27;&gt;2025 9월 모의 국어 ★&lt;/div&gt;&lt;div class=&#x27;tabbar&#x27;&gt;&lt;div&gt;홈&lt;/div&gt;&lt;div&gt;자료실&lt;/div&gt;&lt;div class=&#x27;on&#x27;&gt;저장&lt;/div&gt;&lt;div&gt;복습&lt;/div&gt;&lt;div&gt;마이&lt;/div&gt;&lt;/div&gt;&quot;,c:&quot;북마크한 회차만 모여 있습니다&quot;},
+ {n:&quot;⑤&quot;,t:&quot;복습&quot;,h:&quot;&lt;div class=&#x27;block&#x27;&gt;아직 채점한 시험이 없어요&lt;/div&gt;&lt;div class=&#x27;tabbar&#x27;&gt;&lt;div&gt;홈&lt;/div&gt;&lt;div&gt;자료실&lt;/div&gt;&lt;div&gt;저장&lt;/div&gt;&lt;div class=&#x27;on&#x27;&gt;복습&lt;/div&gt;&lt;div&gt;마이&lt;/div&gt;&lt;/div&gt;&quot;,c:&quot;풀고 난 시험이 여기 쌓입니다 — 지금은 빈 상태&quot;},
+ {n:&quot;⑥&quot;,t:&quot;마이&quot;,h:&quot;&lt;div class=&#x27;block&#x27;&gt;계정 — 카카오 연결됨&lt;/div&gt;&lt;div class=&#x27;block hot&#x27;&gt;로그아웃&lt;/div&gt;&lt;div class=&#x27;tabbar&#x27;&gt;&lt;div&gt;홈&lt;/div&gt;&lt;div&gt;자료실&lt;/div&gt;&lt;div&gt;저장&lt;/div&gt;&lt;div&gt;복습&lt;/div&gt;&lt;div class=&#x27;on&#x27;&gt;마이&lt;/div&gt;&lt;/div&gt;&quot;,c:&quot;계정 정보와 로그아웃입니다&quot;}]}
+];
+let si=0,pi=0;
+const scn=document.getElementById(&#x27;scn&#x27;),seg=document.getElementById(&#x27;seg&#x27;),tag=document.getElementById(&#x27;tag&#x27;),stage=document.getElementById(&#x27;stage&#x27;),cap=document.getElementById(&#x27;cap&#x27;);
+function tabs(){scn.innerHTML=S.map((s,i)=&gt;`&lt;button class=&quot;${i==si?&#x27;on&#x27;:&#x27;&#x27;}&quot; onclick=&quot;go(${i},0)&quot;&gt;${s.name}&lt;/button&gt;`).join(&#x27;&#x27;)}
+// 의견 저장 — artifact db가 있으면 쓰고, 없으면 localStorage
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();
+const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+function draw(){const st=S[si].steps[pi];tag.textContent=st.n;
+ saveFb(`flow-${si+1}-seen`,pi+1);
+ stage.innerHTML=`&lt;div class=&#x27;ptitle&#x27;&gt;${st.t}&lt;/div&gt;${st.h}&lt;button class=&#x27;cta&#x27; onclick=&#x27;next()&#x27;&gt;${pi&lt;S[si].steps.length-1?&#x27;눌러서 다음 →&#x27;:&#x27;처음으로&#x27;}&lt;/button&gt;`;
+ seg.innerHTML=S[si].steps.map((_,i)=&gt;`&lt;i class=&quot;${i&lt;pi?&#x27;done&#x27;:i==pi?&#x27;now&#x27;:&#x27;&#x27;}&quot;&gt;&lt;/i&gt;`).join(&#x27;&#x27;);
+ cap.textContent=st.c;tabs()}
+function go(i,p){si=i;pi=p;draw()}
+function next(){pi=(pi+1)%S[si].steps.length;draw()}
+draw();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-reference-1" data-key="reference-1" title="레퍼런스" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 레퍼런스 비교&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:960px;margin:0 auto}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px;line-height:1.6}
+  .reco-line{margin-top:12px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .app{margin-top:44px;padding-top:24px;border-top:1px solid var(--rule)}
+  .app-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .app-head h2{font-family:&quot;Noto Serif KR&quot;,serif;font-size:19px}
+  .why-pick{font-size:12.5px;color:var(--stamp)}
+  /* 추상 와이어 박스 — 스크린샷 대용 */
+  .wire{width:var(--frame-w);background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:16px;margin:14px 0 18px;display:flex;flex-direction:column;gap:8px}
+  .wire em{font-style:normal;font-size:10.5px;color:var(--muted);text-align:right}
+  .wl{height:9px;border-radius:5px;background:var(--hairline)}
+  .wl.s{height:7px}
+  .wl.w30{width:30%}.wl.w45{width:45%}.wl.w60{width:60%}.wl.w75{width:75%}.wl.w90{width:90%}
+  .wbox{border:1px solid var(--hairline);border-radius:10px;background:var(--paper);padding:10px;display:flex;flex-direction:column;gap:6px}
+  .wrow{display:flex;align-items:center;gap:8px}
+  .wdot{flex:none;width:16px;height:16px;border-radius:50%;background:var(--hairline)}
+  .wdot.ink{background:var(--rule)}
+  .wbtn{height:34px;border-radius:9px;background:var(--hairline)}
+  .wbtn.hot{background:var(--rule)}
+  .wtimer{font-family:&quot;Noto Serif KR&quot;,serif;font-size:26px;color:var(--rule);text-align:center;letter-spacing:.05em}
+  .wtabs{display:flex;gap:4px;border-top:1px solid var(--hairline);padding-top:8px}
+  .wtabs i{flex:1;height:22px;border-radius:6px;background:var(--hairline)}
+  .wtabs i.on{background:var(--rule)}
+  .wstack{position:relative;height:54px}
+  .wstack i{position:absolute;left:0;right:0;height:40px;border-radius:10px;background:var(--paper);border:1px solid var(--hairline)}
+  .wstack i:nth-child(2){top:8px;left:10px;right:10px}
+  .wstack i:nth-child(3){top:16px;left:20px;right:20px}
+  /* 컴포넌트 라벨 + want/hate */
+  .items{display:flex;flex-direction:column;gap:10px}
+  .ref-item{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--hairline);border-radius:12px;padding:12px 16px}
+  .ref-label{flex:1;min-width:0}
+  .ref-label b{font-size:13.5px}
+  .ref-label i{font-style:normal;color:var(--stamp);font-weight:700;margin-right:6px}
+  .ref-label p{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .pick{display:flex;gap:6px;flex:none}
+  .chip{border:1px solid var(--rule);background:var(--paper);border-radius:99px;padding:6px 12px;font-size:11.5px;font-family:inherit;color:var(--muted);cursor:pointer}
+  .chip.sel-want{background:var(--navy);border-color:var(--navy);color:var(--card)}
+  .chip.sel-hate{background:var(--stamp);border-color:var(--stamp);color:var(--card)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;page&quot;&gt;
+&lt;header&gt;
+  &lt;h1&gt;한장 레퍼런스 비교&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;스크린샷 대신 추상 와이어로 놓았습니다. 각 앱에서 컴포넌트별로 &quot;가져오고 싶음 / 싫음&quot;을 눌러 주세요. 선택은 자동 저장됩니다.&lt;/p&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천:&lt;/b&gt; 각 앱의 첫 번째 요소(①④⑦⑩)는 한장의 핵심 장면과 겹치니 우선 참고하는 것을 추천합니다.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section class=&quot;app&quot;&gt;
+  &lt;div class=&quot;app-head&quot;&gt;&lt;h2&gt;오르조&lt;/h2&gt;&lt;span class=&quot;why-pick&quot;&gt;왜 골랐는지 — 시험지 한 장 몰입 풀이라 직접 경쟁 앱입니다&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;wire&quot;&gt;&lt;em&gt;추상 와이어 · 실제 화면 아님&lt;/em&gt;
+    &lt;div class=&quot;wbox&quot;&gt;&lt;div class=&quot;wl w90&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w75&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w90&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w60&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w75&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot ink&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w90 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w75 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w90 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbtn hot&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;wtabs&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;items&quot;&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;orzo&quot; data-n=&quot;1&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;①&lt;/i&gt;풀이 화면 밀도&lt;/b&gt;&lt;p&gt;지문과 문항을 한 화면에 빽빽하게 배치해 스크롤 없이 풀게 함&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;orzo&quot; data-n=&quot;2&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;②&lt;/i&gt;시험지 한 장 레이아웃&lt;/b&gt;&lt;p&gt;실제 시험지 비율의 세로 한 장 — 위에서 아래로 읽는 흐름&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;orzo&quot; data-n=&quot;3&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;③&lt;/i&gt;하단 탭 구성&lt;/b&gt;&lt;p&gt;풀이·기록·내 정보 정도로 탭이 적고 역할이 뚜렷함&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;app&quot;&gt;
+  &lt;div class=&quot;app-head&quot;&gt;&lt;h2&gt;콴다&lt;/h2&gt;&lt;span class=&quot;why-pick&quot;&gt;왜 골랐는지 — 문항 풀이와 즉시 채점 UX의 기준점&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;wire&quot;&gt;&lt;em&gt;추상 와이어 · 실제 화면 아님&lt;/em&gt;
+    &lt;div class=&quot;wbox&quot;&gt;&lt;div class=&quot;wl w60&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w90&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w75&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot ink&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w45 s&quot;&gt;&lt;/div&gt;&lt;span class=&quot;wdot&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w30 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbtn&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbox&quot;&gt;&lt;div class=&quot;wl w90 s&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w60 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wtabs&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;items&quot;&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;qanda&quot; data-n=&quot;4&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;④&lt;/i&gt;즉시 채점 피드백&lt;/b&gt;&lt;p&gt;선지를 고르는 순간 정오 표시가 붙어 기다림이 없음&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;qanda&quot; data-n=&quot;5&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑤&lt;/i&gt;문항 카드 구성&lt;/b&gt;&lt;p&gt;문항 하나 = 카드 한 장, 번호·지문·선지 위계가 선명함&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;qanda&quot; data-n=&quot;6&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑥&lt;/i&gt;풀이 입력 UX&lt;/b&gt;&lt;p&gt;사진 찍기·필기 인식 등 입력 경로가 여러 갈래로 열려 있음&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;app&quot;&gt;
+  &lt;div class=&quot;app-head&quot;&gt;&lt;h2&gt;마이지니&lt;/h2&gt;&lt;span class=&quot;why-pick&quot;&gt;왜 골랐는지 — 학습 타이머와 세션 복귀 흐름이 잘 되어 있음&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;wire&quot;&gt;&lt;em&gt;추상 와이어 · 실제 화면 아님&lt;/em&gt;
+    &lt;div class=&quot;wtimer&quot;&gt;42:10&lt;/div&gt;
+    &lt;div class=&quot;wbox&quot;&gt;&lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot ink&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w60 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wl w90 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wrow&quot;&gt;&lt;div class=&quot;wl w30 s&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w45 s&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl s&quot; style=&quot;flex:1&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbtn&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;wtabs&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;items&quot;&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;mygenie&quot; data-n=&quot;7&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑦&lt;/i&gt;세션 이어하기 카드&lt;/b&gt;&lt;p&gt;앱을 다시 열면 하던 공부가 맨 위 카드로 기다리고 있음&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;mygenie&quot; data-n=&quot;8&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑧&lt;/i&gt;학습 타이머 표시&lt;/b&gt;&lt;p&gt;남은 시간을 크고 얌전하게 — 숫자만 띄워 압박을 줄임&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;mygenie&quot; data-n=&quot;9&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑨&lt;/i&gt;일별 기록 요약&lt;/b&gt;&lt;p&gt;오늘 한 공부를 한 줄 막대로 요약해 홈 하단에 둠&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;app&quot;&gt;
+  &lt;div class=&quot;app-head&quot;&gt;&lt;h2&gt;산타&lt;/h2&gt;&lt;span class=&quot;why-pick&quot;&gt;왜 골랐는지 — 오답을 모아 다시 푸는 복습 플로우의 참고점&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;wire&quot;&gt;&lt;em&gt;추상 와이어 · 실제 화면 아님&lt;/em&gt;
+    &lt;div class=&quot;wstack&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbox&quot;&gt;&lt;div class=&quot;wrow&quot;&gt;&lt;span class=&quot;wdot ink&quot;&gt;&lt;/span&gt;&lt;div class=&quot;wl w75 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wl w90 s&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wl w45 s&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;wbtn hot&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;wtabs&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;items&quot;&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;santa&quot; data-n=&quot;10&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑩&lt;/i&gt;오답 노트 구성&lt;/b&gt;&lt;p&gt;틀린 문항만 모아 카드 스택으로 — 한 장씩 넘기며 확인&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;santa&quot; data-n=&quot;11&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑪&lt;/i&gt;오답 복습 플로우&lt;/b&gt;&lt;p&gt;틀린 문항을 유사 문항으로 이어 풀게 해 복습을 닫는 구조&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ref-item&quot; data-app=&quot;santa&quot; data-n=&quot;12&quot;&gt;
+      &lt;div class=&quot;ref-label&quot;&gt;&lt;b&gt;&lt;i&gt;⑫&lt;/i&gt;약점 리포트&lt;/b&gt;&lt;p&gt;유형별 정답률 막대로 어디가 약한지 바로 보여 줌&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;pick&quot;&gt;&lt;button class=&quot;chip&quot; data-v=&quot;want&quot;&gt;가져오고 싶음&lt;/button&gt;&lt;button class=&quot;chip&quot; data-v=&quot;hate&quot;&gt;싫음&lt;/button&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+document.querySelectorAll(&#x27;.ref-item&#x27;).forEach(item=&gt;{
+  const key=`ref-${item.dataset.app}-${item.dataset.n}`;
+  item.querySelectorAll(&#x27;.chip&#x27;).forEach(chip=&gt;{
+    chip.addEventListener(&#x27;click&#x27;,()=&gt;{
+      const on=chip.classList.contains(`sel-${chip.dataset.v}`);
+      item.querySelectorAll(&#x27;.chip&#x27;).forEach(c=&gt;c.classList.remove(&#x27;sel-want&#x27;,&#x27;sel-hate&#x27;));
+      if(!on){
+        chip.classList.add(`sel-${chip.dataset.v}`);
+        saveFb(key,chip.dataset.v);
+      }
+    });
+  });
+  try{
+    const v=JSON.parse(localStorage.getItem(`feedback/${key}`));
+    const c=v&amp;&amp;item.querySelector(`.chip[data-v=&quot;${v}&quot;]`);
+    if(c)c.classList.add(`sel-${v}`);
+  }catch(e){}
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-taste-color" data-key="taste-color" title="색상" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 취향 프로브 · 색 (축 1·4)&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:1300px;margin:0 auto}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  section[data-axis]{margin-top:46px;padding-top:26px;border-top:1px solid var(--rule)}
+  .axis-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .axis-head h2{font-family:&quot;Noto Serif KR&quot;,serif;font-size:18px}
+  .reco-line{margin-top:10px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .plain{color:var(--muted);font-size:12.5px;margin:6px 0 22px;line-height:1.65;max-width:780px}
+  .row{display:flex;gap:28px;flex-wrap:wrap}
+  .variant{cursor:pointer}
+  .variant .phone{outline:3px solid transparent;outline-offset:5px;transition:outline-color .15s}
+  .variant.sel .phone{outline-color:var(--stamp)}
+  .v-label{margin-top:12px;font-size:13px;display:flex;align-items:center;gap:8px}
+  .v-label i{font-style:normal;color:var(--stamp);font-weight:700}
+  .v-label .tag{font-size:10.5px;background:var(--stamp);color:var(--card);padding:2px 9px;border-radius:99px}
+  /* ---- phone frame : theme vars live on .phone ---- */
+  .phone{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4;--ac:#C4563A;--ac2:#1E3A5F;
+    width:var(--frame-w);min-height:700px;border-radius:32px;background:var(--bg);
+    border:1px solid rgba(26,22,18,.10);box-shadow:0 14px 34px rgba(26,22,18,.12);
+    overflow:hidden;display:flex;flex-direction:column}
+  .scr{flex:1;display:flex;flex-direction:column}
+  .s-status{display:flex;justify-content:space-between;padding:14px 20px 2px;font-size:11px;color:var(--mu)}
+  .s-head{display:flex;justify-content:space-between;align-items:baseline;padding:8px 20px 12px;color:var(--tx)}
+  .s-head b{font-family:&quot;Noto Serif KR&quot;,serif;font-size:21px}
+  .s-head span{color:var(--mu);font-size:12px}
+  .s-body{padding:0 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .s-card{background:var(--cd);border:1px solid var(--rl);border-radius:14px;padding:16px;color:var(--tx)}
+  .s-card&gt;b{font-size:14px}
+  .s-card p{color:var(--mu);font-size:12.5px;margin-top:3px}
+  .s-line{display:flex;align-items:center;gap:12px}
+  .s-play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--cd);display:flex;align-items:center;justify-content:center;font-size:11px}
+  .s-line&gt;div{flex:1}
+  .s-tm{text-align:right}
+  .s-tm em{display:block;font-style:normal;font-size:10px;color:var(--mu)}
+  .s-tm b{color:var(--ac2);font-size:15px;font-variant-numeric:tabular-nums}
+  .s-chips{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+  .s-chips i{font-style:normal;border:1px solid var(--rl);color:var(--mu);font-size:11.5px;padding:4px 11px;border-radius:99px}
+  .s-tabs{display:flex;border-top:1px solid var(--rl);background:var(--cd);margin-top:16px}
+  .s-tabs span{flex:1;text-align:center;padding:13px 0 15px;font-size:11.5px;color:var(--mu)}
+  .s-tabs .on{color:var(--ac);font-weight:700;box-shadow:inset 0 2px 0 var(--ac)}
+  /* ---- 축 1 : 바탕 밝기·색온도만 다름 (강조색 동일) ---- */
+  .a1a{--bg:#FFFFFF;--cd:#F6F7FA;--tx:#26292F;--mu:#8B909A;--rl:#E4E7EC}
+  .a1b{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4}
+  .a1c{--bg:#1A1C21;--cd:#24272E;--tx:#EDEEF2;--mu:#9AA0AB;--rl:#383C45}
+  /* ---- 축 4 : 강조색 성격만 다름 (바탕은 종이로 고정) ---- */
+  .a4a{--ac:#FF2D78;--ac2:#00A9E8}
+  .a4b{--ac:#C4563A;--ac2:#1E3A5F}
+  .a4c{--ac:#D9A3B1;--ac2:#9FBEDC}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;page&quot;&gt;
+&lt;header&gt;
+  &lt;h1&gt;한장 취향 프로브 — 색&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;같은 홈 화면입니다. 축마다 한 가지만 바꿨으니, 읽기 가장 편한 화면을 눌러 주세요. 선택은 자동 저장됩니다.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section data-axis=&quot;1&quot;&gt;
+  &lt;div class=&quot;axis-head&quot;&gt;&lt;h2&gt;축 ① · 밝기·색온도&lt;/h2&gt;&lt;/div&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천: B&lt;/b&gt; — 시험지를 종이처럼 읽는 제품이라, 눈이 덜 피로한 따뜻한 바탕이 맞습니다.&lt;/p&gt;
+  &lt;p class=&quot;plain&quot;&gt;세 화면은 바탕의 밝기·색온도만 다릅니다. 강조색·카드 모양·글자체·정보량은 전부 같게 두었습니다.&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;A&quot;&gt;
+      &lt;div class=&quot;phone a1a&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;①&lt;/i&gt;&lt;b&gt;A&lt;/b&gt; 차가운 흰 바탕 — 일반 앱 같은 깨끗함&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;B&quot;&gt;
+      &lt;div class=&quot;phone a1b&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;②&lt;/i&gt;&lt;b&gt;B&lt;/b&gt; 따뜻한 종이 바탕 — 시험지 질감 &lt;span class=&quot;tag&quot;&gt;추천&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;C&quot;&gt;
+      &lt;div class=&quot;phone a1c&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;③&lt;/i&gt;&lt;b&gt;C&lt;/b&gt; 다크 모드 — 밤에 읽기 편함&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section data-axis=&quot;4&quot;&gt;
+  &lt;div class=&quot;axis-head&quot;&gt;&lt;h2&gt;축 ④ · 강조색 성격&lt;/h2&gt;&lt;/div&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천: B&lt;/b&gt; — 잉크 네이비와 도장 빨강은 &#x27;시험지 위 채점&#x27;의 색이라 제품 정체성과 맞습니다.&lt;/p&gt;
+  &lt;p class=&quot;plain&quot;&gt;바탕은 세 화면 모두 따뜻한 종이(축 1 추천안)로 고정했습니다. 버튼·탭·시간 표시에 쓰는 강조색의 성격만 다릅니다.&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;A&quot;&gt;
+      &lt;div class=&quot;phone a4a&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;①&lt;/i&gt;&lt;b&gt;A&lt;/b&gt; 형광 비비드 — 핫핑크·전기파랑&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;B&quot;&gt;
+      &lt;div class=&quot;phone a4b&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;②&lt;/i&gt;&lt;b&gt;B&lt;/b&gt; 잉크·도장 — 네이비와 도장 빨강 &lt;span class=&quot;tag&quot;&gt;추천&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;C&quot;&gt;
+      &lt;div class=&quot;phone a4c&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;③&lt;/i&gt;&lt;b&gt;C&lt;/b&gt; 파스텔 — 부드러운 분필 색&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+
+&lt;template id=&quot;home&quot;&gt;
+  &lt;div class=&quot;s-status&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;span&gt;●●●&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-head&quot;&gt;&lt;b&gt;한장&lt;/b&gt;&lt;span&gt;6월 12일 목요일&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-body&quot;&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;div class=&quot;s-line&quot;&gt;&lt;span class=&quot;s-play&quot;&gt;▶&lt;/span&gt;&lt;div&gt;&lt;b&gt;이어하기&lt;/b&gt;&lt;p&gt;2025학년도 수능 국어&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;s-tm&quot;&gt;&lt;em&gt;남은 시간&lt;/em&gt;&lt;b&gt;42:10&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;오늘의 퀴즈&lt;/b&gt;&lt;div class=&quot;s-chips&quot;&gt;&lt;i&gt;OX&lt;/i&gt;&lt;i&gt;빈칸&lt;/i&gt;&lt;i&gt;영단어&lt;/i&gt;&lt;i&gt;한국사&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;최근 발행&lt;/b&gt;&lt;p&gt;2025 9월 모의평가 국어&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;s-tabs&quot;&gt;&lt;span class=&quot;on&quot;&gt;홈&lt;/span&gt;&lt;span&gt;자료실&lt;/span&gt;&lt;span&gt;저장&lt;/span&gt;&lt;span&gt;복습&lt;/span&gt;&lt;span&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const HOME=document.getElementById(&#x27;home&#x27;);
+document.querySelectorAll(&#x27;.scr&#x27;).forEach(s=&gt;s.appendChild(HOME.content.cloneNode(true)));
+document.querySelectorAll(&#x27;.variant&#x27;).forEach(v=&gt;{
+  v.addEventListener(&#x27;click&#x27;,()=&gt;{
+    const sec=v.closest(&#x27;section&#x27;),axis=sec.dataset.axis;
+    sec.querySelectorAll(&#x27;.variant&#x27;).forEach(x=&gt;x.classList.toggle(&#x27;sel&#x27;,x===v));
+    saveFb(`axis-${axis}`,v.dataset.v);
+  });
+});
+[&#x27;1&#x27;,&#x27;4&#x27;].forEach(a=&gt;{
+  try{
+    const v=JSON.parse(localStorage.getItem(`feedback/axis-${a}`));
+    const el=v&amp;&amp;document.querySelector(`section[data-axis=&quot;${a}&quot;] .variant[data-v=&quot;${v}&quot;]`);
+    if(el)el.classList.add(&#x27;sel&#x27;);
+  }catch(e){}
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-taste-shape" data-key="taste-shape" title="모양·간격" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 취향 프로브 · 모양·간격 (축 3·2)&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:1300px;margin:0 auto}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  section[data-axis]{margin-top:46px;padding-top:26px;border-top:1px solid var(--rule)}
+  .axis-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .axis-head h2{font-family:&quot;Noto Serif KR&quot;,serif;font-size:18px}
+  .reco-line{margin-top:10px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .plain{color:var(--muted);font-size:12.5px;margin:6px 0 22px;line-height:1.65;max-width:780px}
+  .row{display:flex;gap:28px;flex-wrap:wrap}
+  .variant{cursor:pointer}
+  .variant .phone{outline:3px solid transparent;outline-offset:5px;transition:outline-color .15s}
+  .variant.sel .phone{outline-color:var(--stamp)}
+  .v-label{margin-top:12px;font-size:13px;display:flex;align-items:center;gap:8px}
+  .v-label i{font-style:normal;color:var(--stamp);font-weight:700}
+  .v-label .tag{font-size:10.5px;background:var(--stamp);color:var(--card);padding:2px 9px;border-radius:99px}
+  /* ---- phone frame : 색은 추천값(종이+도장)으로 고정, 모양·밀도만 변형 ---- */
+  .phone{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4;--ac:#C4563A;--ac2:#1E3A5F;
+    --r:13px;--rp:10px;
+    width:var(--frame-w);min-height:700px;border-radius:32px;background:var(--bg);
+    border:1px solid rgba(26,22,18,.10);box-shadow:0 14px 34px rgba(26,22,18,.12);
+    overflow:hidden;display:flex;flex-direction:column}
+  .scr{flex:1;display:flex;flex-direction:column}
+  .s-status{display:flex;justify-content:space-between;padding:14px 20px 2px;font-size:11px;color:var(--mu)}
+  .s-head{display:flex;justify-content:space-between;align-items:baseline;padding:8px 20px 12px;color:var(--tx)}
+  .s-head b{font-family:&quot;Noto Serif KR&quot;,serif;font-size:21px}
+  .s-head span{color:var(--mu);font-size:12px}
+  .s-body{padding:0 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .s-card{background:var(--cd);border:1px solid var(--rl);border-radius:var(--r);padding:16px;color:var(--tx)}
+  .s-card&gt;b{font-size:14px}
+  .s-card p{color:var(--mu);font-size:12.5px;margin-top:3px}
+  .s-line{display:flex;align-items:center;gap:12px}
+  .s-play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--cd);display:flex;align-items:center;justify-content:center;font-size:11px}
+  .s-line&gt;div{flex:1}
+  .s-tm{text-align:right}
+  .s-tm em{display:block;font-style:normal;font-size:10px;color:var(--mu)}
+  .s-tm b{color:var(--ac2);font-size:15px;font-variant-numeric:tabular-nums}
+  .s-chips{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+  .s-chips i{font-style:normal;border:1px solid var(--rl);color:var(--mu);font-size:11.5px;padding:4px 11px;border-radius:var(--rp)}
+  .s-row{display:flex;justify-content:space-between;border-top:1px dashed var(--rl);padding-top:7px;margin-top:7px;font-size:12.5px}
+  .s-row span{color:var(--ac2);font-weight:700}
+  .s-prog{height:4px;background:var(--rl);border-radius:99px;margin-top:8px;overflow:hidden}
+  .s-prog i{display:block;height:100%;width:40%;background:var(--ac);border-radius:99px}
+  .s-tabs{display:flex;border-top:1px solid var(--rl);background:var(--cd);margin-top:16px}
+  .s-tabs span{flex:1;text-align:center;padding:13px 0 15px;font-size:11.5px;color:var(--mu)}
+  .s-tabs .on{color:var(--ac);font-weight:700;box-shadow:inset 0 2px 0 var(--ac)}
+  /* ---- 축 3 : 모서리 형태만 다름 ---- */
+  .s3a{--r:3px;--rp:4px}
+  .s3a .s-play{border-radius:7px}
+  .s3b{--r:13px;--rp:10px}
+  .s3c{--r:26px;--rp:999px}
+  .s3c .s-tabs .on{box-shadow:inset 0 -2px 0 var(--ac)}
+  /* ---- 축 2 : 정보밀도만 다름 ---- */
+  .d2a .s-card{padding:24px 20px}
+  .d2a .s-body{gap:22px;padding-top:10px}
+  .d2a .s-head{padding:14px 20px 18px}
+  .d2c .s-card{padding:10px 13px}
+  .d2c .s-card&gt;b{font-size:12.5px}
+  .d2c .s-card p{font-size:11.5px}
+  .d2c .s-body{gap:8px;padding:0 12px}
+  .d2c .s-chips{gap:5px;margin-top:8px}
+  .d2c .s-chips i{font-size:10.5px;padding:3px 9px}
+  .d2c .s-head{padding:6px 16px 8px}
+  .d2c .s-head b{font-size:18px}
+  .d2c .s-play{width:28px;height:28px;font-size:10px}
+  .d2c .s-tm b{font-size:13px}
+  .d2c .s-tabs span{padding:10px 0 12px;font-size:10.5px}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;page&quot;&gt;
+&lt;header&gt;
+  &lt;h1&gt;한장 취향 프로브 — 모양·간격&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;축 3(모서리 형태)과 축 2(정보밀도)를 봅니다. 색은 추천값인 종이 바탕·도장 강조로 고정했습니다. 마음에 드는 화면을 누르세요.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section data-axis=&quot;3&quot;&gt;
+  &lt;div class=&quot;axis-head&quot;&gt;&lt;h2&gt;축 ③ · 모서리 형태&lt;/h2&gt;&lt;/div&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천: B&lt;/b&gt; — 카드는 종이 조각처럼 살짝만 둥글게. 너무 뾰족하면 딱딱하고, 알약 모양은 장난감처럼 보입니다.&lt;/p&gt;
+  &lt;p class=&quot;plain&quot;&gt;카드·칩·버튼의 모서리 반경만 다릅니다. 내용과 간격은 같습니다.&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;A&quot;&gt;
+      &lt;div class=&quot;phone s3a&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;base&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;①&lt;/i&gt;&lt;b&gt;A&lt;/b&gt; 뾰족·직선 — 모서리 0~4px&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;B&quot;&gt;
+      &lt;div class=&quot;phone s3b&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;base&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;②&lt;/i&gt;&lt;b&gt;B&lt;/b&gt; 중간 라운드 — 10~14px &lt;span class=&quot;tag&quot;&gt;추천&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;C&quot;&gt;
+      &lt;div class=&quot;phone s3c&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;base&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;③&lt;/i&gt;&lt;b&gt;C&lt;/b&gt; 완전 둥근 알약 — 24px 이상&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section data-axis=&quot;2&quot;&gt;
+  &lt;div class=&quot;axis-head&quot;&gt;&lt;h2&gt;축 ② · 정보밀도&lt;/h2&gt;&lt;/div&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천: B&lt;/b&gt; — 홈은 &#x27;오늘 뭘 풀지&#x27;만 답하면 됩니다. 한 눈에 들어오되 숨 쉴 여백은 남기는 정도가 맞습니다.&lt;/p&gt;
+  &lt;p class=&quot;plain&quot;&gt;같은 홈인데 담는 정보의 양과 글자 크기가 다릅니다. 모양·색은 추천값으로 고정했습니다.&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;A&quot;&gt;
+      &lt;div class=&quot;phone d2a&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;sparse&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;①&lt;/i&gt;&lt;b&gt;A&lt;/b&gt; 널찍 — 요소 적게, 여백 크게&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;B&quot;&gt;
+      &lt;div class=&quot;phone d2b&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;base&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;②&lt;/i&gt;&lt;b&gt;B&lt;/b&gt; 중간 — 카드 3장 &lt;span class=&quot;tag&quot;&gt;추천&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;C&quot;&gt;
+      &lt;div class=&quot;phone d2c&quot;&gt;&lt;div class=&quot;scr&quot; data-t=&quot;dense&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;③&lt;/i&gt;&lt;b&gt;C&lt;/b&gt; 빽빽 — 작은 글자, 요소 많이&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+
+&lt;template id=&quot;t-base&quot;&gt;
+  &lt;div class=&quot;s-status&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;span&gt;●●●&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-head&quot;&gt;&lt;b&gt;한장&lt;/b&gt;&lt;span&gt;6월 12일 목요일&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-body&quot;&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;div class=&quot;s-line&quot;&gt;&lt;span class=&quot;s-play&quot;&gt;▶&lt;/span&gt;&lt;div&gt;&lt;b&gt;이어하기&lt;/b&gt;&lt;p&gt;2025학년도 수능 국어&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;s-tm&quot;&gt;&lt;em&gt;남은 시간&lt;/em&gt;&lt;b&gt;42:10&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;오늘의 퀴즈&lt;/b&gt;&lt;div class=&quot;s-chips&quot;&gt;&lt;i&gt;OX&lt;/i&gt;&lt;i&gt;빈칸&lt;/i&gt;&lt;i&gt;영단어&lt;/i&gt;&lt;i&gt;한국사&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;최근 발행&lt;/b&gt;&lt;p&gt;2025 9월 모의평가 국어&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;s-tabs&quot;&gt;&lt;span class=&quot;on&quot;&gt;홈&lt;/span&gt;&lt;span&gt;자료실&lt;/span&gt;&lt;span&gt;저장&lt;/span&gt;&lt;span&gt;복습&lt;/span&gt;&lt;span&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;template id=&quot;t-sparse&quot;&gt;
+  &lt;div class=&quot;s-status&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;span&gt;●●●&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-head&quot;&gt;&lt;b&gt;한장&lt;/b&gt;&lt;span&gt;6월 12일 목요일&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-body&quot;&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;div class=&quot;s-line&quot;&gt;&lt;span class=&quot;s-play&quot;&gt;▶&lt;/span&gt;&lt;div&gt;&lt;b&gt;이어하기&lt;/b&gt;&lt;p&gt;2025학년도 수능 국어&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;s-tm&quot;&gt;&lt;em&gt;남은 시간&lt;/em&gt;&lt;b&gt;42:10&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;오늘의 퀴즈&lt;/b&gt;&lt;p&gt;OX · 빈칸 · 영단어 · 한국사&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;s-tabs&quot;&gt;&lt;span class=&quot;on&quot;&gt;홈&lt;/span&gt;&lt;span&gt;자료실&lt;/span&gt;&lt;span&gt;저장&lt;/span&gt;&lt;span&gt;복습&lt;/span&gt;&lt;span&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;template id=&quot;t-dense&quot;&gt;
+  &lt;div class=&quot;s-status&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;span&gt;●●●&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-head&quot;&gt;&lt;b&gt;한장&lt;/b&gt;&lt;span&gt;6월 12일 목 · 연속 6일&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-body&quot;&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;div class=&quot;s-line&quot;&gt;&lt;span class=&quot;s-play&quot;&gt;▶&lt;/span&gt;&lt;div&gt;&lt;b&gt;이어하기&lt;/b&gt;&lt;p&gt;2025학년도 수능 국어 · 18/45문항&lt;/p&gt;&lt;div class=&quot;s-prog&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;s-tm&quot;&gt;&lt;em&gt;남은 시간&lt;/em&gt;&lt;b&gt;42:10&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;오늘의 퀴즈&lt;/b&gt;&lt;p&gt;어제 정답률 78%&lt;/p&gt;&lt;div class=&quot;s-chips&quot;&gt;&lt;i&gt;OX&lt;/i&gt;&lt;i&gt;빈칸&lt;/i&gt;&lt;i&gt;영단어&lt;/i&gt;&lt;i&gt;한국사&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;최근 발행&lt;/b&gt;&lt;p class=&quot;s-row&quot;&gt;2025 9월 모의평가 국어&lt;span&gt;68점&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;s-row&quot;&gt;2025 6월 모의평가 국어&lt;span&gt;74점&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;학습 리포트&lt;/b&gt;&lt;p&gt;이번 주 3회 응시 · 평균 71점&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;s-tabs&quot;&gt;&lt;span class=&quot;on&quot;&gt;홈&lt;/span&gt;&lt;span&gt;자료실&lt;/span&gt;&lt;span&gt;저장&lt;/span&gt;&lt;span&gt;복습&lt;/span&gt;&lt;span&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+document.querySelectorAll(&#x27;.scr&#x27;).forEach(s=&gt;{
+  s.appendChild(document.getElementById(`t-${s.dataset.t}`).content.cloneNode(true));
+});
+document.querySelectorAll(&#x27;.variant&#x27;).forEach(v=&gt;{
+  v.addEventListener(&#x27;click&#x27;,()=&gt;{
+    const sec=v.closest(&#x27;section&#x27;),axis=sec.dataset.axis;
+    sec.querySelectorAll(&#x27;.variant&#x27;).forEach(x=&gt;x.classList.toggle(&#x27;sel&#x27;,x===v));
+    saveFb(`axis-${axis}`,v.dataset.v);
+  });
+});
+[&#x27;3&#x27;,&#x27;2&#x27;].forEach(a=&gt;{
+  try{
+    const v=JSON.parse(localStorage.getItem(`feedback/axis-${a}`));
+    const el=v&amp;&amp;document.querySelector(`section[data-axis=&quot;${a}&quot;] .variant[data-v=&quot;${v}&quot;]`);
+    if(el)el.classList.add(&#x27;sel&#x27;);
+  }catch(e){}
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-taste-type" data-key="taste-type" title="글자" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 취향 프로브 · 글자 (축 5)&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:1300px;margin:0 auto}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  section[data-axis]{margin-top:46px;padding-top:26px;border-top:1px solid var(--rule)}
+  .axis-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .axis-head h2{font-family:&quot;Noto Serif KR&quot;,serif;font-size:18px}
+  .reco-line{margin-top:10px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .plain{color:var(--muted);font-size:12.5px;margin:6px 0 8px;line-height:1.65;max-width:780px}
+  .points{list-style:none;margin:0 0 22px;font-size:12.5px;color:var(--muted);line-height:1.9}
+  .points i{font-style:normal;color:var(--stamp);font-weight:700;margin-right:6px}
+  .row{display:flex;gap:28px;flex-wrap:wrap}
+  .variant{cursor:pointer}
+  .variant .phone{outline:3px solid transparent;outline-offset:5px;transition:outline-color .15s}
+  .variant.sel .phone{outline-color:var(--stamp)}
+  .v-label{margin-top:12px;font-size:13px;display:flex;align-items:center;gap:8px;max-width:390px}
+  .v-label i{font-style:normal;color:var(--stamp);font-weight:700}
+  .v-label .tag{font-size:10.5px;background:var(--stamp);color:var(--card);padding:2px 9px;border-radius:99px;flex:none}
+  /* ---- phone frame : 색·모양은 추천값 고정, 글자체만 변형 ---- */
+  .phone{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4;--ac:#C4563A;--ac2:#1E3A5F;
+    width:var(--frame-w);min-height:700px;border-radius:32px;background:var(--bg);
+    border:1px solid rgba(26,22,18,.10);box-shadow:0 14px 34px rgba(26,22,18,.12);
+    overflow:hidden;display:flex;flex-direction:column;font-family:var(--ffb)}
+  .scr{flex:1;display:flex;flex-direction:column}
+  .s-status{display:flex;justify-content:space-between;padding:14px 20px 2px;font-size:11px;color:var(--mu)}
+  .s-head{display:flex;justify-content:space-between;align-items:baseline;padding:8px 20px 12px;color:var(--tx)}
+  .s-head b{font-family:var(--ffh);font-size:21px}
+  .s-head span{color:var(--mu);font-size:12px}
+  .s-body{padding:0 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .s-card{background:var(--cd);border:1px solid var(--rl);border-radius:13px;padding:16px;color:var(--tx)}
+  .s-card&gt;b{font-family:var(--ffh);font-size:14px}
+  .s-card p{color:var(--mu);font-size:12.5px;margin-top:3px}
+  .s-line{display:flex;align-items:center;gap:12px}
+  .s-play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--cd);display:flex;align-items:center;justify-content:center;font-size:11px}
+  .s-line&gt;div{flex:1}
+  .s-tm{text-align:right}
+  .s-tm em{display:block;font-style:normal;font-size:10px;color:var(--mu)}
+  .s-tm b{font-family:var(--ffh);color:var(--ac2);font-size:15px;font-variant-numeric:tabular-nums}
+  .s-chips{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+  .s-chips i{font-style:normal;border:1px solid var(--rl);color:var(--mu);font-size:11.5px;padding:4px 11px;border-radius:10px}
+  .s-pass{margin-top:8px;padding-top:8px;border-top:1px dashed var(--rl);font-size:12px;line-height:1.8;color:var(--tx)}
+  .s-tabs{display:flex;border-top:1px solid var(--rl);background:var(--cd);margin-top:16px}
+  .s-tabs span{flex:1;text-align:center;padding:13px 0 15px;font-size:11.5px;color:var(--mu)}
+  .s-tabs .on{color:var(--ac);font-weight:700;box-shadow:inset 0 2px 0 var(--ac)}
+  /* ---- 축 5 : 타이포 성격만 다름 ---- */
+  .t5a{--ffh:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;--ffb:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif}
+  .t5b{--ffh:&quot;Noto Serif KR&quot;,serif;--ffb:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif}
+  .t5c{--ffh:&quot;Noto Serif KR&quot;,serif;--ffb:&quot;Noto Serif KR&quot;,serif}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;page&quot;&gt;
+&lt;header&gt;
+  &lt;h1&gt;한장 취향 프로브 — 글자&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;축 5(타이포 성격) 하나만 봅니다. 마음에 드는 화면을 누르면 저장됩니다.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section data-axis=&quot;5&quot;&gt;
+  &lt;div class=&quot;axis-head&quot;&gt;&lt;h2&gt;축 ⑤ · 타이포 성격&lt;/h2&gt;&lt;/div&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천: B&lt;/b&gt; — 제목에 명조의 &#x27;시험지 인쇄&#x27; 감각을 쓰고, 본문은 고딕으로 오래 읽기 편하게 합니다.&lt;/p&gt;
+  &lt;p class=&quot;plain&quot;&gt;색·모양·정보량은 추천값으로 고정했습니다. 제목과 본문에 쓰는 글자체 조합만 다릅니다.&lt;/p&gt;
+  &lt;ul class=&quot;points&quot;&gt;
+    &lt;li&gt;&lt;i&gt;①&lt;/i&gt;&#x27;한장&#x27; 로고와 카드 제목에서 시험지 같은 잉크 느낌이 나는가&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;②&lt;/i&gt;날짜·칩·탭 같은 작은 글자가 흐릿해지지 않는가&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;③&lt;/i&gt;본문 지문을 길게 읽을 때 눈이 편한가&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;A&quot;&gt;
+      &lt;div class=&quot;phone t5a&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;①&lt;/i&gt;&lt;b&gt;A&lt;/b&gt; 전부 고딕 — 산세리프로 통일, 앱다운 깔끔함&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;B&quot;&gt;
+      &lt;div class=&quot;phone t5b&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;②&lt;/i&gt;&lt;b&gt;B&lt;/b&gt; 제목 명조 + 본문 고딕 — 인쇄물 머리와 읽기 몸통 &lt;span class=&quot;tag&quot;&gt;추천&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;variant&quot; data-v=&quot;C&quot;&gt;
+      &lt;div class=&quot;phone t5c&quot;&gt;&lt;div class=&quot;scr&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;v-label&quot;&gt;&lt;i&gt;③&lt;/i&gt;&lt;b&gt;C&lt;/b&gt; 전부 명조 — 책·시험지처럼 통째로 세리프&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+
+&lt;template id=&quot;home&quot;&gt;
+  &lt;div class=&quot;s-status&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;span&gt;●●●&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-head&quot;&gt;&lt;b&gt;한장&lt;/b&gt;&lt;span&gt;6월 12일 목요일&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;s-body&quot;&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;div class=&quot;s-line&quot;&gt;&lt;span class=&quot;s-play&quot;&gt;▶&lt;/span&gt;&lt;div&gt;&lt;b&gt;이어하기&lt;/b&gt;&lt;p&gt;2025학년도 수능 국어&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;s-tm&quot;&gt;&lt;em&gt;남은 시간&lt;/em&gt;&lt;b&gt;42:10&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;오늘의 퀴즈&lt;/b&gt;&lt;div class=&quot;s-chips&quot;&gt;&lt;i&gt;OX&lt;/i&gt;&lt;i&gt;빈칸&lt;/i&gt;&lt;i&gt;영단어&lt;/i&gt;&lt;i&gt;한국사&lt;/i&gt;&lt;/div&gt;
+      &lt;p class=&quot;s-pass&quot;&gt;&quot;다음 글의 밑줄 친 부분 중 어법이 옳지 않은 것은?&quot; 처럼 본문 글자가 길게 이어질 때의 느낌을 봅니다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;s-card&quot;&gt;&lt;b&gt;최근 발행&lt;/b&gt;&lt;p&gt;2025 9월 모의평가 국어&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;s-tabs&quot;&gt;&lt;span class=&quot;on&quot;&gt;홈&lt;/span&gt;&lt;span&gt;자료실&lt;/span&gt;&lt;span&gt;저장&lt;/span&gt;&lt;span&gt;복습&lt;/span&gt;&lt;span&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const HOME=document.getElementById(&#x27;home&#x27;);
+document.querySelectorAll(&#x27;.scr&#x27;).forEach(s=&gt;s.appendChild(HOME.content.cloneNode(true)));
+document.querySelectorAll(&#x27;.variant&#x27;).forEach(v=&gt;{
+  v.addEventListener(&#x27;click&#x27;,()=&gt;{
+    const sec=v.closest(&#x27;section&#x27;),axis=sec.dataset.axis;
+    sec.querySelectorAll(&#x27;.variant&#x27;).forEach(x=&gt;x.classList.toggle(&#x27;sel&#x27;,x===v));
+    saveFb(`axis-${axis}`,v.dataset.v);
+  });
+});
+try{
+  const v=JSON.parse(localStorage.getItem(&#x27;feedback/axis-5&#x27;));
+  const el=v&amp;&amp;document.querySelector(`section[data-axis=&quot;5&quot;] .variant[data-v=&quot;${v}&quot;]`);
+  if(el)el.classList.add(&#x27;sel&#x27;);
+}catch(e){}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-icons-1" data-key="icons-1" title="아이콘" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 아이콘 매핑 (lucide)&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:1100px;margin:0 auto}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px;line-height:1.6}
+  .reco-line{margin-top:12px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .topbar{display:flex;align-items:center;gap:14px;margin:20px 0 6px;flex-wrap:wrap}
+  #allBtn{background:var(--navy);color:var(--card);border:none;border-radius:10px;padding:11px 18px;font-size:14px;font-family:inherit;cursor:pointer}
+  #allBtn.done{background:var(--stamp)}
+  .hint{font-size:12px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:18px}
+  .icard{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:16px;cursor:pointer;transition:border-color .15s;position:relative}
+  .icard:hover{border-color:var(--rule)}
+  .icard.open{border-color:var(--navy)}
+  .num{position:absolute;top:12px;right:14px;color:var(--stamp);font-weight:700;font-size:14px}
+  .icard svg{width:30px;height:30px;color:var(--ink);display:block}
+  .icard b{display:block;font-size:14px;margin-top:12px}
+  .icard code{font-size:11.5px;color:var(--navy);background:var(--paper);border:1px solid var(--hairline);border-radius:6px;padding:1px 7px;display:inline-block;margin-top:4px}
+  .icard p{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+  .alts{display:none;margin-top:12px;padding-top:10px;border-top:1px dashed var(--rule)}
+  .icard.open .alts{display:block}
+  .alts em{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-bottom:8px}
+  .alt{border:1px solid var(--rule);background:var(--paper);border-radius:99px;padding:5px 11px;font-size:11.5px;font-family:inherit;color:var(--ink);cursor:pointer;margin:0 5px 5px 0}
+  .alt:hover{border-color:var(--navy)}
+  .alt.sel{background:var(--navy);color:var(--card);border-color:var(--navy)}
+  .alts .mine{font-size:11px;color:var(--muted)}
+  .alts .mine.sel{color:var(--stamp);font-weight:700}
+  .frame-note{margin-top:34px;padding:16px;border:1px dashed var(--rule);border-radius:12px;width:var(--frame-w);font-size:12px;color:var(--muted);line-height:1.7}
+  .frame-note b{color:var(--ink)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;page&quot;&gt;
+&lt;header&gt;
+  &lt;h1&gt;한장 아이콘 매핑 — lucide&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;화면에 들어갈 액션·상태마다 lucide 아이콘 하나씩을 추천안으로 골랐습니다. 카드를 누르면 대안 2개가 열리고, 눌러서 바꿀 수 있습니다.&lt;/p&gt;
+  &lt;p class=&quot;reco-line&quot;&gt;&lt;b&gt;추천:&lt;/b&gt; 전부 stroke 1.8px의 lucide — 시험지 위 잉크 선·밑줄 펜과 결이 맞습니다.&lt;/p&gt;
+&lt;/header&gt;
+&lt;div class=&quot;topbar&quot;&gt;
+  &lt;button id=&quot;allBtn&quot;&gt;전체 추천대로 할게요&lt;/button&gt;
+  &lt;span class=&quot;hint&quot;&gt;또는 카드를 하나씩 열어 대안을 고르세요.&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;frame-note&quot;&gt;&lt;b&gt;규칙&lt;/b&gt; — 아이콘은 채움 없이 선만, 굵기 1.8px, 크기 20~24px. 정답·오답처럼 채점에 쓰는 것만 도장 빨강(--stamp)과 네이비(--navy)를 섞어 씁니다.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const ICONS=[
+ {num:&#x27;①&#x27;,ko:&#x27;홈&#x27;,name:&#x27;home&#x27;,use:&#x27;하단 탭 — 첫 화면으로 이동&#x27;,alts:[&#x27;house&#x27;,&#x27;layout-grid&#x27;],
+  svg:&#x27;&lt;path d=&quot;M3 10.5 12 3l9 7.5&quot;/&gt;&lt;path d=&quot;M5 9.5V21h14V9.5&quot;/&gt;&lt;path d=&quot;M9 21v-6h6v6&quot;/&gt;&#x27;},
+ {num:&#x27;②&#x27;,ko:&#x27;자료실&#x27;,name:&#x27;library&#x27;,use:&#x27;하단 탭 — 모의고사·기출 보관함&#x27;,alts:[&#x27;book-open&#x27;,&#x27;folder&#x27;],
+  svg:&#x27;&lt;path d=&quot;m16 6 4 14&quot;/&gt;&lt;path d=&quot;M12 6v14&quot;/&gt;&lt;path d=&quot;M8 8v12&quot;/&gt;&lt;path d=&quot;M4 4v16&quot;/&gt;&#x27;},
+ {num:&#x27;③&#x27;,ko:&#x27;저장&#x27;,name:&#x27;bookmark&#x27;,use:&#x27;하단 탭 — 북마크한 시험지·문항&#x27;,alts:[&#x27;book-marked&#x27;,&#x27;flag&#x27;],
+  svg:&#x27;&lt;path d=&quot;M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z&quot;/&gt;&#x27;},
+ {num:&#x27;④&#x27;,ko:&#x27;복습&#x27;,name:&#x27;history&#x27;,use:&#x27;하단 탭 — 풀이 기록·다시 풀기&#x27;,alts:[&#x27;rotate-ccw&#x27;,&#x27;clock&#x27;],
+  svg:&#x27;&lt;path d=&quot;M3 12a9 9 0 1 0 9-9 9.7 9.7 0 0 0-6.7 2.7L3 8&quot;/&gt;&lt;path d=&quot;M3 3v5h5&quot;/&gt;&lt;path d=&quot;M12 7v5l4 2&quot;/&gt;&#x27;},
+ {num:&#x27;⑤&#x27;,ko:&#x27;마이&#x27;,name:&#x27;user&#x27;,use:&#x27;하단 탭 — 내 정보·설정&#x27;,alts:[&#x27;circle-user-round&#x27;,&#x27;settings&#x27;],
+  svg:&#x27;&lt;path d=&quot;M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/&gt;&#x27;},
+ {num:&#x27;⑥&#x27;,ko:&#x27;이어하기&#x27;,name:&#x27;play&#x27;,use:&#x27;홈 카드 — 중단한 시험 재개&#x27;,alts:[&#x27;circle-play&#x27;,&#x27;arrow-right&#x27;],
+  svg:&#x27;&lt;path d=&quot;m6 3 14 9-14 9V3z&quot;/&gt;&#x27;},
+ {num:&#x27;⑦&#x27;,ko:&#x27;밑줄 펜&#x27;,name:&#x27;highlighter&#x27;,use:&#x27;시험지 — 지문 위 밑줄 그리기&#x27;,alts:[&#x27;pen-line&#x27;,&#x27;pencil&#x27;],
+  svg:&#x27;&lt;path d=&quot;m9 11-6 6v3h9l3-3&quot;/&gt;&lt;path d=&quot;m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4z&quot;/&gt;&#x27;},
+ {num:&#x27;⑧&#x27;,ko:&#x27;타이머&#x27;,name:&#x27;timer&#x27;,use:&#x27;시험지 상단 — 남은 시간 표시&#x27;,alts:[&#x27;alarm-clock&#x27;,&#x27;hourglass&#x27;],
+  svg:&#x27;&lt;line x1=&quot;10&quot; x2=&quot;14&quot; y1=&quot;2&quot; y2=&quot;2&quot;/&gt;&lt;line x1=&quot;12&quot; x2=&quot;15&quot; y1=&quot;14&quot; y2=&quot;11&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;14&quot; r=&quot;8&quot;/&gt;&#x27;},
+ {num:&#x27;⑨&#x27;,ko:&#x27;정답&#x27;,name:&#x27;check&#x27;,use:&#x27;채점 — 맞은 문항 표시&#x27;,alts:[&#x27;circle-check&#x27;,&#x27;badge-check&#x27;],
+  svg:&#x27;&lt;path d=&quot;M20 6 9 17l-5-5&quot;/&gt;&#x27;},
+ {num:&#x27;⑩&#x27;,ko:&#x27;오답&#x27;,name:&#x27;x&#x27;,use:&#x27;채점 — 틀린 문항 표시&#x27;,alts:[&#x27;circle-x&#x27;,&#x27;ban&#x27;],
+  svg:&#x27;&lt;path d=&quot;M18 6 6 18&quot;/&gt;&lt;path d=&quot;m6 6 12 12&quot;/&gt;&#x27;},
+ {num:&#x27;⑪&#x27;,ko:&#x27;결과&#x27;,name:&#x27;bar-chart-3&#x27;,use:&#x27;성적표·학습 리포트 화면&#x27;,alts:[&#x27;chart-pie&#x27;,&#x27;trending-up&#x27;],
+  svg:&#x27;&lt;path d=&quot;M3 3v18h18&quot;/&gt;&lt;path d=&quot;M18 17V9&quot;/&gt;&lt;path d=&quot;M13 17V5&quot;/&gt;&lt;path d=&quot;M8 17v-3&quot;/&gt;&#x27;},
+ {num:&#x27;⑫&#x27;,ko:&#x27;로그아웃&#x27;,name:&#x27;log-out&#x27;,use:&#x27;마이 — 계정 로그아웃&#x27;,alts:[&#x27;door-open&#x27;,&#x27;power&#x27;],
+  svg:&#x27;&lt;path d=&quot;M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4&quot;/&gt;&lt;polyline points=&quot;16 17 21 12 16 7&quot;/&gt;&lt;line x1=&quot;21&quot; x2=&quot;9&quot; y1=&quot;12&quot; y2=&quot;12&quot;/&gt;&#x27;},
+ {num:&#x27;⑬&#x27;,ko:&#x27;북마크 토글&#x27;,name:&#x27;star&#x27;,use:&#x27;자료실 카드 — 즐겨찾기 켜기·끄기&#x27;,alts:[&#x27;bookmark&#x27;,&#x27;heart&#x27;],
+  svg:&#x27;&lt;polygon points=&quot;12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2&quot;/&gt;&#x27;},
+ {num:&#x27;⑭&#x27;,ko:&#x27;닫기·뒤로&#x27;,name:&#x27;chevron-left&#x27;,use:&#x27;스택 화면 — 이전으로 닫기&#x27;,alts:[&#x27;arrow-left&#x27;,&#x27;x&#x27;],
+  svg:&#x27;&lt;path d=&quot;m15 18-6-6 6-6&quot;/&gt;&#x27;}
+];
+const grid=document.getElementById(&#x27;grid&#x27;);
+ICONS.forEach(ic=&gt;{
+  const d=document.createElement(&#x27;div&#x27;);
+  d.className=&#x27;icard&#x27;;d.dataset.name=ic.name;
+  d.innerHTML=`&lt;span class=&quot;num&quot;&gt;${ic.num}&lt;/span&gt;
+    &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;${ic.svg}&lt;/svg&gt;
+    &lt;b&gt;${ic.ko}&lt;/b&gt;&lt;code&gt;${ic.name}&lt;/code&gt;&lt;p&gt;${ic.use}&lt;/p&gt;
+    &lt;div class=&quot;alts&quot;&gt;&lt;em&gt;대안을 누르면 바뀝니다 · 추천안: ${ic.name}&lt;/em&gt;
+      &lt;button class=&quot;alt mine sel&quot; data-a=&quot;${ic.name}&quot;&gt;${ic.name} (추천)&lt;/button&gt;
+      ${ic.alts.map(a=&gt;`&lt;button class=&quot;alt&quot; data-a=&quot;${a}&quot;&gt;${a}&lt;/button&gt;`).join(&#x27;&#x27;)}
+    &lt;/div&gt;`;
+  d.addEventListener(&#x27;click&#x27;,e=&gt;{
+    const chip=e.target.closest(&#x27;.alt&#x27;);
+    if(chip){
+      d.querySelectorAll(&#x27;.alt&#x27;).forEach(c=&gt;c.classList.toggle(&#x27;sel&#x27;,c===chip));
+      saveFb(`icon-${ic.name}`,chip.dataset.a);
+      e.stopPropagation();
+      return;
+    }
+    d.classList.toggle(&#x27;open&#x27;);
+  });
+  grid.appendChild(d);
+});
+document.getElementById(&#x27;allBtn&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{
+  saveFb(&#x27;icons-all&#x27;,&#x27;recommended&#x27;);
+  const b=e.currentTarget;b.classList.add(&#x27;done&#x27;);b.textContent=&#x27;추천안으로 저장했어요&#x27;;
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-quiz-preview" data-key="quiz-preview" title="퀴즈 미리보기" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 오늘의 퀴즈 미리보기&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root{--frame-w:390px;--bg:#F6F4FB;--ink:#17142B;--mut:#8B87A3;--vio:#6C5CE7;--vio2:#8F7BFF;--grn:#22C58B;--red:#F0506E;--card:#FFFFFF;--line:#ECE9F6}
+  *{box-sizing:border-box;margin:0;font-family:&quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif}
+  body{background:var(--bg);color:var(--ink);padding:32px 16px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+  h1{font-family:&quot;Noto Serif KR&quot;,serif;font-size:22px;margin-bottom:4px}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:28px}
+  .row{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+  .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .col .cap{font-size:12px;color:var(--mut)}
+  .phone{width:var(--frame-w);height:720px;border-radius:36px;padding:18px;position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#FFFFFF 0%,#F6F4FB 60%,#EFEBFD 100%);
+    border:1px solid var(--line);box-shadow:0 20px 50px rgba(80,70,160,.14)}
+  .statusbar{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);padding:2px 6px 14px}
+  .head{display:flex;align-items:center;justify-content:space-between;padding:0 4px 14px}
+  .head .back{width:34px;height:34px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:15px}
+  .head .title{font-weight:700;font-size:15px}
+  .head .cnt{font-size:12px;color:var(--mut);font-weight:600}
+  .prog{height:8px;border-radius:99px;background:#E9E5F8;margin:0 4px 20px;overflow:hidden}
+  .prog i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--vio),var(--vio2))}
+  .qcard{background:var(--card);border-radius:22px;padding:22px 20px;margin:0 2px 18px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(80,70,160,.07)}
+  .qcard .chip{display:inline-block;font-size:11px;font-weight:700;color:var(--vio);background:#EFEBFD;border-radius:99px;padding:4px 10px;margin-bottom:10px}
+  .qcard .q{font-family:&quot;Noto Serif KR&quot;,serif;font-size:19px;font-weight:700;line-height:1.45}
+  .qcard .qsub{font-size:12px;color:var(--mut);margin-top:8px}
+  .ch{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:13px 14px;margin:0 2px 9px;font-size:14px;font-weight:500;transition:.15s}
+  .ch .k{width:26px;height:26px;border-radius:9px;background:#F1EEFB;color:var(--vio);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .ch.ok{border-color:var(--grn);background:#EEFBF5}
+  .ch.ok .k{background:var(--grn);color:#fff}
+  .ch.no{border-color:var(--red);background:#FDF0F3}
+  .ch.no .k{background:var(--red);color:#fff}
+  .ch .mark{margin-left:auto;font-size:13px;font-weight:700}
+  .ch.ok .mark{color:var(--grn)} .ch.no .mark{color:var(--red)}
+  .oxrow{display:flex;gap:12px;margin:0 2px}
+  .ox{flex:1;height:150px;border-radius:22px;border:2px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:44px;font-weight:700}
+  .ox small{font-size:12px;color:var(--mut);font-weight:600}
+  .ox.o{color:var(--grn)} .ox.x{color:var(--red)}
+  .ox.o.sel{border-color:var(--grn);background:#EEFBF5;box-shadow:0 8px 24px rgba(34,197,139,.2)}
+  .score{position:relative;width:150px;height:150px;margin:8px auto 14px}
+  .score svg{transform:rotate(-90deg)}
+  .score .n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .score .n b{font-family:&quot;Noto Serif KR&quot;,serif;font-size:34px}
+  .score .n span{font-size:11px;color:var(--mut)}
+  .wrong{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 2px 8px;font-size:13px;display:flex;justify-content:space-between;align-items:center}
+  .wrong .x{color:var(--red);font-weight:700}
+  .cta{margin:14px 2px 0;background:linear-gradient(90deg,var(--vio),var(--vio2));color:#fff;border:none;border-radius:16px;padding:15px;font-size:15px;font-weight:700;width:calc(100% - 4px);box-shadow:0 10px 24px rgba(108,92,231,.3)}
+  .ghost{margin-top:10px;width:calc(100% - 4px);background:none;border:none;color:var(--mut);font-size:13px;padding:10px}
+  .lab{position:absolute;top:10px;right:14px;background:var(--vio);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:3px 9px}
+  .fb{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap;justify-content:center}
+  .fb button{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:9px 16px;font-size:13px;cursor:pointer;color:var(--ink)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;오늘의 퀴즈 — 화면 시안&lt;/h1&gt;
+&lt;p class=&quot;sub&quot;&gt;영단어 6지선다 · OX · 세트 결과. 마음에 드는 화면을 눌러 선택&lt;/p&gt;
+&lt;div class=&quot;row&quot;&gt;
+
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;phone&quot; onclick=&quot;pick(&#x27;quiz-word&#x27;)&quot;&gt;&lt;span class=&quot;lab&quot;&gt;①&lt;/span&gt;
+      &lt;div class=&quot;statusbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;head&quot;&gt;&lt;div class=&quot;back&quot;&gt;‹&lt;/div&gt;&lt;div class=&quot;title&quot;&gt;영단어 퀴즈&lt;/div&gt;&lt;div class=&quot;cnt&quot;&gt;3 / 10&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;prog&quot;&gt;&lt;i style=&quot;width:30%&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+      &lt;div class=&quot;qcard&quot;&gt;&lt;span class=&quot;chip&quot;&gt;EN → KO&lt;/span&gt;&lt;div class=&quot;q&quot;&gt;&quot;apple&quot;을 뜻하는 것은?&lt;/div&gt;&lt;div class=&quot;qsub&quot;&gt;다음 중 알맞은 뜻을 고르세요&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;ch&quot;&gt;&lt;span class=&quot;k&quot;&gt;A&lt;/span&gt;바나나&lt;/div&gt;
+      &lt;div class=&quot;ch ok&quot;&gt;&lt;span class=&quot;k&quot;&gt;B&lt;/span&gt;사과&lt;span class=&quot;mark&quot;&gt;✓ 정답&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;ch&quot;&gt;&lt;span class=&quot;k&quot;&gt;C&lt;/span&gt;포도&lt;/div&gt;
+      &lt;div class=&quot;ch no&quot;&gt;&lt;span class=&quot;k&quot;&gt;D&lt;/span&gt;복숭아&lt;span class=&quot;mark&quot;&gt;내 선택&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;ch&quot;&gt;&lt;span class=&quot;k&quot;&gt;E&lt;/span&gt;귤&lt;/div&gt;
+      &lt;div class=&quot;ch&quot;&gt;&lt;span class=&quot;k&quot;&gt;F&lt;/span&gt;수박&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class=&quot;cap&quot;&gt;① 영단어 — 6지선다, 즉시 정오 표시&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;phone&quot; onclick=&quot;pick(&#x27;quiz-ox&#x27;)&quot;&gt;&lt;span class=&quot;lab&quot;&gt;②&lt;/span&gt;
+      &lt;div class=&quot;statusbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;head&quot;&gt;&lt;div class=&quot;back&quot;&gt;‹&lt;/div&gt;&lt;div class=&quot;title&quot;&gt;OX 퀴즈&lt;/div&gt;&lt;div class=&quot;cnt&quot;&gt;5 / 10&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;prog&quot;&gt;&lt;i style=&quot;width:50%&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+      &lt;div class=&quot;qcard&quot;&gt;&lt;span class=&quot;chip&quot;&gt;OX&lt;/span&gt;&lt;div class=&quot;q&quot;&gt;세종대왕은 훈민정음을 창제했다&lt;/div&gt;&lt;div class=&quot;qsub&quot;&gt;맞으면 O, 틀리면 X&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;oxrow&quot;&gt;
+        &lt;div class=&quot;ox o sel&quot;&gt;O&lt;small&gt;맞다&lt;/small&gt;&lt;/div&gt;
+        &lt;div class=&quot;ox x&quot;&gt;X&lt;small&gt;아니다&lt;/small&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;cta&quot;&gt;다음 문제&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;span class=&quot;cap&quot;&gt;② OX — 큰 두 버튼, 터치 영역 넓게&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col&quot;&gt;
+    &lt;div class=&quot;phone&quot; onclick=&quot;pick(&#x27;quiz-result&#x27;)&quot;&gt;&lt;span class=&quot;lab&quot;&gt;③&lt;/span&gt;
+      &lt;div class=&quot;statusbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;head&quot;&gt;&lt;div class=&quot;back&quot;&gt;‹&lt;/div&gt;&lt;div class=&quot;title&quot;&gt;퀴즈 결과&lt;/div&gt;&lt;div class=&quot;cnt&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;score&quot;&gt;
+        &lt;svg width=&quot;150&quot; height=&quot;150&quot;&gt;&lt;circle cx=&quot;75&quot; cy=&quot;75&quot; r=&quot;64&quot; fill=&quot;none&quot; stroke=&quot;#E9E5F8&quot; stroke-width=&quot;12&quot;/&gt;&lt;circle cx=&quot;75&quot; cy=&quot;75&quot; r=&quot;64&quot; fill=&quot;none&quot; stroke=&quot;url(#g)&quot; stroke-width=&quot;12&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;402&quot; stroke-dashoffset=&quot;80&quot;/&gt;&lt;defs&gt;&lt;linearGradient id=&quot;g&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#6C5CE7&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#8F7BFF&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;/svg&gt;
+        &lt;div class=&quot;n&quot;&gt;&lt;b&gt;8/10&lt;/b&gt;&lt;span&gt;정답&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;wrong&quot;&gt;&lt;span&gt;apple — 사과&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;바나나 선택&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;wrong&quot;&gt;&lt;span&gt;run — 달리다&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;걷다 선택&lt;/span&gt;&lt;/div&gt;
+      &lt;button class=&quot;cta&quot;&gt;틀린 문항 복습에 저장&lt;/button&gt;
+      &lt;button class=&quot;ghost&quot;&gt;홈으로 돌아가기&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;span class=&quot;cap&quot;&gt;③ 결과 — 점수 링 + 틀린 문항&lt;/span&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;fb&quot;&gt;
+  &lt;button onclick=&quot;pick(&#x27;quiz-all&#x27;)&quot;&gt;전부 괜찮아요&lt;/button&gt;
+  &lt;button onclick=&quot;pick(&#x27;quiz-none&#x27;)&quot;&gt;다 마음에 안 들어요&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();
+const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+function pick(k){saveFb(k,{t:Date.now()});alert(&#x27;저장됨: &#x27;+k)}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-rules-preview" data-key="rules-preview" title="규칙 미리보기" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 디자인 규칙 미리보기&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{--frame-w:390px;--bg:#F6F4FB;--s1:#FFFFFF;--s2:#EFEBFD;--tx:#17142B;--mu:#8B87A3;--bd:#ECE9F6;--ac:#6C5CE7;--ac2:#8F7BFF;--dg:#F0506E;--ok:#22C58B;--gr:linear-gradient(135deg,#6C5CE7,#8F7BFF);--sh-s:0 2px 8px rgba(80,70,160,.08);--sh-m:0 8px 24px rgba(80,70,160,.12)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.5 &quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:32px 12px 64px}
+.serif{font-family:&quot;Noto Serif KR&quot;,serif}
+h1.ttl{font:700 28px/1.3 &quot;Noto Serif KR&quot;,serif;text-align:center}
+.sub{text-align:center;color:var(--mu);font-size:14px;margin:6px 0 20px}
+#all{display:flex;margin:0 auto 36px;max-width:var(--frame-w);width:100%}
+.sec{max-width:var(--frame-w);margin:0 auto 24px}
+.shd{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.num{font-size:20px;line-height:1}
+.st{font-weight:600;font-size:15px;flex:1}
+.fixbtn{font-size:12px;font-weight:500;padding:5px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);color:var(--mu);cursor:pointer}
+.fixbtn.on{background:var(--dg);border-color:var(--dg);color:#fff}
+.sec.fix .frame{outline:2px dashed var(--dg);outline-offset:3px}
+.frame{width:var(--frame-w);margin:0 auto;background:var(--s1);border:1px solid var(--bd);border-radius:22px;box-shadow:var(--sh-m);padding:16px;overflow:hidden}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.col{display:flex;flex-direction:column;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;font:600 15px &quot;IBM Plex Sans KR&quot;,sans-serif;cursor:pointer;white-space:nowrap}
+.bsm{height:36px;padding:0 12px;font-size:14px}
+.bmd{height:44px;padding:0 16px}
+.blg{height:52px;padding:0 20px;font-size:16px;border-radius:22px;width:100%}
+.pri{background:var(--gr);color:#fff;box-shadow:var(--sh-s)}
+.sec2{background:var(--s1);border:1px solid var(--bd);color:var(--tx)}
+.gho{background:transparent;color:var(--ac)}
+.danb{background:var(--dg);color:#fff}
+.press{filter:brightness(.88);transform:scale(.98)}
+.btnsel{background:#6C5CE71A;border:1px solid var(--ac);color:var(--ac)}
+.btn:disabled{opacity:.4;cursor:default}
+.sp{width:20px;height:20px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:ro .8s linear infinite}
+@keyframes ro{to{transform:rotate(360deg)}}
+i[data-i]{display:inline-flex;line-height:0}
+i[data-i] svg{width:24px;height:24px}
+i.s16 svg{width:16px;height:16px}i.s20 svg{width:20px;height:20px}i.s48 svg{width:48px;height:48px}
+.icn{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;color:var(--mu)}
+.icn i{color:var(--tx)}
+.igrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 4px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:16px;box-shadow:var(--sh-s)}
+.cacc{border-color:var(--ac)}
+.cap{font-size:12px;color:var(--mu)}
+.h3{font-size:17px;font-weight:600}
+.lab{font-size:13px;font-weight:500;color:var(--ac)}
+.pbtn{width:44px;height:44px;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.pbar{height:6px;border-radius:999px;background:var(--s2);overflow:hidden;margin-top:8px}
+.pbar b{display:block;height:100%;width:64%;background:var(--gr);border-radius:999px}
+.appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;border-bottom:1px solid var(--bd);background:var(--s1)}
+.appbar .t{font-size:17px;font-weight:600}
+.appbar .a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--tx)}
+.scr{min-height:150px;background:var(--bg);padding:16px;display:flex;flex-direction:column;gap:12px}
+.tabbar{display:flex;border-top:1px solid var(--bd);background:var(--s1)}
+.tab{flex:1;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 0 10px;color:var(--mu);font-size:11px}
+.tab.on{color:var(--ac);font-weight:600}
+.dz{background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.sheet{background:var(--s1);border-radius:22px 22px 0 0;padding:8px 16px 20px}
+.grab{width:36px;height:4px;border-radius:999px;background:var(--bd);margin:4px auto 14px}
+.chip{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);font:400 14px &quot;IBM Plex Sans KR&quot;,sans-serif;color:var(--tx);cursor:pointer}
+.chip.on{background:var(--s2);border-color:var(--ac);color:var(--ac);font-weight:600}
+.dlg{background:var(--s1);border-radius:16px;padding:20px;width:100%;max-width:300px;text-align:center;box-shadow:var(--sh-m)}
+.trow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--bd)}
+.trow:last-child{border:0}
+.trole{font-size:11px;color:var(--mu);white-space:nowrap}
+.d28{font:700 28px/1.3 &quot;Noto Serif KR&quot;,serif}
+.d24{font:700 24px/1.3 &quot;Noto Serif KR&quot;,serif}
+.t20{font-size:20px;font-weight:600}.t17{font-size:17px;font-weight:600}
+.t15{font-size:15px}.t14{font-size:14px}.t13{font-size:13px;font-weight:500}.t12{font-size:12px}
+.q{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--bd);border-radius:16px;background:var(--s1);font:400 15px &quot;IBM Plex Sans KR&quot;,sans-serif;color:var(--tx);text-align:left;cursor:pointer}
+.q .nm{font-weight:600;color:var(--mu);flex:none}
+.q.sel{border-color:var(--ac);background:var(--s2)}
+.q.sel .nm{color:var(--ac)}
+.q.ok{border-color:var(--ok);background:#22C58B14}
+.q.ok .nm{color:#0e8a63}
+.q.no{border-color:var(--dg);background:#F0506E12}
+.q.no .nm{color:#c23252}
+.q.dis{opacity:.45;cursor:default}
+.q.mk{margin-left:auto;flex:none}
+.oxb{flex:1;height:120px;border-radius:22px;font-size:44px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;border:2px solid var(--bd);background:var(--s1)}
+.oxb small{font-size:12px;font-weight:600;color:var(--mu)}
+.oxb.o{color:var(--ok);border-color:var(--ok);background:#EEFBF5}
+.oxb.x{color:var(--dg)}
+.empty{text-align:center;padding:40px 16px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sk{border-radius:16px;padding:16px;border:1px solid var(--bd);background:var(--s1)}
+.skl{height:14px;border-radius:6px;background:linear-gradient(90deg,var(--s2) 25%,#fff 50%,var(--s2) 75%);background-size:200% 100%;animation:shm 1.4s infinite}
+@keyframes shm{to{background-position:-200% 0}}
+.offb{margin:-16px -16px 12px;padding:8px 16px;background:var(--s2);color:var(--ac);font-size:13px;font-weight:500;text-align:center}
+.snack{min-height:48px;background:var(--tx);color:#fff;border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;font-size:14px}
+.timer{font:700 24px/1 &quot;Noto Serif KR&quot;,serif;font-variant-numeric:tabular-nums}
+.pass{border:1px solid var(--bd);border-radius:16px;background:var(--s2);padding:12px;aspect-ratio:4/3}
+.pass svg{width:100%;height:100%}
+.sw{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu)}
+.sw b{width:28px;height:28px;border-radius:8px;border:1px solid var(--bd);flex:none}
+.swgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rs{width:52px;height:40px;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mu)}
+.rss{width:52px;height:40px;background:var(--s1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mu)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 class=&quot;ttl&quot;&gt;한장 디자인 규칙 미리보기&lt;/h1&gt;
+&lt;p class=&quot;sub&quot;&gt;확정된 디자인 시스템을 한 화면에서 확인하고 승인하세요&lt;/p&gt;
+&lt;button id=&quot;all&quot; class=&quot;btn pri blg&quot;&gt;전체 추천대로 할게요&lt;/button&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;①&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;버튼&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;1&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;button class=&quot;btn pri blg&quot;&gt;시작하기&lt;/button&gt;
+&lt;button class=&quot;btn pri bmd&quot;&gt;이어서 풀기&lt;/button&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;button class=&quot;btn pri bsm&quot;&gt;확인&lt;/button&gt;&lt;button class=&quot;btn pri bsm press&quot;&gt;누르는 중&lt;/button&gt;&lt;button class=&quot;btn pri bsm&quot; disabled&gt;비활성&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;button class=&quot;btn sec2 bmd&quot;&gt;보관함 열기&lt;/button&gt;&lt;button class=&quot;btn btnsel bmd&quot;&gt;선택됨&lt;/button&gt;&lt;button class=&quot;btn gho bmd&quot;&gt;나중에&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;button class=&quot;btn danb bmd&quot;&gt;삭제하기&lt;/button&gt;&lt;button class=&quot;btn pri bmd&quot; disabled&gt;&lt;span class=&quot;sp&quot;&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;②&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;아이콘&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;2&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame&quot;&gt;&lt;div class=&quot;igrid&quot;&gt;
+&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;home&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;library&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;bookmark&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;history&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;user&lt;/span&gt;
+&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;play&quot;&gt;&lt;/i&gt;play&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;highlighter&quot;&gt;&lt;/i&gt;highlighter&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;timer&quot;&gt;&lt;/i&gt;timer&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;check&quot;&gt;&lt;/i&gt;check&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;x&quot;&gt;&lt;/i&gt;x&lt;/span&gt;
+&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;barchart&quot;&gt;&lt;/i&gt;bar-chart-3&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;logout&quot;&gt;&lt;/i&gt;log-out&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;star&quot;&gt;&lt;/i&gt;star&lt;/span&gt;&lt;span class=&quot;icn&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;chevron-left&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;③&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;카드&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;3&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;div class=&quot;card cacc row&quot; style=&quot;flex-wrap:nowrap;gap:12px&quot;&gt;
+&lt;span class=&quot;pbtn&quot;&gt;&lt;i data-i=&quot;play&quot; class=&quot;s20&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;lab&quot;&gt;이어하기&lt;/div&gt;&lt;div class=&quot;h3&quot;&gt;2025학년도 수능 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;3회차 · 12/18문항&lt;/div&gt;&lt;div class=&quot;pbar&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;h3&quot;&gt;오늘의 퀴즈&lt;/div&gt;&lt;p class=&quot;cap&quot; style=&quot;margin:4px 0 12px&quot;&gt;어제 푼 지문에서 3문제를 골랐어요&lt;/p&gt;&lt;button class=&quot;btn pri bmd&quot; style=&quot;width:100%&quot;&gt;지금 풀기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;card row&quot; style=&quot;flex-wrap:nowrap;justify-content:space-between&quot;&gt;&lt;div&gt;&lt;div class=&quot;h3&quot;&gt;12회차 · 독서&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;정답률 80% · 6월 12일&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--ac)&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;④&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;탭바 + 앱바&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;4&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame&quot; style=&quot;padding:0&quot;&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;span class=&quot;a&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;t&quot;&gt;오늘의 퀴즈&lt;/span&gt;&lt;span class=&quot;a&quot;&gt;&lt;i data-i=&quot;bookmark&quot; class=&quot;s20&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;scr&quot;&gt;&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;h3&quot;&gt;2/5 문항&lt;/div&gt;&lt;p class=&quot;cap&quot; style=&quot;margin-top:4px&quot;&gt;화자의 태도로 가장 적절한 것은?&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;
+&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;열람실&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;기록&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;MY&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑤&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;바텀시트 + 다이얼로그&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;5&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame&quot; style=&quot;padding:0;margin-bottom:12px&quot;&gt;
+&lt;div class=&quot;dz&quot; style=&quot;padding:44px 24px 20px&quot;&gt;&lt;span style=&quot;color:#fff;font-size:13px&quot;&gt;배경이 어두워져요&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;sheet&quot;&gt;
+&lt;div class=&quot;grab&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;h3&quot; style=&quot;margin-bottom:12px&quot;&gt;지문 필터&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;margin-bottom:6px&quot;&gt;연도&lt;/div&gt;
+&lt;div class=&quot;row&quot; style=&quot;margin-bottom:12px&quot;&gt;&lt;button class=&quot;chip on&quot;&gt;2025&lt;/button&gt;&lt;button class=&quot;chip&quot;&gt;2024&lt;/button&gt;&lt;button class=&quot;chip&quot;&gt;2023&lt;/button&gt;&lt;button class=&quot;chip&quot;&gt;2022&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;margin-bottom:6px&quot;&gt;영역&lt;/div&gt;
+&lt;div class=&quot;row&quot; style=&quot;margin-bottom:16px&quot;&gt;&lt;button class=&quot;chip on&quot;&gt;독서&lt;/button&gt;&lt;button class=&quot;chip&quot;&gt;문학&lt;/button&gt;&lt;button class=&quot;chip&quot;&gt;화법·작문&lt;/button&gt;&lt;/div&gt;
+&lt;button class=&quot;btn pri blg&quot;&gt;필터 적용&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;frame&quot; style=&quot;padding:0&quot;&gt;
+&lt;div class=&quot;dz&quot; style=&quot;padding:56px 24px&quot;&gt;
+&lt;div class=&quot;dlg&quot;&gt;&lt;div class=&quot;h3&quot;&gt;로그아웃할까요?&lt;/div&gt;&lt;p class=&quot;cap&quot; style=&quot;margin:6px 0 16px&quot;&gt;학습 기록은 이 기기에만 남아 있어요&lt;/p&gt;
+&lt;div class=&quot;row&quot; style=&quot;flex-wrap:nowrap&quot;&gt;&lt;button class=&quot;btn sec2 bmd&quot; style=&quot;flex:1&quot;&gt;취소&lt;/button&gt;&lt;button class=&quot;btn danb bmd&quot; style=&quot;flex:1&quot;&gt;로그아웃&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑥&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;타이포 역할표&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;6&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame&quot; style=&quot;padding:6px 16px&quot;&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;d28&quot;&gt;한 장에, 국어 한 회&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;display · serif 28&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;d24&quot;&gt;오늘의 퀴즈&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;h1 · serif 24&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t20&quot;&gt;이번 주 학습 기록&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;h2 · 20/600&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t17&quot;&gt;독서 · 비문학&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;h3 · 17/600&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t15&quot;&gt;2025학년도 수능 국어 지문을 읽어요&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;body · 15&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t14&quot;&gt;마지막 학습 후 이틀이 지났어요&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;body-sm · 14&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t13&quot;&gt;연도 선택&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;label · 13/500&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;trow&quot;&gt;&lt;span class=&quot;t12&quot;&gt;2025.06.18 · 3회차&lt;/span&gt;&lt;span class=&quot;trole&quot;&gt;caption · 12&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑦&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;선지 · 정오&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;7&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;button class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;①&lt;/b&gt;글의 전개 방식이 적절하다&lt;/button&gt;
+&lt;button class=&quot;q sel&quot;&gt;&lt;b class=&quot;nm&quot;&gt;②&lt;/b&gt;화자의 정서를 역설적으로 드러낸다&lt;/button&gt;
+&lt;button class=&quot;q ok&quot;&gt;&lt;b class=&quot;nm&quot;&gt;③&lt;/b&gt;설의법으로 주장을 강조한다&lt;span class=&quot;mk&quot; style=&quot;color:var(--ok)&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s20&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;q no&quot;&gt;&lt;b class=&quot;nm&quot;&gt;④&lt;/b&gt;반어적 표현으로 풍자한다&lt;span class=&quot;mk&quot; style=&quot;color:var(--dg)&quot;&gt;&lt;i data-i=&quot;x&quot; class=&quot;s20&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;q dis&quot;&gt;&lt;b class=&quot;nm&quot;&gt;⑤&lt;/b&gt;비유법으로 대상을 형상화한다&lt;/button&gt;
+&lt;button class=&quot;q&quot; style=&quot;border-style:dashed&quot;&gt;&lt;b class=&quot;nm&quot;&gt;⑥&lt;/b&gt;채점 전 · 아직 고르지 않은 상태&lt;/button&gt;
+&lt;div class=&quot;row&quot; style=&quot;flex-wrap:nowrap&quot;&gt;&lt;button class=&quot;oxb o&quot;&gt;O&lt;small&gt;맞다&lt;/small&gt;&lt;/button&gt;&lt;button class=&quot;oxb x&quot;&gt;X&lt;small&gt;아니다&lt;/small&gt;&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑧&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;빈 상태 · 로딩&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;8&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;div class=&quot;empty&quot;&gt;&lt;i data-i=&quot;bookmark&quot; class=&quot;s48&quot; style=&quot;color:var(--bd)&quot;&gt;&lt;/i&gt;&lt;div class=&quot;h3&quot;&gt;저장한 지문이 아직 없어요&lt;/div&gt;&lt;p class=&quot;cap&quot;&gt;지문을 읽다가 별표를 눌러 저장해 보세요&lt;/p&gt;&lt;button class=&quot;btn sec2 bmd&quot; style=&quot;margin-top:8px&quot;&gt;지문 보러가기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;sk&quot;&gt;&lt;div class=&quot;skl&quot; style=&quot;width:40%&quot;&gt;&lt;/div&gt;&lt;div class=&quot;skl&quot; style=&quot;width:80%;margin-top:10px&quot;&gt;&lt;/div&gt;&lt;div class=&quot;skl&quot; style=&quot;width:60%;margin-top:10px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;sk&quot;&gt;&lt;div class=&quot;skl&quot; style=&quot;width:55%&quot;&gt;&lt;/div&gt;&lt;div class=&quot;skl&quot; style=&quot;width:70%;margin-top:10px&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑨&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;오류 · 오프라인&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;9&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame&quot;&gt;
+&lt;div class=&quot;offb&quot;&gt;오프라인 상태예요. 저장된 학습만 볼 수 있어요&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;h3&quot;&gt;이어하기&lt;/div&gt;&lt;p class=&quot;cap&quot; style=&quot;margin-top:4px&quot;&gt;오프라인에서도 저장된 회차는 열 수 있어요&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;snack&quot; style=&quot;margin-top:12px&quot;&gt;&lt;span&gt;네트워크 오류가 발생했어요&lt;/span&gt;&lt;b style=&quot;color:#B9AFFF;font-size:13px&quot;&gt;다시 시도&lt;/b&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑩&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;시험지 요소&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;10&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;div class=&quot;row&quot; style=&quot;justify-content:space-between;flex-wrap:nowrap&quot;&gt;&lt;span class=&quot;cap&quot;&gt;2025학년도 수능 국어&lt;/span&gt;&lt;span class=&quot;timer&quot;&gt;24:36&lt;/span&gt;&lt;button class=&quot;btn gho bsm&quot;&gt;나가기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;pass&quot;&gt;&lt;svg viewBox=&quot;0 0 340 240&quot; preserveAspectRatio=&quot;xMidYMid meet&quot;&gt;
+&lt;rect x=&quot;8&quot; y=&quot;8&quot; width=&quot;200&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;&lt;rect x=&quot;8&quot; y=&quot;30&quot; width=&quot;324&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;&lt;rect x=&quot;8&quot; y=&quot;52&quot; width=&quot;324&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;
+&lt;rect x=&quot;8&quot; y=&quot;74&quot; width=&quot;220&quot; height=&quot;12&quot; rx=&quot;4&quot; fill=&quot;#6C5CE7&quot; opacity=&quot;.18&quot;/&gt;&lt;line x1=&quot;8&quot; y1=&quot;90&quot; x2=&quot;228&quot; y2=&quot;90&quot; stroke=&quot;#6C5CE7&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+&lt;rect x=&quot;232&quot; y=&quot;76&quot; width=&quot;100&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;&lt;rect x=&quot;8&quot; y=&quot;102&quot; width=&quot;324&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;
+&lt;rect x=&quot;8&quot; y=&quot;124&quot; width=&quot;180&quot; height=&quot;12&quot; rx=&quot;4&quot; fill=&quot;#6C5CE7&quot; opacity=&quot;.18&quot;/&gt;&lt;line x1=&quot;8&quot; y1=&quot;140&quot; x2=&quot;188&quot; y2=&quot;140&quot; stroke=&quot;#6C5CE7&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+&lt;rect x=&quot;192&quot; y=&quot;126&quot; width=&quot;140&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;&lt;rect x=&quot;8&quot; y=&quot;152&quot; width=&quot;324&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;&lt;rect x=&quot;8&quot; y=&quot;174&quot; width=&quot;260&quot; height=&quot;9&quot; rx=&quot;4&quot; fill=&quot;#D9D4EE&quot;/&gt;
+&lt;/svg&gt;&lt;/div&gt;
+&lt;p class=&quot;cap&quot;&gt;지문 이미지는 contain · surface-2 배경. 밑줄은 펜 수평 스트로크&lt;/p&gt;
+&lt;div class=&quot;col&quot; style=&quot;gap:8px&quot;&gt;
+&lt;div class=&quot;q&quot; style=&quot;min-height:44px&quot;&gt;&lt;b class=&quot;nm&quot;&gt;①&lt;/b&gt;윗글의 중심 내용으로 적절한 것&lt;/div&gt;
+&lt;div class=&quot;q&quot; style=&quot;min-height:44px&quot;&gt;&lt;b class=&quot;nm&quot;&gt;②&lt;/b&gt;밑줄 친 부분의 의미로 적절한 것&lt;/div&gt;
+&lt;div class=&quot;q&quot; style=&quot;min-height:44px&quot;&gt;&lt;b class=&quot;nm&quot;&gt;③&lt;/b&gt;화자의 태도로 가장 적절한 것&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;sec&quot;&gt;
+&lt;div class=&quot;shd&quot;&gt;&lt;span class=&quot;num&quot;&gt;⑪&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;상태 요약 · 토큰&lt;/span&gt;&lt;button class=&quot;fixbtn&quot; data-n=&quot;11&quot;&gt;조정 필요&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;frame col&quot;&gt;
+&lt;div class=&quot;swgrid&quot;&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#F6F4FB&quot;&gt;&lt;/b&gt;bg · F6F4FB&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#EFEBFD&quot;&gt;&lt;/b&gt;surface-2 · EFEBFD&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#17142B&quot;&gt;&lt;/b&gt;text · 17142B&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#8B87A3&quot;&gt;&lt;/b&gt;muted · 8B87A3&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#6C5CE7&quot;&gt;&lt;/b&gt;accent · 6C5CE7&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:linear-gradient(135deg,#6C5CE7,#8F7BFF)&quot;&gt;&lt;/b&gt;gradient&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#F0506E&quot;&gt;&lt;/b&gt;danger · F0506E&lt;/span&gt;
+&lt;span class=&quot;sw&quot;&gt;&lt;b style=&quot;background:#22C58B&quot;&gt;&lt;/b&gt;success · 22C58B&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cap&quot;&gt;radius — 8 / 12 / 16 / 22 / full&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;rs&quot; style=&quot;border-radius:8px&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;rs&quot; style=&quot;border-radius:12px&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;rs&quot; style=&quot;border-radius:16px&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;rs&quot; style=&quot;border-radius:22px&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;rs&quot; style=&quot;border-radius:999px&quot;&gt;full&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;cap&quot;&gt;shadow — sm / md&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;rss&quot; style=&quot;box-shadow:var(--sh-s)&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;rss&quot; style=&quot;box-shadow:var(--sh-m)&quot;&gt;md&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const I={
+home:&#x27;&lt;path d=&quot;m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&quot;/&gt;&lt;path d=&quot;M9 22v-8h6v8&quot;/&gt;&#x27;,
+library:&#x27;&lt;path d=&quot;M4 4v16&quot;/&gt;&lt;path d=&quot;M8 6v14&quot;/&gt;&lt;path d=&quot;M12 6v14&quot;/&gt;&lt;path d=&quot;m16 6 4 14&quot;/&gt;&#x27;,
+bookmark:&#x27;&lt;path d=&quot;M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z&quot;/&gt;&#x27;,
+history:&#x27;&lt;path d=&quot;M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8&quot;/&gt;&lt;path d=&quot;M3 3v5h5&quot;/&gt;&lt;path d=&quot;M12 7v5l4 2&quot;/&gt;&#x27;,
+user:&#x27;&lt;path d=&quot;M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/&gt;&#x27;,
+play:&#x27;&lt;path d=&quot;m6 4 14 8-14 8z&quot;/&gt;&#x27;,
+highlighter:&#x27;&lt;path d=&quot;m9 11-6 6v3h9l3-3&quot;/&gt;&lt;path d=&quot;m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4z&quot;/&gt;&#x27;,
+timer:&#x27;&lt;path d=&quot;M10 2h4&quot;/&gt;&lt;path d=&quot;m15 11-3 3&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;14&quot; r=&quot;8&quot;/&gt;&#x27;,
+check:&#x27;&lt;path d=&quot;M20 6 9 17l-5-5&quot;/&gt;&#x27;,
+x:&#x27;&lt;path d=&quot;M18 6 6 18M6 6l12 12&quot;/&gt;&#x27;,
+barchart:&#x27;&lt;path d=&quot;M3 3v18h18&quot;/&gt;&lt;path d=&quot;M18 17V9&quot;/&gt;&lt;path d=&quot;M13 17V5&quot;/&gt;&lt;path d=&quot;M8 17v-3&quot;/&gt;&#x27;,
+logout:&#x27;&lt;path d=&quot;M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4&quot;/&gt;&lt;path d=&quot;m16 17 5-5-5-5&quot;/&gt;&lt;path d=&quot;M21 12H9&quot;/&gt;&#x27;,
+star:&#x27;&lt;path d=&quot;m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z&quot;/&gt;&#x27;,
+chevleft:&#x27;&lt;path d=&quot;m15 18-6-6 6-6&quot;/&gt;&#x27;};
+document.querySelectorAll(&#x27;i[data-i]&#x27;).forEach(e=&gt;{e.innerHTML=&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&#x27;+(I[e.dataset.i]||&#x27;&#x27;)+&#x27;&lt;/svg&gt;&#x27;});
+document.querySelectorAll(&#x27;.fixbtn&#x27;).forEach(b=&gt;{
+const n=b.dataset.n,s=b.closest(&#x27;.sec&#x27;);
+const set=on=&gt;{s.classList.toggle(&#x27;fix&#x27;,on);b.classList.toggle(&#x27;on&#x27;,on);b.textContent=on?&#x27;조정 필요함&#x27;:&#x27;조정 필요&#x27;};
+if(localStorage.getItem(&#x27;feedback/section-&#x27;+n)===&#x27;&quot;fix&quot;&#x27;)set(true);
+b.onclick=()=&gt;{const on=!s.classList.contains(&#x27;fix&#x27;);set(on);saveFb(&#x27;section-&#x27;+n,on?&#x27;fix&#x27;:&#x27;ok&#x27;)};
+});
+const all=document.getElementById(&#x27;all&#x27;);
+if(localStorage.getItem(&#x27;feedback/rules-all&#x27;)===&#x27;&quot;recommended&quot;&#x27;)all.textContent=&#x27;추천대로 확정했어요&#x27;;
+all.onclick=()=&gt;{saveFb(&#x27;rules-all&#x27;,&#x27;recommended&#x27;);all.textContent=&#x27;추천대로 확정했어요 ✓&#x27;};
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe class="pane" id="pane-final-preview" data-key="final-preview" title="최종 미리보기" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;&lt;script&gt;(function(){if(window.parent===window)return;var seq=0,pend={};window.addEventListener(&#x27;message&#x27;,function(e){var m=e.data;if(!m||m.__hubdb!==1||!pend[m.id])return;var p=pend[m.id];delete pend[m.id];m.error?p.reject(m.error):p.resolve(m.result);});function rpc(op,path,data){return new Promise(function(resolve,reject){var id=++seq;pend[id]={resolve:resolve,reject:reject};window.parent.postMessage({__hubdb:1,id:id,op:op,path:path,data:data},&#x27;*&#x27;);setTimeout(function(){if(pend[id]){delete pend[id];reject({code:&#x27;unavailable&#x27;,message:&#x27;timeout&#x27;});}},15000);});}function snap(r){return {id:r.id,exists:r.exists,data:function(){return r.data;},metadata:{fromCache:false,hasPendingWrites:false}};}var db={doc:function(p){return {id:p.split(&#x27;/&#x27;).pop(),path:p,get:function(){return rpc(&#x27;get&#x27;,p).then(snap);},set:function(d){return rpc(&#x27;set&#x27;,p,d);},update:function(d){return rpc(&#x27;update&#x27;,p,d);},delete:function(){return rpc(&#x27;delete&#x27;,p);}};},collection:function(p){return {path:p,get:function(){return rpc(&#x27;list&#x27;,p).then(function(rs){return {docs:rs.map(snap),size:rs.length,empty:!rs.length};});},doc:function(id){return db.doc(p+&#x27;/&#x27;+id);}};}};var avail=null;window.claude={use:function(n){return (async function(){if(n!==&#x27;db&#x27;)return null;if(avail===null){try{avail=await rpc(&#x27;avail&#x27;);}catch(e){avail=false;}}return avail?db:null;})();}};})();&lt;/script&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;title&gt;한장 — 최종 화면 미리보기&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=Noto+Serif+KR:wght@600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{--frame-w:390px;--bg:#F6F4FB;--s1:#FFFFFF;--s2:#EFEBFD;--tx:#17142B;--mu:#8B87A3;--bd:#ECE9F6;--ac:#6C5CE7;--ac2:#8F7BFF;--dg:#F0506E;--ok:#22C58B;--gr:linear-gradient(135deg,#6C5CE7,#8F7BFF);--sh-s:0 2px 8px rgba(80,70,160,.08);--sh-m:0 8px 24px rgba(80,70,160,.12)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.5 &quot;IBM Plex Sans KR&quot;,-apple-system,sans-serif;padding:36px 16px 80px}
+h1{font:700 26px/1.3 &quot;Noto Serif KR&quot;,serif;text-align:center}
+.sub{text-align:center;color:var(--mu);font-size:14px;margin:8px 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(400px,100%),1fr));gap:44px 28px;max-width:1310px;margin:0 auto}
+.item{display:flex;flex-direction:column;align-items:center;gap:12px}
+.phone{width:var(--frame-w);height:740px;background:var(--s1);border:1px solid var(--bd);border-radius:34px;box-shadow:var(--sh-m);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.item.fix .phone{outline:2.5px dashed var(--dg);outline-offset:5px}
+.sbar{height:30px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:11px;font-weight:600}
+.appbar{position:relative;height:52px;flex:none;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--bd)}
+.appbar .t{font-size:17px;font-weight:600}
+.appbar .logo{font:700 20px/1 &quot;Noto Serif KR&quot;,serif;color:var(--ac)}
+.navhead{position:relative;height:52px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 8px;border-bottom:1px solid var(--bd)}
+.navhead .t{font-size:17px;font-weight:600}
+.navhead .side{min-width:56px;display:flex;align-items:center}
+.navhead .side.r{justify-content:flex-end;padding-right:8px}
+.nicon{width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+.exit{font-size:14px;font-weight:500;color:var(--mu)}
+.body{flex:1;padding:16px;overflow:hidden;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.card{position:relative;background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:14px 16px;box-shadow:var(--sh-s)}
+.cacc{border-color:var(--ac);box-shadow:0 6px 18px rgba(108,92,231,.18)}
+.ct{display:flex;align-items:center;gap:12px}
+.pbtn{width:44px;height:44px;flex:none;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center}
+.lab{font-size:12px;font-weight:600;color:var(--ac)}
+.h3{font-size:16px;font-weight:600}
+.h3s{font-size:15px;font-weight:600}
+.cap{font-size:12px;color:var(--mu)}
+.pbar{height:6px;border-radius:999px;background:var(--s2);overflow:hidden;margin-top:8px}
+.pbar b{display:block;height:100%;background:var(--gr);border-radius:999px}
+.chip{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);font-size:13px;color:var(--mu)}
+.chip.on{background:var(--s2);border-color:var(--ac);color:var(--ac);font-weight:600}
+.btn{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border:0;border-radius:22px;font:600 15px &quot;IBM Plex Sans KR&quot;,sans-serif}
+.pri{background:var(--gr);color:#fff;box-shadow:0 6px 16px rgba(108,92,231,.3)}
+.sec2{background:var(--s1);border:1px solid var(--bd);color:var(--tx)}
+.bmd{height:44px;border-radius:16px;font-size:14px}
+.tabbar{position:relative;flex:none;height:83px;padding-bottom:20px;display:flex;border-top:1px solid var(--bd);background:var(--s1)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;color:var(--mu)}
+.tab.on{color:var(--ac);font-weight:600}
+.ctabar{position:relative;flex:none;padding:12px 16px 30px;border-top:1px solid var(--bd);background:var(--s1)}
+.q{position:relative;display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 14px;border:1.5px solid var(--bd);border-radius:14px;background:var(--s1);font-size:14px}
+.q .nm{font-weight:700;color:var(--mu);flex:none}
+.q.ok{border-color:var(--ok);background:#22C58B12}
+.q.ok .nm{color:var(--ok)}
+.q .mk{margin-left:auto;font-size:13px;font-weight:700;color:var(--ok);display:flex;align-items:center;gap:4px}
+.prog{position:relative;height:8px;border-radius:999px;background:var(--s2)}
+.prog i{display:block;height:100%;border-radius:999px;background:var(--gr)}
+.pass{position:relative;flex:1;min-height:150px;background:var(--s2);border-radius:16px;padding:16px}
+.pl{height:9px;border-radius:5px;background:#D9D4EE;margin-bottom:10px}
+.pl.hl{background:#6C5CE72E}
+.stroke{height:2.5px;border-radius:2px;background:var(--ac);margin:-3px 0 14px}
+.timer{font:700 22px/1 &quot;Noto Serif KR&quot;,serif;font-variant-numeric:tabular-nums}
+.bigscore{font:700 44px/1.1 &quot;Noto Serif KR&quot;,serif}
+.bigscore small{font-size:20px;color:var(--mu)}
+.badge{background:var(--s2);color:var(--ac);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;flex:none}
+.rrow{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.rrow:last-child{border:0}
+.avt{width:44px;height:44px;flex:none;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.mrow{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--bd);font-size:15px}
+.mrow:last-child{border:0}
+.ring{position:relative;width:150px;height:150px}
+.ring svg{transform:rotate(-90deg)}
+.ring .rn{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .rn b{font:700 30px/1 &quot;Noto Serif KR&quot;,serif}
+.ring .rn span{font-size:11px;color:var(--mu);margin-top:4px}
+.qtag{display:inline-block;font-size:11px;font-weight:700;color:var(--ac);background:var(--s2);border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.qs{font:700 19px/1.45 &quot;Noto Serif KR&quot;,serif}
+.pin{position:absolute;top:-10px;left:-10px;z-index:6;font-style:normal;font-size:20px;line-height:1;color:var(--ac);text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff}
+.pin.pr{left:10px}
+.rel{position:relative}
+.itemfoot{display:flex;align-items:center;gap:12px}
+.sname{font-size:14px;font-weight:600}
+.sname small{color:var(--mu);font-weight:400;font-size:12px;margin-left:4px}
+.fixbtn{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--s1);color:var(--mu);cursor:pointer}
+.fixbtn.on{background:var(--dg);border-color:var(--dg);color:#fff}
+.gowrap{max-width:420px;margin:48px auto 0}
+.gobtn{width:100%;height:58px;border:0;border-radius:22px;background:var(--gr);color:#fff;font:700 17px &quot;IBM Plex Sans KR&quot;,sans-serif;cursor:pointer;box-shadow:0 12px 28px rgba(108,92,231,.35)}
+.gocap{text-align:center;font-size:12px;color:var(--mu);margin-top:10px}
+i[data-i]{display:inline-flex;line-height:0}
+i[data-i] svg{width:24px;height:24px}
+i.s16 svg{width:16px;height:16px}
+i.s20 svg{width:20px;height:20px}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;한장 전체 화면 최종 미리보기&lt;/h1&gt;
+&lt;p class=&quot;sub&quot;&gt;확정된 디자인 시스템으로 그린 10개 화면 — 고칠 화면은 표시하고, 괜찮으면 맨 아래에서 승인해 주세요&lt;/p&gt;
+&lt;div class=&quot;grid&quot;&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;login&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot; style=&quot;justify-content:flex-end;gap:0&quot;&gt;
+&lt;div class=&quot;rel&quot; style=&quot;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;①&lt;/i&gt;
+&lt;div style=&quot;font:700 46px/1.15 &#x27;Noto Serif KR&#x27;,serif&quot;&gt;한장&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;font-size:14px&quot;&gt;한 장에, 국어 한 회&lt;/div&gt;
+&lt;div class=&quot;cap&quot;&gt;수능 기출을 매일 한 장씩 풀어요&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;rel&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;&lt;button class=&quot;btn pri&quot;&gt;카카오로 시작하기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;rel&quot; style=&quot;margin-bottom:8px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;&lt;button class=&quot;btn sec2&quot;&gt;전화번호로 시작하기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;text-align:center;padding-bottom:24px&quot;&gt;로그인하면 학습 기록이 이 기기에 저장돼요&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;로그인&lt;small&gt;login&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;home&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;&lt;span class=&quot;logo&quot;&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;card cacc&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;&lt;div class=&quot;ct&quot;&gt;
+&lt;span class=&quot;pbtn&quot;&gt;&lt;i data-i=&quot;play&quot; class=&quot;s20&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;lab&quot;&gt;이어하기&lt;/div&gt;&lt;div class=&quot;h3&quot;&gt;2025학년도 수능 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;남은 시간 42:10 · 12/18문항&lt;/div&gt;&lt;div class=&quot;pbar&quot;&gt;&lt;b style=&quot;width:64%&quot;&gt;&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;&lt;div class=&quot;h3&quot;&gt;오늘의 퀴즈&lt;/div&gt;&lt;p class=&quot;cap&quot; style=&quot;margin:4px 0 12px&quot;&gt;어제 푼 지문에서 5문제를 골랐어요&lt;/p&gt;&lt;button class=&quot;btn pri bmd&quot;&gt;지금 풀기&lt;/button&gt;&lt;/div&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;④&lt;/i&gt;&lt;div class=&quot;cap&quot; style=&quot;margin-bottom:8px&quot;&gt;최근 발행&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:8px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 수능 영어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;오늘 · 45문항&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--mu)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 9월 모의평가 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;어제 · 34문항&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--mu)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;⑤&lt;/i&gt;
+&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;자료실&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;복습&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;마이&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;홈&lt;small&gt;home&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;library&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;&lt;span class=&quot;t&quot;&gt;자료실&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 수능&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;국어 영역 · 45문항 · 100분&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--ac)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 9월 모의평가&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;국어 영역 · 34문항 · 90분&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--mu)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 6월 모의평가&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;국어 영역 · 34문항 · 90분&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--mu)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2024학년도 수능&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;국어 영역 · 45문항 · 100분&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--mu)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;③&lt;/i&gt;
+&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;자료실&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;복습&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;마이&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;자료실&lt;small&gt;library&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;saved&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;&lt;span class=&quot;t&quot;&gt;저장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 수능 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;저장한 지 3일 · 12/18문항 풀이 중&lt;/div&gt;&lt;div class=&quot;pbar&quot;&gt;&lt;b style=&quot;width:64%&quot;&gt;&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--ac)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 6월 모의평가 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;어제 저장 · 아직 안 풂&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;star&quot; class=&quot;s20&quot; style=&quot;color:var(--ac)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;text-align:center;margin-top:8px&quot;&gt;자료실에서 별표를 누르면 여기에 저장돼요&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;③&lt;/i&gt;
+&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;자료실&lt;/span&gt;&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;복습&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;마이&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;저장&lt;small&gt;saved&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;review&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;&lt;span class=&quot;t&quot;&gt;복습&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:10px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2025학년도 9월 모의평가 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;6월 18일 채점 완료 · 다시 풀기 가능&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80점&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;2024학년도 수능 국어&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;6월 11일 채점 완료 · 오답 3개&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;68점&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;text-align:center;margin-top:8px&quot;&gt;채점이 끝난 회차는 여기에서 다시 복습해요&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;③&lt;/i&gt;
+&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;자료실&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;복습&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;마이&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;복습&lt;small&gt;review&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;my&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;appbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;&lt;span class=&quot;t&quot;&gt;마이&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;&lt;div class=&quot;ct&quot;&gt;&lt;span class=&quot;avt&quot;&gt;준&lt;/span&gt;
+&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;김한장&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;&lt;span style=&quot;color:var(--ok)&quot;&gt;●&lt;/span&gt; 카카오 연결됨&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;padding:2px 16px&quot;&gt;
+&lt;div class=&quot;mrow&quot;&gt;&lt;span&gt;알림 설정&lt;/span&gt;&lt;span class=&quot;cap&quot;&gt;›&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;mrow&quot;&gt;&lt;span&gt;공지사항&lt;/span&gt;&lt;span class=&quot;cap&quot;&gt;›&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;mrow&quot;&gt;&lt;span&gt;버전 정보&lt;/span&gt;&lt;span class=&quot;cap&quot;&gt;1.0.0&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;&lt;button class=&quot;btn sec2 bmd&quot;&gt;&lt;i data-i=&quot;logout&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;로그아웃&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tabbar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;④&lt;/i&gt;
+&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;home&quot;&gt;&lt;/i&gt;홈&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;library&quot;&gt;&lt;/i&gt;자료실&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;bookmark&quot;&gt;&lt;/i&gt;저장&lt;/span&gt;&lt;span class=&quot;tab&quot;&gt;&lt;i data-i=&quot;history&quot;&gt;&lt;/i&gt;복습&lt;/span&gt;&lt;span class=&quot;tab on&quot;&gt;&lt;i data-i=&quot;user&quot;&gt;&lt;/i&gt;마이&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;마이&lt;small&gt;my&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;exam&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;navhead&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;
+&lt;span class=&quot;nicon&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class=&quot;timer&quot;&gt;41:58&lt;/span&gt;
+&lt;span class=&quot;side r&quot;&gt;&lt;span class=&quot;exit&quot;&gt;나가기&lt;/span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;pass&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;pl&quot; style=&quot;width:55%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot; style=&quot;width:92%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl hl&quot; style=&quot;width:60%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;stroke&quot; style=&quot;width:60%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot; style=&quot;width:88%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl hl&quot; style=&quot;width:42%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;stroke&quot; style=&quot;width:42%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot; style=&quot;width:75%&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;pl&quot; style=&quot;width:50%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;qs&quot; style=&quot;font-size:16px&quot;&gt;윗글의 중심 내용으로 가장 적절한 것은?&lt;/div&gt;
+&lt;div class=&quot;rel&quot; style=&quot;display:flex;flex-direction:column;gap:8px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;①&lt;/b&gt;화자의 정서를 직접적으로 드러낸다&lt;/div&gt;
+&lt;div class=&quot;q ok&quot;&gt;&lt;b class=&quot;nm&quot;&gt;②&lt;/b&gt;설의법으로 주장을 강조한다&lt;span class=&quot;mk&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;③&lt;/b&gt;반어적 표현으로 대상을 풍자한다&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;④&lt;/b&gt;비유법으로 사물을 형상화한다&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;⑤&lt;/b&gt;인용을 통해 논지를 뒷받침한다&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctabar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;④&lt;/i&gt;&lt;button class=&quot;btn pri&quot;&gt;제출하기&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;시험지&lt;small&gt;exam&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;exam-result&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;navhead&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;
+&lt;span class=&quot;nicon&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class=&quot;t&quot;&gt;채점 결과&lt;/span&gt;
+&lt;span class=&quot;side r&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;card&quot; style=&quot;text-align:center;padding:22px 16px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;lab&quot; style=&quot;margin-bottom:6px&quot;&gt;2025학년도 수능 국어&lt;/div&gt;
+&lt;div class=&quot;bigscore&quot;&gt;4&lt;small&gt; / 5&lt;/small&gt;&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;margin-top:6px&quot;&gt;정답 · 소요 시간 48:02&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;rel card&quot; style=&quot;padding:4px 16px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;
+&lt;div class=&quot;rrow&quot;&gt;&lt;span&gt;1번 · 중심 내용&lt;/span&gt;&lt;b style=&quot;color:var(--ok);display:flex;align-items:center;gap:4px&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/b&gt;&lt;/div&gt;
+&lt;div class=&quot;rrow&quot;&gt;&lt;span&gt;2번 · 밑줄 의미&lt;/span&gt;&lt;b style=&quot;color:var(--ok);display:flex;align-items:center;gap:4px&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/b&gt;&lt;/div&gt;
+&lt;div class=&quot;rrow&quot;&gt;&lt;span&gt;3번 · 화자 태도&lt;/span&gt;&lt;b style=&quot;color:var(--dg);display:flex;align-items:center;gap:4px&quot;&gt;&lt;i data-i=&quot;x&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;오답&lt;/b&gt;&lt;/div&gt;
+&lt;div class=&quot;rrow&quot;&gt;&lt;span&gt;4번 · 전개 방식&lt;/span&gt;&lt;b style=&quot;color:var(--ok);display:flex;align-items:center;gap:4px&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/b&gt;&lt;/div&gt;
+&lt;div class=&quot;rrow&quot;&gt;&lt;span&gt;5번 · 어법&lt;/span&gt;&lt;b style=&quot;color:var(--ok);display:flex;align-items:center;gap:4px&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/b&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctabar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;④&lt;/i&gt;&lt;button class=&quot;btn pri&quot;&gt;자료실로&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;결과&lt;small&gt;exam-result&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;quiz-play&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;navhead&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;
+&lt;span class=&quot;nicon&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class=&quot;t&quot;&gt;영단어 퀴즈&lt;/span&gt;
+&lt;span class=&quot;side r cap&quot;&gt;3 / 10&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;prog&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;&lt;i style=&quot;width:30%&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;padding:20px 18px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;
+&lt;span class=&quot;qtag&quot;&gt;EN → KO&lt;/span&gt;
+&lt;div class=&quot;qs&quot;&gt;&quot;apple&quot;을 뜻하는 것은?&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;margin-top:8px&quot;&gt;다음 중 알맞은 뜻을 고르세요&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;rel&quot; style=&quot;display:flex;flex-direction:column;gap:8px&quot;&gt;&lt;i class=&quot;pin&quot;&gt;④&lt;/i&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;A&lt;/b&gt;바나나&lt;/div&gt;
+&lt;div class=&quot;q ok&quot;&gt;&lt;b class=&quot;nm&quot;&gt;B&lt;/b&gt;사과&lt;span class=&quot;mk&quot;&gt;&lt;i data-i=&quot;check&quot; class=&quot;s16&quot;&gt;&lt;/i&gt;정답&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;C&lt;/b&gt;포도&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;D&lt;/b&gt;복숭아&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;E&lt;/b&gt;귤&lt;/div&gt;
+&lt;div class=&quot;q&quot;&gt;&lt;b class=&quot;nm&quot;&gt;F&lt;/b&gt;수박&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;퀴즈 플레이&lt;small&gt;quiz-play&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;item&quot; data-slug=&quot;quiz-result&quot;&gt;
+&lt;div class=&quot;phone&quot;&gt;
+&lt;div class=&quot;sbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;한장&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;navhead&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;①&lt;/i&gt;
+&lt;span class=&quot;nicon&quot;&gt;&lt;i data-i=&quot;chevleft&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class=&quot;t&quot;&gt;퀴즈 결과&lt;/span&gt;
+&lt;span class=&quot;side r&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;body&quot;&gt;
+&lt;div class=&quot;rel&quot; style=&quot;align-self:center&quot;&gt;&lt;i class=&quot;pin&quot;&gt;②&lt;/i&gt;
+&lt;div class=&quot;ring&quot;&gt;
+&lt;svg width=&quot;150&quot; height=&quot;150&quot;&gt;&lt;circle cx=&quot;75&quot; cy=&quot;75&quot; r=&quot;64&quot; fill=&quot;none&quot; stroke=&quot;#E9E5F8&quot; stroke-width=&quot;12&quot;/&gt;&lt;circle cx=&quot;75&quot; cy=&quot;75&quot; r=&quot;64&quot; fill=&quot;none&quot; stroke=&quot;url(#qg)&quot; stroke-width=&quot;12&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;402&quot; stroke-dashoffset=&quot;80&quot;/&gt;&lt;defs&gt;&lt;linearGradient id=&quot;qg&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#6C5CE7&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#8F7BFF&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;/svg&gt;
+&lt;div class=&quot;rn&quot;&gt;&lt;b&gt;8/10&lt;/b&gt;&lt;span&gt;정답&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cap&quot; style=&quot;text-align:center&quot;&gt;정답률 80% · 소요 시간 2:14&lt;/div&gt;
+&lt;div class=&quot;rel&quot;&gt;&lt;i class=&quot;pin&quot;&gt;③&lt;/i&gt;&lt;div class=&quot;cap&quot; style=&quot;margin-bottom:8px&quot;&gt;틀린 문항 2개&lt;/div&gt;
+&lt;div class=&quot;card&quot; style=&quot;margin-bottom:8px&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;apple — 사과&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;내 답: 바나나&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;x&quot; class=&quot;s20&quot; style=&quot;color:var(--dg)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;ct&quot;&gt;&lt;div style=&quot;flex:1&quot;&gt;&lt;div class=&quot;h3s&quot;&gt;run — 달리다&lt;/div&gt;&lt;div class=&quot;cap&quot;&gt;내 답: 걷다&lt;/div&gt;&lt;/div&gt;&lt;i data-i=&quot;x&quot; class=&quot;s20&quot; style=&quot;color:var(--dg)&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctabar&quot;&gt;&lt;i class=&quot;pin pr&quot;&gt;④&lt;/i&gt;&lt;button class=&quot;btn pri&quot;&gt;홈으로&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;itemfoot&quot;&gt;&lt;b class=&quot;sname&quot;&gt;퀴즈 결과&lt;small&gt;quiz-result&lt;/small&gt;&lt;/b&gt;&lt;button class=&quot;fixbtn&quot;&gt;고칠게 있어요&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;gowrap&quot;&gt;
+&lt;button id=&quot;go&quot; class=&quot;gobtn&quot;&gt;이대로 진행&lt;/button&gt;
+&lt;p class=&quot;gocap&quot;&gt;누르면 이 화면 구성이 최종 확정돼요&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const db=(()=&gt;{try{if(window.claude&amp;&amp;claude.use)return claude.use(&quot;db&quot;)}catch(e){}return null})();const saveFb=(k,v)=&gt;{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const I={
+home:&#x27;&lt;path d=&quot;m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&quot;/&gt;&lt;path d=&quot;M9 22v-8h6v8&quot;/&gt;&#x27;,
+library:&#x27;&lt;path d=&quot;M4 4v16&quot;/&gt;&lt;path d=&quot;M8 6v14&quot;/&gt;&lt;path d=&quot;M12 6v14&quot;/&gt;&lt;path d=&quot;m16 6 4 14&quot;/&gt;&#x27;,
+bookmark:&#x27;&lt;path d=&quot;M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z&quot;/&gt;&#x27;,
+history:&#x27;&lt;path d=&quot;M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8&quot;/&gt;&lt;path d=&quot;M3 3v5h5&quot;/&gt;&lt;path d=&quot;M12 7v5l4 2&quot;/&gt;&#x27;,
+user:&#x27;&lt;path d=&quot;M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/&gt;&#x27;,
+play:&#x27;&lt;path d=&quot;m6 4 14 8-14 8z&quot;/&gt;&#x27;,
+star:&#x27;&lt;path d=&quot;m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z&quot;/&gt;&#x27;,
+chevleft:&#x27;&lt;path d=&quot;m15 18-6-6 6-6&quot;/&gt;&#x27;,
+check:&#x27;&lt;path d=&quot;M20 6 9 17l-5-5&quot;/&gt;&#x27;,
+x:&#x27;&lt;path d=&quot;M18 6 6 18M6 6l12 12&quot;/&gt;&#x27;,
+logout:&#x27;&lt;path d=&quot;M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4&quot;/&gt;&lt;path d=&quot;m16 17 5-5-5-5&quot;/&gt;&lt;path d=&quot;M21 12H9&quot;/&gt;&#x27;};
+document.querySelectorAll(&#x27;i[data-i]&#x27;).forEach(e=&gt;{e.innerHTML=&#x27;&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&#x27;+(I[e.dataset.i]||&#x27;&#x27;)+&#x27;&lt;/svg&gt;&#x27;});
+document.querySelectorAll(&#x27;.item&#x27;).forEach(it=&gt;{
+const slug=it.dataset.slug,b=it.querySelector(&#x27;.fixbtn&#x27;);
+const set=on=&gt;{it.classList.toggle(&#x27;fix&#x27;,on);b.classList.toggle(&#x27;on&#x27;,on);b.textContent=on?&#x27;고칠게 있어요 ✓&#x27;:&#x27;고칠게 있어요&#x27;};
+if(localStorage.getItem(&#x27;feedback/screen-&#x27;+slug)===&#x27;&quot;fix&quot;&#x27;)set(true);
+b.onclick=()=&gt;{const on=!it.classList.contains(&#x27;fix&#x27;);set(on);saveFb(&#x27;screen-&#x27;+slug,on?&#x27;fix&#x27;:&#x27;ok&#x27;)};
+});
+const go=document.getElementById(&#x27;go&#x27;);
+if(localStorage.getItem(&#x27;feedback/preview-go&#x27;)===&#x27;&quot;ok&quot;&#x27;)go.textContent=&#x27;이대로 진행 ✓&#x27;;
+go.onclick=()=&gt;{saveFb(&#x27;preview-go&#x27;,&#x27;ok&#x27;);go.textContent=&#x27;이대로 진행 ✓&#x27;};
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe></main>
+<script>
+const META=[{"key": "structure-survey", "title": "구조", "prefixes": ["structure-"], "stage": "1단계 구조"}, {"key": "flow-1", "title": "따라가 보기", "prefixes": ["flow-"], "stage": "2단계 플로우"}, {"key": "reference-1", "title": "레퍼런스", "prefixes": ["ref-"], "stage": "3단계 레퍼런스"}, {"key": "taste-color", "title": "색상", "prefixes": ["axis-1", "axis-4"], "stage": "3단계 취향"}, {"key": "taste-shape", "title": "모양·간격", "prefixes": ["axis-3", "axis-2"], "stage": "3단계 취향"}, {"key": "taste-type", "title": "글자", "prefixes": ["axis-"], "stage": "3단계 취향"}, {"key": "icons-1", "title": "아이콘", "prefixes": ["icon-"], "stage": "3·4단계 아이콘"}, {"key": "quiz-preview", "title": "퀴즈 미리보기", "prefixes": ["quiz-"], "stage": "3단계 취향"}, {"key": "rules-preview", "title": "규칙 미리보기", "prefixes": ["section-"], "stage": "4단계 규칙"}, {"key": "final-preview", "title": "최종 미리보기", "prefixes": ["screen-"], "stage": "5단계 직전"}];
+const tabs=[...document.querySelectorAll('.tab')],panes=[...document.querySelectorAll('.pane')];
+let seen={};try{seen=JSON.parse(localStorage.getItem('hub-seen')||'{}')}catch(e){}
+function show(key){
+  tabs.forEach(t=>t.classList.toggle('on',t.dataset.key===key));
+  panes.forEach(p=>p.hidden=p.dataset.key!==key);
+  seen[key]=1;try{localStorage.setItem('hub-seen',JSON.stringify(seen))}catch(e){}
+  try{location.hash=key}catch(e){}
+  paint();
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.key)));
+let counts={};
+function paint(){
+  let unseen=[],empty=[];
+  META.forEach(m=>{
+    const t=tabs.find(x=>x.dataset.key===m.key);
+    t.classList.toggle('unseen',!seen[m.key]);
+    const n=m.prefixes.reduce((a,p)=>a+(counts[p]||0),0);const b=document.getElementById('badge-'+m.key);
+    b.textContent=n?`저장 ${n}건`:'아직 없음';b.classList.toggle('ok',n>0);
+    if(!seen[m.key])unseen.push(m.title);else if(!n)empty.push(m.title);
+  });
+  const el=document.getElementById('todo');
+  if(!unseen.length&&!empty.length)el.innerHTML='모든 탭을 보고 저장했어요 ✓';
+  else el.innerHTML=(unseen.length?`아직 안 본 탭: <b>${unseen.join(', ')}</b>`:'')+(unseen.length&&empty.length?' · ':'')+(empty.length?`저장 없는 탭: <b>${empty.join(', ')}</b>`:'');
+}
+let realDb=null;
+const dbReady=(async()=>{try{realDb=window.claude&&typeof window.claude.use==='function'?await window.claude.use('db'):null;}catch(e){realDb=null;}})();
+window.addEventListener('message',async e=>{
+  const m=e.data;if(!m||m.__hubdb!==1||!e.source)return;
+  if(!panes.some(p=>p.contentWindow===e.source))return;
+  const reply=(result,error)=>{try{e.source.postMessage({__hubdb:1,id:m.id,result,error},'*');}catch(x){}};
+  try{
+    await dbReady;
+    if(m.op==='avail')return reply(!!realDb);
+    if(!realDb)throw {code:'not_granted',message:'db unavailable'};
+    if(m.op==='get'){const s=await realDb.doc(m.path).get();return reply({id:s.id,exists:s.exists,data:s.data()});}
+    if(m.op==='set'){await realDb.doc(m.path).set(m.data);loadCounts();return reply(true);}
+    if(m.op==='update'){await realDb.doc(m.path).update(m.data);loadCounts();return reply(true);}
+    if(m.op==='delete'){await realDb.doc(m.path).delete();loadCounts();return reply(true);}
+    if(m.op==='list'){const q=await realDb.collection(m.path).get();return reply(q.docs.map(d=>({id:d.id,exists:d.exists,data:d.data()})));}
+    throw {code:'invalid_argument',message:'unknown op'};
+  }catch(err){reply(null,{code:(err&&err.code)||'unavailable',message:(err&&err.message)||String(err)});}
+});
+async function loadCounts(){
+  try{
+    await dbReady;const db=realDb;
+    if(!db)return;
+    const snap=await db.collection('feedback').get();
+    counts={};
+    snap.docs.forEach(d=>{const id=d.id;const dd=d.data()||{};const has=(dd.reaction||dd.best||dd.worst||(dd.marks&&dd.marks.length)||(dd.want&&dd.want.length)||(dd.dislike&&dd.dislike.length)||dd.answers||dd.choices||(dd.text&&dd.text.trim()));if(!has)return;META.forEach(x=>x.prefixes.forEach(p=>{if(id.startsWith(p)&&(id===p||!/\d/.test(p.slice(-1))||id.length===p.length))counts[p]=(counts[p]||0)+1;}));});
+    paint();
+  }catch(e){}
+}
+const first=(location.hash||'').slice(1);
+show(META.some(m=>m.key===first)?first:META[0].key);
+loadCounts();setInterval(loadCounts,20000);
+</script>

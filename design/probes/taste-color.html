@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한장 — 취향 프로브 · 색 (축 1·4)</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EBDD;--card:#FBF6EC;--ink:#1A1612;--muted:#7A7166;
+    --rule:#C9BBA3;--stamp:#C4563A;--navy:#1E3A5F;--hairline:#E4D8C4;
+    --frame-w:390px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans KR",-apple-system,sans-serif;padding:28px 24px 90px}
+  .page{max-width:1300px;margin:0 auto}
+  h1{font-family:"Noto Serif KR",serif;font-size:22px}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  section[data-axis]{margin-top:46px;padding-top:26px;border-top:1px solid var(--rule)}
+  .axis-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .axis-head h2{font-family:"Noto Serif KR",serif;font-size:18px}
+  .reco-line{margin-top:10px;font-size:13.5px}
+  .reco-line b{color:var(--stamp)}
+  .plain{color:var(--muted);font-size:12.5px;margin:6px 0 22px;line-height:1.65;max-width:780px}
+  .row{display:flex;gap:28px;flex-wrap:wrap}
+  .variant{cursor:pointer}
+  .variant .phone{outline:3px solid transparent;outline-offset:5px;transition:outline-color .15s}
+  .variant.sel .phone{outline-color:var(--stamp)}
+  .v-label{margin-top:12px;font-size:13px;display:flex;align-items:center;gap:8px}
+  .v-label i{font-style:normal;color:var(--stamp);font-weight:700}
+  .v-label .tag{font-size:10.5px;background:var(--stamp);color:var(--card);padding:2px 9px;border-radius:99px}
+  /* ---- phone frame : theme vars live on .phone ---- */
+  .phone{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4;--ac:#C4563A;--ac2:#1E3A5F;
+    width:var(--frame-w);min-height:700px;border-radius:32px;background:var(--bg);
+    border:1px solid rgba(26,22,18,.10);box-shadow:0 14px 34px rgba(26,22,18,.12);
+    overflow:hidden;display:flex;flex-direction:column}
+  .scr{flex:1;display:flex;flex-direction:column}
+  .s-status{display:flex;justify-content:space-between;padding:14px 20px 2px;font-size:11px;color:var(--mu)}
+  .s-head{display:flex;justify-content:space-between;align-items:baseline;padding:8px 20px 12px;color:var(--tx)}
+  .s-head b{font-family:"Noto Serif KR",serif;font-size:21px}
+  .s-head span{color:var(--mu);font-size:12px}
+  .s-body{padding:0 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .s-card{background:var(--cd);border:1px solid var(--rl);border-radius:14px;padding:16px;color:var(--tx)}
+  .s-card>b{font-size:14px}
+  .s-card p{color:var(--mu);font-size:12.5px;margin-top:3px}
+  .s-line{display:flex;align-items:center;gap:12px}
+  .s-play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--cd);display:flex;align-items:center;justify-content:center;font-size:11px}
+  .s-line>div{flex:1}
+  .s-tm{text-align:right}
+  .s-tm em{display:block;font-style:normal;font-size:10px;color:var(--mu)}
+  .s-tm b{color:var(--ac2);font-size:15px;font-variant-numeric:tabular-nums}
+  .s-chips{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+  .s-chips i{font-style:normal;border:1px solid var(--rl);color:var(--mu);font-size:11.5px;padding:4px 11px;border-radius:99px}
+  .s-tabs{display:flex;border-top:1px solid var(--rl);background:var(--cd);margin-top:16px}
+  .s-tabs span{flex:1;text-align:center;padding:13px 0 15px;font-size:11.5px;color:var(--mu)}
+  .s-tabs .on{color:var(--ac);font-weight:700;box-shadow:inset 0 2px 0 var(--ac)}
+  /* ---- 축 1 : 바탕 밝기·색온도만 다름 (강조색 동일) ---- */
+  .a1a{--bg:#FFFFFF;--cd:#F6F7FA;--tx:#26292F;--mu:#8B909A;--rl:#E4E7EC}
+  .a1b{--bg:#F3EBDD;--cd:#FBF6EC;--tx:#1A1612;--mu:#7A7166;--rl:#E4D8C4}
+  .a1c{--bg:#1A1C21;--cd:#24272E;--tx:#EDEEF2;--mu:#9AA0AB;--rl:#383C45}
+  /* ---- 축 4 : 강조색 성격만 다름 (바탕은 종이로 고정) ---- */
+  .a4a{--ac:#FF2D78;--ac2:#00A9E8}
+  .a4b{--ac:#C4563A;--ac2:#1E3A5F}
+  .a4c{--ac:#D9A3B1;--ac2:#9FBEDC}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>한장 취향 프로브 — 색</h1>
+  <p class="sub">같은 홈 화면입니다. 축마다 한 가지만 바꿨으니, 읽기 가장 편한 화면을 눌러 주세요. 선택은 자동 저장됩니다.</p>
+</header>
+
+<section data-axis="1">
+  <div class="axis-head"><h2>축 ① · 밝기·색온도</h2></div>
+  <p class="reco-line"><b>추천: B</b> — 시험지를 종이처럼 읽는 제품이라, 눈이 덜 피로한 따뜻한 바탕이 맞습니다.</p>
+  <p class="plain">세 화면은 바탕의 밝기·색온도만 다릅니다. 강조색·카드 모양·글자체·정보량은 전부 같게 두었습니다.</p>
+  <div class="row">
+    <div class="variant" data-v="A">
+      <div class="phone a1a"><div class="scr"></div></div>
+      <div class="v-label"><i>①</i><b>A</b> 차가운 흰 바탕 — 일반 앱 같은 깨끗함</div>
+    </div>
+    <div class="variant" data-v="B">
+      <div class="phone a1b"><div class="scr"></div></div>
+      <div class="v-label"><i>②</i><b>B</b> 따뜻한 종이 바탕 — 시험지 질감 <span class="tag">추천</span></div>
+    </div>
+    <div class="variant" data-v="C">
+      <div class="phone a1c"><div class="scr"></div></div>
+      <div class="v-label"><i>③</i><b>C</b> 다크 모드 — 밤에 읽기 편함</div>
+    </div>
+  </div>
+</section>
+
+<section data-axis="4">
+  <div class="axis-head"><h2>축 ④ · 강조색 성격</h2></div>
+  <p class="reco-line"><b>추천: B</b> — 잉크 네이비와 도장 빨강은 '시험지 위 채점'의 색이라 제품 정체성과 맞습니다.</p>
+  <p class="plain">바탕은 세 화면 모두 따뜻한 종이(축 1 추천안)로 고정했습니다. 버튼·탭·시간 표시에 쓰는 강조색의 성격만 다릅니다.</p>
+  <div class="row">
+    <div class="variant" data-v="A">
+      <div class="phone a4a"><div class="scr"></div></div>
+      <div class="v-label"><i>①</i><b>A</b> 형광 비비드 — 핫핑크·전기파랑</div>
+    </div>
+    <div class="variant" data-v="B">
+      <div class="phone a4b"><div class="scr"></div></div>
+      <div class="v-label"><i>②</i><b>B</b> 잉크·도장 — 네이비와 도장 빨강 <span class="tag">추천</span></div>
+    </div>
+    <div class="variant" data-v="C">
+      <div class="phone a4c"><div class="scr"></div></div>
+      <div class="v-label"><i>③</i><b>C</b> 파스텔 — 부드러운 분필 색</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<template id="home">
+  <div class="s-status"><span>9:41</span><span>한장</span><span>●●●</span></div>
+  <div class="s-head"><b>한장</b><span>6월 12일 목요일</span></div>
+  <div class="s-body">
+    <div class="s-card"><div class="s-line"><span class="s-play">▶</span><div><b>이어하기</b><p>2025학년도 수능 국어</p></div><div class="s-tm"><em>남은 시간</em><b>42:10</b></div></div></div>
+    <div class="s-card"><b>오늘의 퀴즈</b><div class="s-chips"><i>OX</i><i>빈칸</i><i>영단어</i><i>한국사</i></div></div>
+    <div class="s-card"><b>최근 발행</b><p>2025 9월 모의평가 국어</p></div>
+  </div>
+  <div class="s-tabs"><span class="on">홈</span><span>자료실</span><span>저장</span><span>복습</span><span>마이</span></div>
+</template>
+
+<script>
+const db=(()=>{try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return null})();const saveFb=(k,v)=>{try{db?db.put(`feedback/${k}`,v):localStorage.setItem(`feedback/${k}`,JSON.stringify(v))}catch(e){}};
+const HOME=document.getElementById('home');
+document.querySelectorAll('.scr').forEach(s=>s.appendChild(HOME.content.cloneNode(true)));
+document.querySelectorAll('.variant').forEach(v=>{
+  v.addEventListener('click',()=>{
+    const sec=v.closest('section'),axis=sec.dataset.axis;
+    sec.querySelectorAll('.variant').forEach(x=>x.classList.toggle('sel',x===v));
+    saveFb(`axis-${axis}`,v.dataset.v);
+  });
+});
+['1','4'].forEach(a=>{
+  try{
+    const v=JSON.parse(localStorage.getItem(`feedback/axis-${a}`));
+    const el=v&&document.querySelector(`section[data-axis="${a}"] .variant[data-v="${v}"]`);
+    if(el)el.classList.add('sel');
+  }catch(e){}
+});
+</script>
+</body>
+</html>
