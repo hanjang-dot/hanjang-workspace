@@ -7,7 +7,7 @@ confirmed_at: 2026-09-16
 
 | 순번 | 화면 | slug | 구성 (위→아래) | 상태 프레임 |
 |---|---|---|---|---|
-| 1 | 로그인 | login | ① Logo(한장 serif) · ② Button(카카오로 시작 primary lg) · ③ Button(전화번호 secondary) · BottomCta · EmptyState · ScreenBody | default·error |
+| 1 | 로그인 | login | ① Logo(한장 serif) · ② Button(카카오로 시작 primary lg) · BottomCta · EmptyState · ScreenBody | default·error |
 | 2 | 홈 | home | ① AppBar(한장) · ② Card(이어하기+primary 버튼+진행바) · ③ Card(오늘의 퀴즈) · ④ Card(최근 발행) · ⑤ TabBar · ScreenBody · ProgressBar · IsActive · Button | default·empty·loading·error |
 | 3 | 자료실 | library | ① AppBar(자료실) · ② Card(회차+star 북마크+primary 풀기) · ③ TabBar · ScreenBody · IconButton · IsActive · Button | default·empty·loading·error·offline |
 | 4 | 저장 | saved | ① AppBar(저장) · ② Card(북마크됨+primary 풀기) · ③ TabBar · ScreenBody · IconButton · IsActive · Button | default·empty·loading |
